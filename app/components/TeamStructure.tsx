@@ -32,7 +32,7 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
               <RoleIcon slug={role.slug} className="w-5 h-5" />
               <span className="course-code text-xs opacity-50">0{i + 1}</span>
             </div>
-            <h3 className="font-display font-bold text-xl">{role.title}</h3>
+            <h3 className="font-subtitle font-bold text-2xl">{role.title}</h3>
             <p className={`text-xs mt-0.5 ${subtitleStyles[role.slug]}`}>{role.subtitle}</p>
           </div>
 

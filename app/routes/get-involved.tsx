@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
-import { Icon, type IconName } from "../components/Icon";
+import { Icon, iconBadgeClasses, type IconName } from "../components/Icon";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -49,13 +49,10 @@ export default function GetInvolved() {
       <main className="flex-1">
         <section className="bg-chalkboard">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-36">
-            <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
-              Get involved
-            </p>
             <h1 className="reveal reveal-1 font-display font-black text-[2.75rem] leading-[0.98] sm:text-[4rem] text-chalk tracking-tight max-w-3xl">
-              Someone wrote the guide that helped you.{" "}
+              Get{" "}
               <span className="relative inline-block">
-                Write the next one.
+                Involved
                 <ChalkUnderline />
               </span>
             </h1>
@@ -67,65 +64,72 @@ export default function GetInvolved() {
           </div>
         </section>
 
+        {/* Temporarily removed — Ways to help section.
         <section className="bg-paper py-24 sm:py-32">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
+            <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
               Ways to help
             </p>
-            <h2 className="font-display font-extrabold text-4xl text-ink tracking-tight mb-16 max-w-xl">
+            <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-16 max-w-xl">
               Pick what fits your time.
             </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="reveal reveal-2 grid sm:grid-cols-2 gap-6">
               {ways.map((w) => (
                 <div
                   key={w.code}
                   className="card-elevate bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-5">
-                    <span className="flex items-center justify-center w-9 h-9 rounded-full bg-pen/10 text-pen shrink-0">
+                    <span
+                      className={`flex items-center justify-center w-9 h-9 rounded-full shrink-0 ${iconBadgeClasses(w.icon)}`}
+                    >
                       <Icon name={w.icon} className="w-4 h-4" />
                     </span>
                     <span className="course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5 w-fit">
                       {w.code}
                     </span>
                   </div>
-                  <h3 className="font-display font-bold text-2xl text-ink mb-2">{w.title}</h3>
-                  <p className="text-ink-soft text-sm sm:text-base leading-relaxed">{w.desc}</p>
+                  <h3 className="font-subtitle font-bold text-3xl text-ink mb-2">{w.title}</h3>
+                  <p className="text-ink-soft text-base leading-relaxed">{w.desc}</p>
                 </div>
               ))}
             </div>
             <a
               href="mailto:hello@illuminate.org?subject=I%20want%20to%20help"
-              className="inline-flex items-center gap-2 mt-12 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+              className="reveal reveal-3 inline-flex items-center gap-2 mt-12 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
               Tell us you're in <span aria-hidden="true">→</span>
             </a>
           </div>
         </section>
+        */}
 
         <section id="apply" className="bg-paper py-24 sm:py-32 border-t border-rule scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
+            <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
               Apply for a position
             </p>
-            <h2 className="font-display font-extrabold text-4xl text-ink tracking-tight mb-4 max-w-xl">
+            <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
               Four tiers, one starting point.
             </h2>
-            <p className="text-ink-soft text-lg max-w-xl mb-16">
+            <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-16">
               Pick the tier that fits where you're at. Every director started as a member.
             </p>
 
-            <TeamStructure variant="apply" />
+            <div className="reveal reveal-3">
+              <TeamStructure variant="apply" />
+            </div>
           </div>
         </section>
 
+        {/* Temporarily removed — Partner with us section.
         <section id="partner" className="bg-paper-dim py-24 sm:py-32 border-t border-rule scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-xl">
+            <div className="reveal max-w-xl">
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
                 Partner with us
               </p>
-              <h2 className="font-display font-extrabold text-4xl text-ink tracking-tight mb-6">
+              <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-6">
                 Bring Illuminate to your school.
               </h2>
               <p className="text-ink-soft text-lg leading-relaxed mb-10">
@@ -143,6 +147,7 @@ export default function GetInvolved() {
             </div>
           </div>
         </section>
+        */}
       </main>
       <Footer />
     </div>

@@ -135,3 +135,33 @@ export function categoryIcon(slug: string): IconName {
       return "sparkle";
   }
 }
+
+/**
+ * Full literal class strings (not built from a template) so Tailwind's
+ * scanner can see and generate each one — a badge background + matching
+ * icon color, one distinct accent per icon so the row of category/action
+ * badges doesn't read as one uniform blue.
+ */
+export function iconBadgeClasses(name: IconName): string {
+  switch (name) {
+    case "sparkle":
+    case "pen-nib":
+      return "bg-violet/10 text-violet";
+    case "book":
+    case "search":
+      return "bg-pen/10 text-pen";
+    case "clipboard-check":
+    case "search-check":
+      return "bg-mint/10 text-mint";
+    case "heart":
+    case "users":
+      return "bg-rose/10 text-rose";
+    case "cap":
+      return "bg-marker/10 text-marker";
+    case "sun":
+    case "megaphone":
+      return "bg-amber/10 text-amber";
+    default:
+      return "bg-pen/10 text-pen";
+  }
+}

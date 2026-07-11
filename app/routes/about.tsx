@@ -20,8 +20,15 @@ export default function About() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="bg-chalkboard">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-36">
+        <section className="relative bg-chalkboard overflow-hidden">
+          <img
+            src="/about-group-photo.jpg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%] opacity-70"
+          />
+          <div className="absolute inset-0 bg-chalkboard/55" />
+          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-36">
             <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
               About us
             </p>
@@ -43,15 +50,15 @@ export default function About() {
 
         <section className="bg-paper py-24 sm:py-32">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
+            <div className="reveal">
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
                 How it started
               </p>
-              <h2 className="font-display font-extrabold text-4xl text-ink tracking-tight mb-8">
+              <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-8">
                 A notebook, not a brand.
               </h2>
             </div>
-            <div className="space-y-6 text-ink-soft text-lg leading-relaxed">
+            <div className="reveal reveal-1 space-y-6 text-ink-soft text-xl leading-relaxed">
               <p>
                 None of us had a private counselor. What we had was a lot of
                 trial and error, some good advice from an older student, and a
@@ -64,9 +71,9 @@ export default function About() {
                 shared doc, just easier to find.
               </p>
               <p>
-                We're not a company and we're not trying to become one. It's
-                free because it was free when someone helped us, and that
-                felt like the only fair way to pass it on.
+                We're not a company and we're not trying to become one. Someone
+                helped us when we needed it, and passing that on felt like the
+                only fair way to repay it.
               </p>
             </div>
           </div>
@@ -74,17 +81,19 @@ export default function About() {
 
         <section id="team" className="bg-paper-dim py-24 sm:py-32 border-y border-rule scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
+            <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
               Our structure
             </p>
-            <h2 className="font-display font-extrabold text-4xl text-ink tracking-tight mb-4 max-w-xl">
+            <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
               How Illuminate is organized
             </h2>
-            <p className="text-ink-soft text-lg max-w-xl mb-16">
+            <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-16">
               Four tiers, and a way in at every level — nobody starts as a director.
             </p>
 
-            <TeamStructure variant="info" />
+            <div className="reveal reveal-3">
+              <TeamStructure variant="info" />
+            </div>
 
             <p className="text-ink-soft mt-12 max-w-xl">
               Want in? See{" "}
@@ -101,14 +110,14 @@ export default function About() {
 
         <section id="contact" className="bg-chalkboard py-24 sm:py-32 scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-xl">
+            <div className="reveal max-w-xl">
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-5">
                 Contact
               </p>
-              <h2 className="font-display font-extrabold text-4xl text-chalk tracking-tight mb-6">
+              <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-chalk tracking-tight mb-6">
                 Questions, corrections, ideas — send them over.
               </h2>
-              <p className="text-chalk-soft text-lg leading-relaxed mb-10">
+              <p className="text-chalk-soft text-xl leading-relaxed mb-10">
                 If a guide got something wrong, or you can't find what you're
                 looking for, email us. A real person reads every message.
               </p>

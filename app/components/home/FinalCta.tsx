@@ -4,16 +4,16 @@ export default function FinalCta() {
   return (
     <section className="bg-chalkboard py-28 sm:py-36">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <div className="reveal max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-5">
             Ready when you are
           </p>
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-chalk tracking-tight mb-8">
+          <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-chalk tracking-tight mb-8">
             Your narrative starts on the next page.
           </h2>
-          <p className="text-chalk-soft text-lg leading-relaxed mb-12">
-            Everything here is free and made to be used today, not bookmarked
-            for later.
+          <p className="text-chalk-soft text-xl leading-relaxed mb-12">
+            Everything here is made to be used today, not bookmarked for
+            later.
           </p>
           <div className="flex flex-wrap items-center gap-8">
             <Link

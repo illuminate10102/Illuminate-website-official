@@ -1,10 +1,10 @@
-import { Link } from "react-router";
-import type { Route } from "./+types/field";
+import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getField } from "../data/categories";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
+import { GpaStrategyGuide, gpaStrategyAuthor, gpaStrategySources } from "../content/gpa-strategy";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -22,26 +22,31 @@ const guides: Record<
     sources: timeManagementSources,
     author: timeManagementAuthor,
   },
+  "academics/gpa-strategy": {
+    Body: GpaStrategyGuide,
+    sources: gpaStrategySources,
+    author: gpaStrategyAuthor,
+  },
 };
 
-export function loader({ params }: Route.LoaderArgs) {
+export function meta({ params }: { params: { category?: string; field?: string } }) {
   const result = getField(params.category, params.field);
-  if (!result) {
-    throw new Response("Not Found", { status: 404 });
-  }
-  return result;
-}
-
-export function meta({ data }: Route.MetaArgs) {
-  if (!data) return [{ title: "Illuminate" }];
+  if (!result) return [{ title: "Illuminate" }];
   return [
-    { title: `${data.field.title} — Illuminate` },
-    { name: "description", content: data.field.blurb },
+    { title: `${result.field.title} — Illuminate` },
+    { name: "description", content: result.field.blurb },
   ];
 }
 
-export default function FieldPage({ loaderData }: Route.ComponentProps) {
-  const { category, field } = loaderData;
+export default function FieldPage() {
+  const params = useParams();
+  const result = getField(params.category, params.field);
+
+  if (!result) {
+    return <FieldNotFound />;
+  }
+
+  const { category, field } = result;
   const guide = guides[`${category.slug}/${field.slug}`];
 
   const breadcrumb = (
@@ -177,7 +182,7 @@ export default function FieldPage({ loaderData }: Route.ComponentProps) {
   );
 }
 
-export function ErrorBoundary() {
+function FieldNotFound() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

@@ -25,8 +25,8 @@ export default function Resources() {
               Every guide, one page.
             </h1>
             <p className="reveal reveal-2 text-chalk-soft text-lg sm:text-xl leading-relaxed mt-10 max-w-xl">
-              No search bar to fight with — here's everything we've got,
-              sorted by topic and by what to look at first.
+              Everything we've got, sorted by topic and by what to look at
+              first.
             </p>
           </div>
         </section>
@@ -34,7 +34,7 @@ export default function Resources() {
         <section className="bg-paper py-20 sm:py-28">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
             {categories.map((category) => (
-              <div key={category.slug}>
+              <div key={category.slug} className="reveal">
                 <div className="flex items-baseline justify-between gap-4 mb-8 border-b border-rule pb-4">
                   <Link
                     to={`/${category.slug}`}
@@ -43,7 +43,7 @@ export default function Resources() {
                     <span className="course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5">
                       {category.code}
                     </span>
-                    <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink group-hover:text-pen transition-colors">
+                    <h2 className="font-subtitle font-bold text-3xl sm:text-4xl text-ink group-hover:text-pen transition-colors">
                       {category.label}
                     </h2>
                   </Link>

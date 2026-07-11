@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Icon, categoryIcon } from "../Icon";
+import { Icon, categoryIcon, iconBadgeClasses } from "../Icon";
 
 const sections = [
   {
@@ -20,7 +20,7 @@ const sections = [
     code: "ST",
     label: "Standardized testing",
     href: "/testing",
-    desc: "SAT, ACT, and PSAT prep that's actually free.",
+    desc: "SAT, ACT, and PSAT prep, explained without the jargon.",
     count: "8 guides",
   },
   {
@@ -50,22 +50,22 @@ export default function Catalog() {
   return (
     <section className="bg-paper py-24 sm:py-32">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
+        <div className="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-3">
               The six areas of your application
             </p>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-ink tracking-tight">
+            <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight">
               Everything sorted, nothing hidden.
             </h2>
           </div>
-          <p className="text-ink-soft max-w-sm">
+          <p className="text-ink-soft text-lg max-w-sm">
             From freshman year to your acceptance letter — organized so you
             always know what's next.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="reveal reveal-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sections.map((s) => (
             <Link
               key={s.code}
@@ -74,7 +74,9 @@ export default function Catalog() {
             >
               <div className="flex items-start justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-pen/10 text-pen shrink-0">
+                  <span
+                    className={`flex items-center justify-center w-10 h-10 rounded-full shrink-0 ${iconBadgeClasses(categoryIcon(s.href.slice(1)))}`}
+                  >
                     <Icon name={categoryIcon(s.href.slice(1))} className="w-5 h-5" />
                   </span>
                   <span className="course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5">
@@ -85,10 +87,10 @@ export default function Catalog() {
                   {s.count}
                 </span>
               </div>
-              <h3 className="font-display font-bold text-2xl text-ink group-hover:text-pen underline decoration-transparent group-hover:decoration-marker decoration-4 underline-offset-4 transition-colors mb-2">
+              <h3 className="font-subtitle font-bold text-3xl text-ink group-hover:text-pen underline decoration-transparent group-hover:decoration-marker decoration-4 underline-offset-4 transition-colors mb-2">
                 {s.label}
               </h3>
-              <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
+              <p className="text-ink-soft text-base leading-relaxed">
                 {s.desc}
               </p>
             </Link>

@@ -2,24 +2,28 @@ import { Link } from "react-router";
 
 const points = [
   {
-    tag: "NF",
-    title: "Narrative-first",
-    desc: "We don't hand you a checklist. We show you how every class, activity, and test connects into one story.",
+    tag: "1",
+    title: "Narrative",
+    desc: "From classes to extracurriculars, we guide you throughout your high school journey to help shape your college narrative.",
+    swatch: "bg-pen/10 text-pen",
   },
   {
-    tag: "SW",
-    title: "Written by students who just did this",
-    desc: "Not consultants, not a brochure — people who applied a year or two ago and remember what actually mattered.",
+    tag: "2",
+    title: "Students",
+    desc: "We offer real-world experience from experts throughout all fields. These include successful students, high school/college alumni, and more who provide accurate and credible information for all to use.",
+    swatch: "bg-violet/10 text-violet",
   },
   {
-    tag: "FR",
-    title: "Free. No asterisk.",
-    desc: "No premium tier, no locked chapters, no ‘contact us for pricing.’ Every guide is free, permanently.",
+    tag: "3",
+    title: "Practical",
+    desc: "No theory for the sake of theory — every guide ends with a next step you can actually take today.",
+    swatch: "bg-mint/10 text-mint",
   },
   {
-    tag: "BU",
-    title: "Built to be used, not admired",
-    desc: "Short paragraphs, real timelines, no fluff. If a page can't tell you what to do next, we rewrite it.",
+    tag: "4",
+    title: "Functional",
+    desc: "We structure our website to make accessibility a priority. Content is organized clearly and thoughtfully to make the learning process easier.",
+    swatch: "bg-amber/10 text-amber",
   },
 ];
 
@@ -27,59 +31,52 @@ export default function WhyIlluminate() {
   return (
     <section className="bg-paper-dim py-24 sm:py-32 border-y border-rule">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-sm">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663701351808/9t6sWoci7JX6fK6AA4wSmM/illuminate-about-kpePWue6SZLGeNfDckHshB.webp"
-                alt="Illuminate students working through the college application process"
-                className="w-full h-full object-cover grayscale contrast-110 transition-transform duration-500 ease-out hover:scale-105"
-              />
-            </div>
-            <p className="font-mono text-xs uppercase tracking-wide text-ink-soft mt-4">
-              No paywalls. No subscriptions. Ever.
-            </p>
-          </div>
+        <div className="reveal max-w-3xl mx-auto text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
+            Why Illuminate
+          </p>
+          <h2 className="reveal reveal-1 font-display font-extrabold text-6xl sm:text-7xl text-ink tracking-tight mb-8">
+            The gap isn't information.{" "}
+            <span className="marker-stroke">It's access.</span>
+          </h2>
+          <p className="reveal reveal-2 text-ink-soft text-xl sm:text-2xl leading-relaxed mb-16 mx-auto">
+            Most students don't struggle because the advice doesn't exist —
+            it's scattered across forums, paywalled, or locked behind a
+            $200/hr counselor. Illuminate puts it in one place, organized
+            and ready to use.
+          </p>
+        </div>
 
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
-              Why Illuminate
-            </p>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-ink tracking-tight mb-8">
-              The gap isn't information.{" "}
-              <span className="marker-stroke">It's access.</span>
-            </h2>
-            <p className="text-ink-soft text-lg leading-relaxed mb-12 max-w-xl">
-              Most students don't struggle because the advice doesn't exist —
-              it's scattered across forums, paywalled, or locked behind a
-              $200/hr counselor. Illuminate puts it in one place, for free.
-            </p>
-
-            <dl className="space-y-8">
-              {points.map((p) => (
-                <div key={p.tag} className="flex gap-5">
-                  <dt className="course-code text-sm text-pen shrink-0 pt-1">
-                    {p.tag}
-                  </dt>
-                  <dd>
-                    <p className="font-display font-bold text-lg text-ink">
-                      {p.title}
-                    </p>
-                    <p className="text-ink-soft text-sm sm:text-base leading-relaxed mt-1">
-                      {p.desc}
-                    </p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 mt-12 font-semibold text-ink border-b-2 border-pen hover:text-pen transition-colors"
+        <dl className="reveal reveal-3 grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {points.map((p) => (
+            <div
+              key={p.tag}
+              className="rounded-lg p-8 text-center bg-paper border border-rule shadow-sm"
             >
-              Read our story <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+              <dt
+                className={`course-code inline-flex items-center justify-center w-9 h-9 rounded-full text-sm mb-4 ${p.swatch}`}
+              >
+                {p.tag}
+              </dt>
+              <dd>
+                <p className="font-subtitle font-bold text-2xl text-ink mb-2">
+                  {p.title}
+                </p>
+                <p className="text-ink-soft text-base leading-relaxed">
+                  {p.desc}
+                </p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="text-center mt-16">
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 font-semibold text-ink border-b-2 border-pen hover:text-pen transition-colors"
+          >
+            Read our story <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>

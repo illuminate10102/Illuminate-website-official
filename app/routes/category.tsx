@@ -1,28 +1,26 @@
-import { Link } from "react-router";
-import type { Route } from "./+types/category";
+import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getCategory, categoryFieldCount } from "../data/categories";
-import { Icon, categoryIcon } from "../components/Icon";
+import { Icon, categoryIcon, iconBadgeClasses } from "../components/Icon";
 
-export function loader({ params }: Route.LoaderArgs) {
+export function meta({ params }: { params: { category?: string } }) {
   const category = getCategory(params.category);
-  if (!category) {
-    throw new Response("Not Found", { status: 404 });
-  }
-  return { category };
-}
-
-export function meta({ data }: Route.MetaArgs) {
-  if (!data) return [{ title: "Illuminate" }];
+  if (!category) return [{ title: "Illuminate" }];
   return [
-    { title: `${data.category.label} — Illuminate` },
-    { name: "description", content: data.category.intro },
+    { title: `${category.label} — Illuminate` },
+    { name: "description", content: category.intro },
   ];
 }
 
-export default function CategoryPage({ loaderData }: Route.ComponentProps) {
-  const { category } = loaderData;
+export default function CategoryPage() {
+  const params = useParams();
+  const category = getCategory(params.category);
+
+  if (!category) {
+    return <CategoryNotFound />;
+  }
+
   const count = categoryFieldCount(category);
 
   return (
@@ -53,7 +51,7 @@ export default function CategoryPage({ loaderData }: Route.ComponentProps) {
         <section className="bg-paper py-20 sm:py-28">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
             {category.tiers.map((tier) => (
-              <div key={tier.label}>
+              <div key={tier.label} className="reveal">
                 <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-6">
                   {tier.label}
                 </p>
@@ -65,17 +63,19 @@ export default function CategoryPage({ loaderData }: Route.ComponentProps) {
                       className="card-elevate group bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
                     >
                       <div className="flex items-center gap-3 mb-5">
-                        <span className="flex items-center justify-center w-9 h-9 rounded-full bg-pen/10 text-pen shrink-0">
+                        <span
+                          className={`flex items-center justify-center w-9 h-9 rounded-full shrink-0 ${iconBadgeClasses(categoryIcon(category.slug))}`}
+                        >
                           <Icon name={categoryIcon(category.slug)} className="w-4 h-4" />
                         </span>
                         <span className="course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5 w-fit">
                           {field.code}
                         </span>
                       </div>
-                      <h3 className="font-display font-bold text-2xl text-ink group-hover:text-pen underline decoration-transparent group-hover:decoration-marker decoration-4 underline-offset-4 transition-colors mb-2">
+                      <h3 className="font-subtitle font-bold text-3xl text-ink group-hover:text-pen underline decoration-transparent group-hover:decoration-marker decoration-4 underline-offset-4 transition-colors mb-2">
                         {field.title}
                       </h3>
-                      <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
+                      <p className="text-ink-soft text-base leading-relaxed">
                         {field.blurb}
                       </p>
                     </Link>
@@ -91,7 +91,7 @@ export default function CategoryPage({ loaderData }: Route.ComponentProps) {
   );
 }
 
-export function ErrorBoundary() {
+function CategoryNotFound() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

@@ -47,7 +47,7 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function H3({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-display font-bold text-xl text-ink tracking-tight mb-3 mt-8">
+    <h3 className="font-subtitle font-bold text-xl text-ink tracking-tight mb-3 mt-8">
       {children}
     </h3>
   );

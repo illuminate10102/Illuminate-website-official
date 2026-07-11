@@ -27,7 +27,7 @@ function ResultsList({
             to={`/${r.category.slug}/${r.field.slug}`}
             onClick={() => onPick(r)}
             className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-md transition-colors ${
-              i === activeIndex ? "bg-paper-dim" : "hover:bg-paper-dim"
+              i === activeIndex ? "bg-pen/10" : "hover:bg-pen/10"
             }`}
           >
             <span className="min-w-0">
@@ -174,7 +174,7 @@ export function SearchBox({ variant = "compact", onNavigate }: SearchBoxProps) {
       <div
         className={`absolute top-0 right-0 z-40 h-9 flex items-center gap-2 rounded-md border overflow-hidden transition-all duration-300 ease-out ${
           expanded
-            ? "w-64 px-3 border-rule bg-paper shadow-lg"
+            ? "w-64 px-3 border-rule bg-dropdown-bg shadow-lg"
             : "w-9 px-0 border-transparent bg-transparent"
         }`}
       >
@@ -187,8 +187,10 @@ export function SearchBox({ variant = "compact", onNavigate }: SearchBoxProps) {
           aria-label="Search guides"
           aria-expanded={expanded}
           tabIndex={expanded ? -1 : 0}
-          className={`shrink-0 flex items-center justify-center text-ink-soft hover:text-ink transition-colors ${
-            expanded ? "w-4 h-4" : "w-9 h-9 rounded-md border border-rule hover:border-pen/40"
+          className={`shrink-0 flex items-center justify-center transition-colors ${
+            expanded
+              ? "w-4 h-4 text-ink-soft"
+              : "w-9 h-9 rounded-md border border-rule text-ink-soft hover:text-ink hover:border-pen/40"
           }`}
         >
           <Icon name="search" className={expanded ? "w-4 h-4" : "w-[18px] h-[18px]"} />
@@ -207,12 +209,12 @@ export function SearchBox({ variant = "compact", onNavigate }: SearchBoxProps) {
       </div>
 
       {expanded && results.length > 0 && (
-        <div className="absolute top-full right-0 mt-2 w-80 z-50 bg-paper border border-rule rounded-lg shadow-lg p-2 normal-case">
+        <div className="absolute top-full right-0 mt-2 w-80 z-50 bg-dropdown-bg border border-rule rounded-lg shadow-lg p-2 normal-case">
           <ResultsList results={results} activeIndex={activeIndex} onPick={handlePick} />
         </div>
       )}
       {expanded && query.trim() && results.length === 0 && (
-        <div className="absolute top-full right-0 mt-2 w-80 z-50 bg-paper border border-rule rounded-lg shadow-lg p-4 normal-case">
+        <div className="absolute top-full right-0 mt-2 w-80 z-50 bg-dropdown-bg border border-rule rounded-lg shadow-lg p-4 normal-case">
           <p className="text-sm text-ink-soft">No guides match "{query}".</p>
         </div>
       )}

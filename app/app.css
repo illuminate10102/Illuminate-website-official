@@ -8,8 +8,9 @@
   amber gold), carried over from illuminate-manus/client/src/index.css.
 */
 @theme {
-  --font-display: "Big Shoulders Display", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif; /* titles */
+  --font-subtitle: "DM Sans", ui-sans-serif, system-ui, sans-serif; /* sub-titles */
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif; /* body copy */
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
 
   --color-chalkboard: oklch(0.18 0.06 264); /* brand navy */
@@ -33,6 +34,21 @@
   --color-pen-solid: oklch(0.52 0.22 264);
   --color-pen-solid-dim: oklch(0.45 0.22 264);
   --color-ink-solid: oklch(0.15 0.01 264);
+
+  /* Icon accent colors — one per content area, so category/action badges
+     read as distinct at a glance instead of uniform brand blue. Adapt
+     per theme like pen does. */
+  --color-mint: oklch(0.55 0.13 155);
+  --color-rose: oklch(0.58 0.19 20);
+  --color-violet: oklch(0.52 0.2 300);
+  --color-amber: oklch(0.56 0.16 55);
+
+  /* Nav dropdown surface — warm cream in light mode, dark navy in dark
+     mode. Adapts per theme below rather than staying black everywhere. */
+  --color-dropdown-bg: oklch(0.97 0.025 75);
+
+  /* Section heading accent — ink in light mode, yellow ochre in dark. */
+  --color-heading: oklch(0.15 0.01 264);
 }
 
 :root {
@@ -59,6 +75,13 @@
   --color-pen: oklch(0.7 0.18 264);
   --color-pen-dim: oklch(0.63 0.18 264);
   --color-rule: oklch(0.4 0.045 264);
+  --color-dropdown-bg: oklch(0.26 0.05 264);
+
+  --color-mint: oklch(0.68 0.14 155);
+  --color-rose: oklch(0.7 0.17 20);
+  --color-violet: oklch(0.68 0.18 300);
+  --color-amber: oklch(0.74 0.15 55);
+  --color-heading: oklch(0.7 0.13 70); /* yellow ochre */
 
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.7 0.18 264 / 22%),
@@ -69,6 +92,10 @@ html,
 body {
   background: var(--color-paper);
   color: var(--color-ink);
+  /* Belt-and-suspenders: nothing on the page should ever force a
+     horizontal scrollbar, regardless of nav width, long words, etc. */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {

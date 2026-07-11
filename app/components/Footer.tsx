@@ -42,7 +42,7 @@ export default function Footer() {
       <div className="border-b border-rule-dark">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div>
-            <h3 className="font-display font-extrabold text-2xl text-chalk">
+            <h3 className="font-subtitle font-bold text-2xl text-chalk">
               Get the next guide first
             </h3>
             <p className="text-chalk-soft text-sm mt-1">
@@ -83,7 +83,7 @@ export default function Footer() {
             </Link>
             <p className="text-chalk-soft text-sm leading-relaxed mt-4 max-w-xs">
               A student-led nonprofit bridging the knowledge gap so every K–12
-              student can build their future — completely free.
+              student can build their future.
             </p>
             <div className="flex items-center gap-4 mt-6 font-mono text-xs uppercase tracking-wide">
               {social.map((s) => (

@@ -12,8 +12,23 @@ const primaryLinks = [
   { label: "Lifestyle", href: "/lifestyle" },
   { label: "College", href: "/college" },
   { label: "Summer", href: "/summer" },
-  { label: "Resources", href: "/resources" },
+  { label: "Index", href: "/resources" },
 ];
+
+/** Column count in the mega-menu adapts to how many topic groups a
+ *  category has, so a 4-group category (Extracurriculars) gets a wider
+ *  panel than a 2-group one (Testing) instead of always forcing 2 columns. */
+function gridColsClass(count: number): string {
+  if (count <= 2) return "grid-cols-2";
+  if (count === 3) return "grid-cols-3";
+  return "grid-cols-4";
+}
+
+function dropdownWidthClass(count: number): string {
+  if (count <= 2) return "w-[440px]";
+  if (count === 3) return "w-[660px]";
+  return "w-[880px]";
+}
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -42,11 +57,17 @@ function TierFieldList({
   stacked?: boolean;
 }) {
   return (
-    <div className={stacked ? "space-y-5" : "grid grid-cols-2 gap-x-8 gap-y-6"}>
+    <div
+      className={
+        stacked
+          ? "space-y-6"
+          : `grid ${gridColsClass(category.tiers.length)} gap-x-10 gap-y-8`
+      }
+    >
       {category.tiers.map((tier) => (
         <div key={tier.label}>
-          <p className="course-code text-[0.65rem] uppercase text-pen mb-3">{tier.label}</p>
-          <ul className="space-y-1.5">
+          <p className="course-code text-[0.65rem] uppercase text-pen mb-4">{tier.label}</p>
+          <ul className="space-y-2">
             {tier.fields.map((field) => (
               <li key={field.slug}>
                 <Link
@@ -124,23 +145,17 @@ export default function Navbar() {
         scrolled ? "shadow-[0_1px_0_0_var(--color-rule)]" : ""
       }`}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-6">
+      <div className="flex items-center justify-between h-20 gap-3 lg:gap-4 pl-3 sm:pl-4 pr-4 sm:pr-6 lg:pr-6">
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <img src="/illuminate-logo.png" alt="" className="w-8 h-8 rounded-md" />
-            <span className="flex items-baseline gap-2">
-              <span className="font-display font-extrabold text-2xl tracking-tight text-ink">
-                Illuminate
-              </span>
-              <span className="hidden sm:inline course-code text-[0.65rem] text-ink-soft uppercase">
-                K–12 guidance
-              </span>
+            <img src="/illuminate-logo.png" alt="" className="w-12 h-12 rounded-lg" />
+            <span className="font-display font-extrabold text-2xl tracking-tight text-ink">
+              Illuminate
             </span>
           </Link>
 
           <nav
             ref={desktopNavRef}
-            className="hidden lg:flex items-center gap-1 course-code text-[0.7rem] uppercase text-ink-soft"
+            className="hidden lg:flex items-center gap-0.5 font-sans text-sm font-semibold text-ink"
           >
             {primaryLinks.map((item, i) => {
               const category = getCategory(item.href.slice(1));
@@ -148,13 +163,13 @@ export default function Navbar() {
               return (
                 <span
                   key={item.href}
-                  className="flex items-center relative"
+                  className="flex items-center relative shrink-0"
                   onMouseEnter={() => category && openOnHover(category.slug)}
                   onMouseLeave={() => category && scheduleClose()}
                 >
                   <Link
                     to={item.href}
-                    className="nav-link px-2.5 py-1.5 hover:text-ink transition-colors"
+                    className="nav-link px-2.5 py-2 hover:text-pen transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -165,26 +180,23 @@ export default function Navbar() {
                       aria-expanded={isOpen}
                       aria-haspopup="true"
                       aria-label={`${item.label} guide list`}
-                      className="p-1 -ml-1 mr-0.5 text-ink-soft hover:text-ink transition-colors"
+                      className="p-1 -ml-1.5 mr-1 text-ink-soft hover:text-pen transition-colors"
                     >
                       <ChevronIcon open={isOpen} />
                     </button>
-                  )}
-                  {i < primaryLinks.length - 1 && (
-                    <span className="text-rule select-none">/</span>
                   )}
 
                   {category && isOpen && (
                     <div
                       className={`absolute top-full ${
                         i >= 3 ? "right-0" : "left-0"
-                      } mt-3 z-50 w-[460px] bg-paper border border-rule rounded-lg shadow-lg p-6 normal-case`}
+                      } mt-3 z-50 ${dropdownWidthClass(category.tiers.length)} bg-dropdown-bg border border-rule rounded-lg shadow-lg p-8 normal-case`}
                     >
                       <TierFieldList
                         category={category}
                         onNavigate={() => setOpenDesktop(null)}
                       />
-                      <div className="mt-5 pt-4 border-t border-rule">
+                      <div className="mt-6 pt-5 border-t border-rule">
                         <Link
                           to={`/${category.slug}`}
                           onClick={() => setOpenDesktop(null)}
@@ -221,7 +233,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </div>
 
       {open && (
         <nav className="lg:hidden border-t border-rule bg-paper">
@@ -235,7 +246,7 @@ export default function Navbar() {
                     <Link
                       to={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex-1 block py-3 course-code text-sm uppercase text-ink-soft hover:text-ink"
+                      className="flex-1 block py-3 course-code text-base font-semibold uppercase text-ink hover:text-pen transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -252,7 +263,7 @@ export default function Navbar() {
                     )}
                   </div>
                   {category && isOpen && (
-                    <div className="pb-5 pl-1 normal-case">
+                    <div className="my-3 p-4 rounded-md bg-dropdown-bg border border-rule normal-case">
                       <TierFieldList
                         category={category}
                         stacked
