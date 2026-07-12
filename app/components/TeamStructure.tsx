@@ -37,17 +37,22 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
           </div>
 
           <div className="p-5 flex-1 flex flex-col">
-            <p className="text-ink-soft text-sm leading-relaxed mb-4">{role.desc}</p>
-            <ul className="space-y-1.5 mb-4">
+            <p className="text-ink-soft text-sm leading-relaxed mb-3">{role.desc}</p>
+            <ul className={`space-y-1.5 ${role.slug === "directors" ? "" : "mb-4"}`}>
               {role.members.map((m) => (
-                <li key={m} className="flex items-center gap-2 text-xs text-ink">
+                <li
+                  key={m}
+                  className={`flex items-center gap-2 text-ink ${
+                    role.slug === "directors" ? "text-sm" : "text-xs"
+                  }`}
+                >
                   <span className="w-1 h-1 rounded-full bg-marker shrink-0" aria-hidden="true" />
                   {m}
                 </li>
               ))}
             </ul>
 
-            {variant === "apply" && (
+            {variant === "apply" && role.slug !== "directors" && (
               <a
                 href={`mailto:hello@illuminate.org?subject=${encodeURIComponent(
                   `Application: ${role.singular}`,

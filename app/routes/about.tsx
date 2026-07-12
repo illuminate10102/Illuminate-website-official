@@ -65,7 +65,7 @@ export default function About() {
                 Thus, the idea of Project Illuminate was born. Six Cinco Ranch students, Arnav, Dhruv, Nidhish, Sarvesh, Henry, and Vinh, sought to end this lingering issue that affects many aspiring students nationwide.
               </p>
               <p>
-                After constant calls, meetings, and discussions, we brought Project Illuminate to life. With the help of officers, associates, and members, we built a platform that brings together resources, information, and people.
+                After constant calls, meetings, and discussions, we brought Project Illuminate to life. With the help of officers, associates, and members, we built a platform that brings together resources, information, and community.
               </p>
             </div>
           </div>

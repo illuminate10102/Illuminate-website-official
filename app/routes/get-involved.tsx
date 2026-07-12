@@ -112,10 +112,10 @@ export default function GetInvolved() {
               Apply for a position
             </p>
             <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
-              Four tiers, one starting point.
+              Join us to Illuminate the future. 
             </h2>
             <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-16">
-              Pick the tier that fits where you're at. Every director started as a member.
+              Pick the tier that fits where you're at. 
             </p>
 
             <div className="reveal reveal-3">

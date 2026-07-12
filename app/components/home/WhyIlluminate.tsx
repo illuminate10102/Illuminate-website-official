@@ -3,13 +3,13 @@ import { Link } from "react-router";
 const points = [
   {
     tag: "1",
-    title: "Narrative",
+    title: "Narrative-First",
     desc: "From classes to extracurriculars, we guide you throughout your high school journey to help shape your college narrative.",
     swatch: "bg-pen/10 text-pen",
   },
   {
     tag: "2",
-    title: "Students",
+    title: "By students, For Students",
     desc: "We offer real-world experience from experts throughout all fields. These include successful students, high school/college alumni, and more who provide accurate and credible information for all to use.",
     swatch: "bg-violet/10 text-violet",
   },
@@ -21,7 +21,7 @@ const points = [
   },
   {
     tag: "4",
-    title: "Functional",
+    title: "Functionality over Form",
     desc: "We structure our website to make accessibility a priority. Content is organized clearly and thoughtfully to make the learning process easier.",
     swatch: "bg-amber/10 text-amber",
   },

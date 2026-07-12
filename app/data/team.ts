@@ -14,7 +14,7 @@ export const teamRoles: TeamRole[] = [
     singular: "Director",
     subtitle: "Founders · Co-Presidents · Team Leads",
     desc: "The people who started Illuminate and still run it day to day. They set direction, keep projects moving, and make the final call when something's stuck.",
-    members: ["Co-President", "Co-President", "Director of Operations", "Director of Content"],
+    members: ["Nidhish Kakkireni", "Arnav Joshi", "Dhruv Nandy", "Vinh Tran", "Sarvesh Shanthibooshan Subramanian", "Hoang Nguyen"],
   },
   {
     slug: "officers",

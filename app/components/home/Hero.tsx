@@ -8,7 +8,7 @@ export default function Hero() {
       <HeroWaves />
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-40">
         <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
-          ▪ Student-run nonprofit, built for students
+          ▪ Built for students, by students.
         </p>
 
         <h1 className="reveal reveal-1 font-display font-black text-[3rem] leading-[0.95] sm:text-[4.5rem] lg:text-[5.75rem] text-chalk tracking-tight max-w-4xl">
