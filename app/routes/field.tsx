@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { HeroWaves } from "../components/HeroWaves";
 import { getField } from "../data/categories";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
@@ -50,12 +51,12 @@ export default function FieldPage() {
   const guide = guides[`${category.slug}/${field.slug}`];
 
   const breadcrumb = (
-    <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-6">
-      <Link to="/" className="hover:text-ink transition-colors">
+    <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-marker mb-6">
+      <Link to="/" className="hover:text-chalk transition-colors">
         Illuminate
       </Link>
-      <span className="text-rule mx-2">/</span>
-      <Link to={`/${category.slug}`} className="hover:text-ink transition-colors">
+      <span className="text-chalk-soft mx-2">/</span>
+      <Link to={`/${category.slug}`} className="hover:text-chalk transition-colors">
         {category.label}
       </Link>
     </p>
@@ -67,28 +68,33 @@ export default function FieldPage() {
       <div key={`${category.slug}/${field.slug}`} className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
-          <section className="bg-paper py-20 sm:py-28">
-            <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="relative bg-chalkboard overflow-hidden">
+            <HeroWaves />
+            <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
               {breadcrumb}
 
-              <span className="reveal reveal-1 course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5 inline-block">
+              <span className="reveal reveal-1 course-code text-sm text-marker border border-marker/40 rounded-md px-2 py-0.5 inline-block">
                 {field.code}
               </span>
 
-              <h1 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-ink tracking-tight mt-5 mb-4">
+              <h1 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-chalk tracking-tight mt-5 mb-4">
                 {field.title}
               </h1>
 
-              <p className="reveal reveal-2 text-ink-soft text-lg leading-relaxed max-w-xl mb-4">
+              <p className="reveal reveal-2 text-chalk-soft text-lg leading-relaxed max-w-xl mb-4">
                 {field.blurb}
               </p>
 
               {author && (
-                <p className="reveal reveal-2 course-code text-xs text-ink-soft uppercase mb-14">
+                <p className="reveal reveal-2 course-code text-xs text-chalk-soft uppercase">
                   Written by a student — {author}
                 </p>
               )}
+            </div>
+          </section>
 
+          <section className="bg-paper py-20 sm:py-28">
+            <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-[1fr_320px] gap-16">
                 <div className="reveal reveal-3 max-w-[720px]">
                   <Body />
@@ -144,21 +150,26 @@ export default function FieldPage() {
     <div key={`${category.slug}/${field.slug}`} className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="bg-paper py-20 sm:py-28">
-          <div className="max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-chalkboard overflow-hidden">
+          <HeroWaves />
+          <div className="relative max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
             {breadcrumb}
 
-            <span className="reveal reveal-1 course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5 inline-block">
+            <span className="reveal reveal-1 course-code text-sm text-marker border border-marker/40 rounded-md px-2 py-0.5 inline-block">
               {field.code}
             </span>
 
-            <h1 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-ink tracking-tight mt-5 mb-6">
+            <h1 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-chalk tracking-tight mt-5 mb-6">
               {field.title}
             </h1>
 
-            <p className="reveal reveal-2 text-ink-soft text-lg leading-relaxed max-w-xl">{field.blurb}</p>
+            <p className="reveal reveal-2 text-chalk-soft text-lg leading-relaxed max-w-xl">{field.blurb}</p>
+          </div>
+        </section>
 
-            <div className="reveal reveal-3 mt-14 border border-rule rounded-lg p-8 bg-paper-dim">
+        <section className="bg-paper py-20 sm:py-28">
+          <div className="max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="reveal reveal-3 border border-rule rounded-lg p-8 bg-paper-dim">
               <p className="font-mono text-xs uppercase tracking-wide text-ink-soft mb-3">
                 Coming soon
               </p>

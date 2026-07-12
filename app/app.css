@@ -43,9 +43,9 @@
   --color-violet: oklch(0.52 0.2 300);
   --color-amber: oklch(0.56 0.16 55);
 
-  /* Nav dropdown surface — warm cream in light mode, dark navy in dark
+  /* Nav dropdown surface — white in light mode, dark navy in dark
      mode. Adapts per theme below rather than staying black everywhere. */
-  --color-dropdown-bg: oklch(0.97 0.025 75);
+  --color-dropdown-bg: oklch(1 0 0);
 
   /* Section heading accent — ink in light mode, yellow ochre in dark. */
   --color-heading: oklch(0.15 0.01 264);
@@ -207,4 +207,19 @@ main {
 }
 .nav-link:hover::after {
   transform: scaleX(1);
+}
+
+/* Decorative wave strokes for navy title bands — warm yellow-ochre accents
+   that echo the marker/highlighter motif. Light mode only: dark mode's
+   navy already carries enough contrast on its own and stays exactly as
+   it was before this was added. */
+.hero-waves {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .hero-waves {
+  display: none;
 }

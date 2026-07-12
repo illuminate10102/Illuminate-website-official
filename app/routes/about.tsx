@@ -28,7 +28,7 @@ export default function About() {
             className="absolute inset-0 w-full h-full object-cover object-[center_20%] opacity-70"
           />
           <div className="absolute inset-0 bg-chalkboard/55" />
-          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-36">
+          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-48 pb-28 sm:pt-64 sm:pb-36">
             <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
               About us
             </p>
@@ -51,29 +51,21 @@ export default function About() {
         <section className="bg-paper py-24 sm:py-32">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div className="reveal">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
-                How it started
-              </p>
               <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-8">
-                A notebook, not a brand.
+                How it Started
               </h2>
             </div>
             <div className="reveal reveal-1 space-y-6 text-ink-soft text-xl leading-relaxed">
               <p>
-                None of us had a private counselor. What we had was a lot of
-                trial and error, some good advice from an older student, and a
-                shared Google Doc that kept getting longer.
+                We can all agree that high school can be confusing at times. 
+                From course selection to extracurriculars, or study strategies to time management, many aspects of high school are hard to navigate.  
+                Having personally gone through this pain, we decided to create a platform to guide students throughout their high school journey.
               </p>
               <p>
-                Eventually the doc turned into a website, because the next
-                grade behind us was asking the same questions we'd already
-                answered ourselves. That's still what Illuminate is — the
-                shared doc, just easier to find.
+                Thus, the idea of Project Illuminate was born. Six Cinco Ranch students, Arnav, Dhruv, Nidhish, Sarvesh, Henry, and Vinh, sought to end this lingering issue that affects many aspiring students nationwide.
               </p>
               <p>
-                We're not a company and we're not trying to become one. Someone
-                helped us when we needed it, and passing that on felt like the
-                only fair way to repay it.
+                After constant calls, meetings, and discussions, we brought Project Illuminate to life. With the help of officers, associates, and members, we built a platform that brings together resources, information, and people.
               </p>
             </div>
           </div>

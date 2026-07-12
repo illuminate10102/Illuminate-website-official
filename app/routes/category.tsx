@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { HeroWaves } from "../components/HeroWaves";
 import { getCategory, categoryFieldCount } from "../data/categories";
 import { Icon, categoryIcon, iconBadgeClasses } from "../components/Icon";
 
@@ -27,8 +28,9 @@ export default function CategoryPage() {
     <div key={category.slug} className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="bg-chalkboard">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
+        <section className="relative bg-chalkboard overflow-hidden">
+          <HeroWaves />
+          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
             <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-marker mb-6">
               <Link to="/" className="hover:text-chalk transition-colors">
                 Illuminate

@@ -39,7 +39,7 @@ const raw: RawCategory[] = [
       {
         label: "Arts & performance",
         fields: [
-          { slug: "fine-arts", title: "Fine arts", blurb: "Where music, art, and theater fit into an application that isn't about either one." },
+          { slug: "fine-arts", title: "Fine arts", blurb: "Where music, art, and theater meet your application." },
           { slug: "video-photography", title: "Video & photography", blurb: "Turning a phone camera into a real portfolio." },
           { slug: "presentations", title: "Presentations & TED-Ed", blurb: "Getting picked to speak, and what to say once you're up there." },
         ],

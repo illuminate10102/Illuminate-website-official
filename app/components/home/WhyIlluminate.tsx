@@ -15,8 +15,8 @@ const points = [
   },
   {
     tag: "3",
-    title: "Practical",
-    desc: "No theory for the sake of theory — every guide ends with a next step you can actually take today.",
+    title: "Free of Cost, Full Of Form",
+    desc: "While other educational services are locked behind paywalls, we give quality guidance and information for completely free.",
     swatch: "bg-mint/10 text-mint",
   },
   {

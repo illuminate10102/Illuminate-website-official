@@ -2,6 +2,7 @@ import type { Route } from "./+types/get-involved";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
+import { HeroWaves } from "../components/HeroWaves";
 import { TeamStructure } from "../components/TeamStructure";
 import { Icon, iconBadgeClasses, type IconName } from "../components/Icon";
 
@@ -47,8 +48,9 @@ export default function GetInvolved() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="bg-chalkboard">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-36">
+        <section className="relative bg-chalkboard overflow-hidden">
+          <HeroWaves />
+          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-36">
             <h1 className="reveal reveal-1 font-display font-black text-[2.75rem] leading-[0.98] sm:text-[4rem] text-chalk tracking-tight max-w-3xl">
               Get{" "}
               <span className="relative inline-block">

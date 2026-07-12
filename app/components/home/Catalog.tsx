@@ -53,16 +53,13 @@ export default function Catalog() {
         <div className="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-3">
-              The six areas of your application
+              
             </p>
             <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight">
-              Everything sorted, nothing hidden.
+              The 6 fields of High School. 
             </h2>
           </div>
-          <p className="text-ink-soft text-lg max-w-sm">
-            From freshman year to your acceptance letter — organized so you
-            always know what's next.
-          </p>
+          
         </div>
 
         <div className="reveal reveal-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

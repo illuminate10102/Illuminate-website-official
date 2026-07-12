@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import { ChalkUnderline } from "../ChalkUnderline";
+import { HeroWaves } from "../HeroWaves";
 
 export default function Hero() {
   return (
     <section className="relative bg-chalkboard overflow-hidden">
+      <HeroWaves />
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-32 sm:pb-40">
         <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
           ▪ Student-run nonprofit, built for students
@@ -21,9 +23,9 @@ export default function Hero() {
 
         <p className="reveal reveal-2 text-chalk-soft text-lg sm:text-xl leading-relaxed mt-10 max-w-xl">
           Illuminate helps students navigate academics, extracurriculars,
-          testing, and college prep. We focused all resources and experiences
-          into one place, making it easier to navigate through your
-          educational journey.
+          testing, and college prep. We bridged the gap between resources,
+          experience, and people into one place, making it easier for
+          students to navigate through their educational journey.
         </p>
 
         <div className="reveal reveal-3 flex flex-wrap items-center gap-5 mt-12">

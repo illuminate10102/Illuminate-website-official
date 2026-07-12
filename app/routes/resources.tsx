@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import type { Route } from "./+types/resources";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { HeroWaves } from "../components/HeroWaves";
 import { categories, categoryFieldCount } from "../data/categories";
 
 export function meta({}: Route.MetaArgs) {
@@ -16,8 +17,9 @@ export default function Resources() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="bg-chalkboard">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-32 sm:pb-24">
+        <section className="relative bg-chalkboard overflow-hidden">
+          <HeroWaves />
+          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-32 sm:pb-24">
             <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
               Resources
             </p>
