@@ -93,7 +93,7 @@ const raw: RawCategory[] = [
           { slug: "gpa-calculator", title: "GPA calculator", blurb: "A tool for figuring out exactly what your next test needs to be." },
           { slug: "ap-course-advice", title: "AP course advice", blurb: "Which AP classes are worth the workload, and which ones aren't." },
           { slug: "dual-credit", title: "Dual credit", blurb: "Earning college credit in high school, and whether it's worth doing." },
-          { slug: "credit-by-exam", title: "Credit by exam", blurb: "Testing out of a class instead of sitting through it." },
+          { slug: "credit-by-exam", title: "Credit By Exam(CBE)", blurb: "Testing out of a class instead of sitting through it." },
         ],
       },
       {

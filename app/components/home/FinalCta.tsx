@@ -11,10 +11,7 @@ export default function FinalCta() {
           <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-chalk tracking-tight mb-8">
             Your narrative starts on the next page.
           </h2>
-          <p className="text-chalk-soft text-xl leading-relaxed mb-12">
-            Everything here is made to be used today, not bookmarked for
-            later.
-          </p>
+          
           <div className="flex flex-wrap items-center gap-8">
             <Link
               to="/resources"

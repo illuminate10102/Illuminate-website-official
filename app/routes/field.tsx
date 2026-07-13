@@ -6,6 +6,7 @@ import { getField } from "../data/categories";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
 import { GpaStrategyGuide, gpaStrategyAuthor, gpaStrategySources } from "../content/gpa-strategy";
+import { ResearchProgramsGuide, researchProgramsSources } from "../content/research-programs";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -27,6 +28,10 @@ const guides: Record<
     Body: GpaStrategyGuide,
     sources: gpaStrategySources,
     author: gpaStrategyAuthor,
+  },
+  "extracurriculars/research": {
+    Body: ResearchProgramsGuide,
+    sources: researchProgramsSources,
   },
 };
 

@@ -19,9 +19,7 @@ const columns: Record<string, { label: string; href: string }[]> = {
 };
 
 const social = [
-  { label: "Instagram", href: "#" },
-  { label: "Twitter", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/project_illuminate101/" },
   { label: "Email", href: "mailto:illuminate10102@gmail.com" },
 ];
 
@@ -44,6 +42,10 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  {...(!s.href.startsWith("mailto:") && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
                   className="text-chalk-soft hover:text-pen transition-colors"
                 >
                   {s.label}
