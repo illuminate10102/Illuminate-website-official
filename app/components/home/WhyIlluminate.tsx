@@ -15,7 +15,7 @@ const points = [
   },
   {
     tag: "3",
-    title: "Free of Cost, Full Of Form",
+    title: "Free of Cost",
     desc: "While other educational services are locked behind paywalls, we give quality guidance and information for completely free.",
     swatch: "bg-mint/10 text-mint",
   },

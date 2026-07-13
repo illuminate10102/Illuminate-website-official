@@ -64,8 +64,7 @@ export function TimeManagementGuide() {
           <p>
             Hello, in this section, we will be talking about time management, how to
             maintain your time with everything regarding your academics, extracurricular
-            activities, and general social life. Make sure to click on the video or read the
-            article posted below for more information. (example)
+            activities, and general social life. 
           </p>
           <p>
             First off, what is time management? This concept seeks to explain how to

@@ -114,10 +114,10 @@ export default function About() {
                 looking for, email us. A real person reads every message.
               </p>
               <a
-                href="mailto:hello@illuminate.org"
+                href="mailto:illuminate10102@gmail.com"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
-                hello@illuminate.org
+                illuminate10102@gmail.com
               </a>
             </div>
           </div>

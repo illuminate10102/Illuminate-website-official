@@ -22,7 +22,7 @@ const social = [
   { label: "Instagram", href: "#" },
   { label: "Twitter", href: "#" },
   { label: "LinkedIn", href: "#" },
-  { label: "Email", href: "mailto:hello@illuminate.org" },
+  { label: "Email", href: "mailto:illuminate10102@gmail.com" },
 ];
 
 export default function Footer() {

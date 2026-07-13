@@ -54,7 +54,7 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
 
             {variant === "apply" && role.slug !== "directors" && (
               <a
-                href={`mailto:hello@illuminate.org?subject=${encodeURIComponent(
+                href={`mailto:illuminate10102@gmail.com?subject=${encodeURIComponent(
                   `Application: ${role.singular}`,
                 )}`}
                 className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-pen hover:text-pen-dim transition-colors"

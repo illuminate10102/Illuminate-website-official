@@ -97,7 +97,7 @@ export default function GetInvolved() {
               ))}
             </div>
             <a
-              href="mailto:hello@illuminate.org?subject=I%20want%20to%20help"
+              href="mailto:illuminate10102@gmail.com?subject=I%20want%20to%20help"
               className="reveal reveal-3 inline-flex items-center gap-2 mt-12 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
               Tell us you're in <span aria-hidden="true">→</span>
@@ -141,7 +141,7 @@ export default function GetInvolved() {
                 already do. Reach out and tell us what you have in mind.
               </p>
               <a
-                href="mailto:hello@illuminate.org?subject=Partnership%20inquiry"
+                href="mailto:illuminate10102@gmail.com?subject=Partnership%20inquiry"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 Start a conversation
