@@ -36,7 +36,7 @@ export const teamRoles: TeamRole[] = [
     singular: "Associate",
     subtitle: "Content contributors",
     desc: "Students who write guides, do the research, and design the pages. Most people here started as an associate.",
-    members: ["Content Associate", "Research Associate", "Design Associate", "Outreach Associate"],
+    members: ["Content Associate", "Research Associate"],
   },
   {
     slug: "members",

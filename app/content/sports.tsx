@@ -217,7 +217,7 @@ export function SportsGuide() {
 
         <div className="space-y-4 text-ink-soft text-base leading-relaxed">
           <p>
-            A Health is also required, which can be found from the same place you'll find the
+            A Health form is also required, which can be found from the same place you'll find the
             Physical Form on the RankOne website.
           </p>
           <p>

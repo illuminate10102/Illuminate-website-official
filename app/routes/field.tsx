@@ -12,6 +12,11 @@ import {
   researchProgramsSources,
 } from "../content/research-programs";
 import { SportsGuide, sportsAuthor, sportsSources } from "../content/sports";
+import {
+  StudyResourcesGuide,
+  studyResourcesAuthor,
+  studyResourcesSources,
+} from "../content/study-resources";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -43,6 +48,11 @@ const guides: Record<
     Body: SportsGuide,
     sources: sportsSources,
     author: sportsAuthor,
+  },
+  "academics/study-resources": {
+    Body: StudyResourcesGuide,
+    sources: studyResourcesSources,
+    author: studyResourcesAuthor,
   },
 };
 
