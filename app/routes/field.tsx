@@ -6,7 +6,12 @@ import { getField } from "../data/categories";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
 import { GpaStrategyGuide, gpaStrategyAuthor, gpaStrategySources } from "../content/gpa-strategy";
-import { ResearchProgramsGuide, researchProgramsSources } from "../content/research-programs";
+import {
+  ResearchProgramsGuide,
+  researchProgramsAuthor,
+  researchProgramsSources,
+} from "../content/research-programs";
+import { SportsGuide, sportsAuthor, sportsSources } from "../content/sports";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -32,6 +37,12 @@ const guides: Record<
   "extracurriculars/research": {
     Body: ResearchProgramsGuide,
     sources: researchProgramsSources,
+    author: researchProgramsAuthor,
+  },
+  "extracurriculars/sports": {
+    Body: SportsGuide,
+    sources: sportsSources,
+    author: sportsAuthor,
   },
 };
 

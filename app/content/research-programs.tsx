@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { researchPrograms } from "../data/researchPrograms";
 
+export const researchProgramsAuthor = "Sarvesh Shanthibooshan Subramanian";
+
 type SourceLink = {
   label: string;
   href?: string;
@@ -188,11 +190,21 @@ function ResearchProgramsTable() {
         Showing {filtered.length} of {researchPrograms.length} programs
       </p>
 
-      <div className="overflow-auto max-h-[70vh] border border-rule rounded-lg">
-        <table className="w-full text-sm border-collapse">
+      {/* Desktop / tablet: table with wrapping cells, so it fills the available width
+          instead of forcing a horizontal scroll. */}
+      <div className="hidden sm:block overflow-y-auto max-h-[70vh] border border-rule rounded-lg">
+        <table className="w-full table-fixed text-sm border-collapse">
+          <colgroup>
+            <col className="w-[20%]" />
+            <col className="w-[14%]" />
+            <col className="w-[12%]" />
+            <col className="w-[12%]" />
+            <col className="w-[14%]" />
+            <col className="w-[28%]" />
+          </colgroup>
           <thead>
             <tr>
-              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule whitespace-nowrap">
+              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule">
                 <SortButton
                   label="Program"
                   active={sort?.key === "name"}
@@ -200,7 +212,7 @@ function ResearchProgramsTable() {
                   onClick={() => toggleSort("name")}
                 />
               </th>
-              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule whitespace-nowrap">
+              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule">
                 <SortButton
                   label="Field"
                   active={sort?.key === "field"}
@@ -208,7 +220,7 @@ function ResearchProgramsTable() {
                   onClick={() => toggleSort("field")}
                 />
               </th>
-              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule whitespace-nowrap">
+              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule">
                 <SortButton
                   label="Cost"
                   active={sort?.key === "cost"}
@@ -216,7 +228,7 @@ function ResearchProgramsTable() {
                   onClick={() => toggleSort("cost")}
                 />
               </th>
-              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule whitespace-nowrap">
+              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule">
                 <SortButton
                   label="Format"
                   active={sort?.key === "format"}
@@ -224,7 +236,7 @@ function ResearchProgramsTable() {
                   onClick={() => toggleSort("format")}
                 />
               </th>
-              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule whitespace-nowrap">
+              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule">
                 <SortButton
                   label="Eligibility"
                   active={sort?.key === "eligibility"}
@@ -232,7 +244,7 @@ function ResearchProgramsTable() {
                   onClick={() => toggleSort("eligibility")}
                 />
               </th>
-              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule min-w-[220px]">
+              <th className="sticky top-0 z-10 bg-paper-dim text-left p-4 border-b border-rule">
                 Quick description
               </th>
             </tr>
@@ -240,7 +252,7 @@ function ResearchProgramsTable() {
           <tbody className="text-ink-soft">
             {filtered.map((p) => (
               <tr key={p.name} className="hover:bg-paper-dim/60 transition-colors">
-                <td className="p-4 border-b border-rule align-top font-semibold whitespace-nowrap">
+                <td className="p-4 border-b border-rule align-top font-semibold break-words">
                   {p.url ? (
                     <a
                       href={p.url}
@@ -254,13 +266,13 @@ function ResearchProgramsTable() {
                     <span className="text-ink">{p.name}</span>
                   )}
                 </td>
-                <td className="p-4 border-b border-rule align-top whitespace-nowrap">{p.field}</td>
-                <td className="p-4 border-b border-rule align-top whitespace-nowrap">{p.cost}</td>
-                <td className="p-4 border-b border-rule align-top whitespace-nowrap">{p.format}</td>
-                <td className="p-4 border-b border-rule align-top whitespace-nowrap">
+                <td className="p-4 border-b border-rule align-top break-words">{p.field}</td>
+                <td className="p-4 border-b border-rule align-top break-words">{p.cost}</td>
+                <td className="p-4 border-b border-rule align-top break-words">{p.format}</td>
+                <td className="p-4 border-b border-rule align-top break-words">
                   {p.eligibility}
                 </td>
-                <td className="p-4 border-b border-rule align-top">{p.description}</td>
+                <td className="p-4 border-b border-rule align-top break-words">{p.description}</td>
               </tr>
             ))}
             {filtered.length === 0 && (
@@ -272,6 +284,45 @@ function ResearchProgramsTable() {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile: one card per program instead of a cramped table, so every field
+          stays fully readable on a small screen. */}
+      <div className="sm:hidden space-y-4 overflow-y-auto max-h-[70vh] pr-1">
+        {filtered.map((p) => (
+          <div key={p.name} className="border border-rule rounded-lg p-4">
+            <p className="font-semibold text-ink mb-2">
+              {p.url ? (
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ink hover:text-pen transition-colors underline decoration-rule hover:decoration-marker decoration-2 underline-offset-4"
+                >
+                  {p.name} <span aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                p.name
+              )}
+            </p>
+            <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-sm mb-3">
+              <dt className="course-code text-xs uppercase text-ink-soft/70">Field</dt>
+              <dd className="text-ink-soft">{p.field}</dd>
+              <dt className="course-code text-xs uppercase text-ink-soft/70">Cost</dt>
+              <dd className="text-ink-soft">{p.cost}</dd>
+              <dt className="course-code text-xs uppercase text-ink-soft/70">Format</dt>
+              <dd className="text-ink-soft">{p.format}</dd>
+              <dt className="course-code text-xs uppercase text-ink-soft/70">Eligibility</dt>
+              <dd className="text-ink-soft">{p.eligibility}</dd>
+            </dl>
+            <p className="text-ink-soft text-sm leading-relaxed border-t border-rule pt-3">
+              {p.description}
+            </p>
+          </div>
+        ))}
+        {filtered.length === 0 && (
+          <p className="p-8 text-center text-ink-soft">No programs match those filters.</p>
+        )}
       </div>
     </div>
   );
