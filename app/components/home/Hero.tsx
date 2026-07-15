@@ -11,7 +11,7 @@ export default function Hero() {
           ▪ Built for students, by students.
         </p>
 
-        <h1 className="reveal reveal-1 font-display font-black text-[3rem] leading-[0.95] sm:text-[4.5rem] lg:text-[5.75rem] text-chalk tracking-tight max-w-4xl">
+        <h1 className="reveal reveal-1 font-display font-black text-[3rem] leading-[1.4] sm:text-[4.5rem] sm:leading-[0.95] lg:text-[5.75rem] text-chalk tracking-tight max-w-4xl">
           Illuminate your{" "}
           <span className="relative inline-block">
             path.
