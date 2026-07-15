@@ -17,6 +17,11 @@ import {
   studyResourcesAuthor,
   studyResourcesSources,
 } from "../content/study-resources";
+import {
+  MentalPhysicalHealthGuide,
+  mentalHealthAuthor,
+  mentalHealthSources,
+} from "../content/mental-physical-health";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -53,6 +58,11 @@ const guides: Record<
     Body: StudyResourcesGuide,
     sources: studyResourcesSources,
     author: studyResourcesAuthor,
+  },
+  "lifestyle/mental-physical-health": {
+    Body: MentalPhysicalHealthGuide,
+    sources: mentalHealthSources,
+    author: mentalHealthAuthor,
   },
 };
 

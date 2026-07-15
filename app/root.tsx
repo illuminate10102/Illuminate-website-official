@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/png", href: "/illuminate-logo.png" },
@@ -48,6 +49,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useScrollReveal();
   return <Outlet />;
 }
 

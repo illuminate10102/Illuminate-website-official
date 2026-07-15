@@ -55,12 +55,7 @@ export function SportsGuide() {
         <H2>Why play sports in high school?</H2>
         <div className="space-y-4 text-ink-soft text-base sm:text-lg leading-relaxed">
           <p>
-            Playing high school sports such as basketball, football, tennis, or others gives
-            students the opportunity to connect with a larger variety of people on a different
-            level. I mean, making a friend while being tackled down onto the field is much
-            different than saying "Hi" to a new classmate, isn't it? Sports can give students a
-            more personal level of understanding and mutual companionship, which can even
-            extend into adulthood friendships or even personal careers.
+            Playing high school sports such as basketball, football, tennis, or others gives students the opportunity to connect with a larger variety of people and on a different level. I mean, making a friend while being tackled onto the field is definitely a different experience than saying “Hi” to a new classmate in an airconditioned classroom, isn’t it? Sports give students a more personal level of understanding and mutual companionship, which can even extend into adulthood friendships or even personal careers.
           </p>
           <p>
             However, sports aren't just about making friends. It's about showing colleges{" "}
