@@ -19,6 +19,15 @@ type TeamStructureProps = {
   variant?: "info" | "apply";
 };
 
+const APPLICATION_FORM_URL = "https://forms.gle/Q3igdRzBYtkmkYc86";
+
+// Directors and Members don't have an apply link — directors aren't
+// recruited this way, and membership itself doesn't require an application.
+const applyHref: Record<string, string> = {
+  officers: APPLICATION_FORM_URL,
+  associates: APPLICATION_FORM_URL,
+};
+
 export function TeamStructure({ variant = "info" }: TeamStructureProps) {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -52,11 +61,11 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
               ))}
             </ul>
 
-            {variant === "apply" && role.slug !== "directors" && (
+            {variant === "apply" && applyHref[role.slug] && (
               <a
-                href={`mailto:illuminate10102@gmail.com?subject=${encodeURIComponent(
-                  `Application: ${role.singular}`,
-                )}`}
+                href={applyHref[role.slug]}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-pen hover:text-pen-dim transition-colors"
               >
                 Apply as a {role.singular} <span aria-hidden="true">→</span>
