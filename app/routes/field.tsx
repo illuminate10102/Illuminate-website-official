@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { HeroWaves } from "../components/HeroWaves";
+import { VideoPlaceholder } from "../components/VideoPlaceholder";
 import { getField } from "../data/categories";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
@@ -107,25 +108,31 @@ export default function FieldPage() {
           <section className="relative bg-chalkboard overflow-hidden">
             <HeroWaves />
             <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
-              {breadcrumb}
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-10">
+                <div className="min-w-0">
+                  {breadcrumb}
 
-              <span className="reveal reveal-1 course-code text-sm text-marker border border-marker/40 rounded-md px-2 py-0.5 inline-block">
-                {field.code}
-              </span>
+                  <span className="reveal reveal-1 course-code text-sm text-marker border border-marker/40 rounded-md px-2 py-0.5 inline-block">
+                    {field.code}
+                  </span>
 
-              <h1 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-chalk tracking-tight mt-5 mb-4">
-                {field.title}
-              </h1>
+                  <h1 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-chalk tracking-tight mt-5 mb-4">
+                    {field.title}
+                  </h1>
 
-              <p className="reveal reveal-2 text-chalk-soft text-lg leading-relaxed max-w-xl mb-4">
-                {field.blurb}
-              </p>
+                  <p className="reveal reveal-2 text-chalk-soft text-lg leading-relaxed max-w-xl mb-4">
+                    {field.blurb}
+                  </p>
 
-              {author && (
-                <p className="reveal reveal-2 course-code text-xs text-chalk-soft uppercase">
-                  Written by a student — {author}
-                </p>
-              )}
+                  {author && (
+                    <p className="reveal reveal-2 course-code text-xs text-chalk-soft uppercase">
+                      Written by a student — {author}
+                    </p>
+                  )}
+                </div>
+
+                <VideoPlaceholder />
+              </div>
             </div>
           </section>
 
