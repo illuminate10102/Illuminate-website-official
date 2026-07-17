@@ -13,7 +13,6 @@ const columns: Record<string, { label: string; href: string }[]> = {
     { label: "About us", href: "/about" },
     { label: "Our team", href: "/about#team" },
     { label: "Get involved", href: "/get-involved" },
-    { label: "Partner with us", href: "/get-involved#partner" },
     { label: "Contact", href: "/about#contact" },
   ],
 };
