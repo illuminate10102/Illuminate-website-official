@@ -33,8 +33,7 @@ const raw: RawCategory[] = [
     slug: "extracurriculars",
     code: "EC",
     label: "Extracurriculars",
-    intro:
-      "Not every activity belongs on your list. Here's how to pick the ones that matter and go deep instead of wide.",
+    intro: "",
     tiers: [
       {
         label: "Arts & performance",
@@ -83,8 +82,7 @@ const raw: RawCategory[] = [
     slug: "academics",
     code: "AC",
     label: "Academics",
-    intro:
-      "Grades and course selection, without the panic. Here's how to build a schedule and a GPA you're not embarrassed by.",
+    intro: "",
     tiers: [
       {
         label: "GPA & Performance",
@@ -120,7 +118,7 @@ const raw: RawCategory[] = [
     slug: "testing",
     code: "ST",
     label: "Standardized testing",
-    intro: "SAT, ACT, and PSAT — picking one, prepping for it, and not letting it take over your life.",
+    intro: "",
     tiers: [
       {
         label: "Standardized Tests",
@@ -146,8 +144,7 @@ const raw: RawCategory[] = [
     slug: "lifestyle",
     code: "LF",
     label: "Lifestyle",
-    intro:
-      "The parts of high school nobody puts on a resume — sleep, friendships, and not burning out before senior year.",
+    intro: "",
     tiers: [
       {
         label: "Productivity",
@@ -186,7 +183,7 @@ const raw: RawCategory[] = [
     slug: "college",
     code: "CP",
     label: "College prep",
-    intro: "Applications, essays, and financial aid — laid out in the order you'll actually need them.",
+    intro: "",
     tiers: [
       {
         label: "Choosing a College",
@@ -218,7 +215,7 @@ const raw: RawCategory[] = [
     slug: "summer",
     code: "SP",
     label: "Summer planning",
-    intro: "Ten free weeks is a lot of time. Here's how to spend it without wasting it or overbooking yourself.",
+    intro: "",
     tiers: [
       {
         label: "Planning & Programs",

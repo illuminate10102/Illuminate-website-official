@@ -43,7 +43,7 @@ export const teamRoles: TeamRole[] = [
     title: "Members",
     singular: "Member",
     subtitle: "Community",
-    desc: "Anyone using the guides, coming to a workshop, or telling a friend about us. Everyone starts here.",
+    desc: "Anyone using the guides, coming to a workshop, or telling a friend about us. ",
     members: ["General member", "Workshop attendee", "Community contributor"],
   },
 ];

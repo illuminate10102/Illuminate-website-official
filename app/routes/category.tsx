@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { HeroWaves } from "../components/HeroWaves";
-import { getCategory, categoryFieldCount } from "../data/categories";
+import { getCategory } from "../data/categories";
 import { Icon, categoryIcon, iconBadgeClasses } from "../components/Icon";
 
 export function meta({ params }: { params: { category?: string } }) {
@@ -22,8 +22,6 @@ export default function CategoryPage() {
     return <CategoryNotFound />;
   }
 
-  const count = categoryFieldCount(category);
-
   return (
     <div key={category.slug} className="min-h-screen flex flex-col">
       <Navbar />
@@ -41,12 +39,11 @@ export default function CategoryPage() {
             <h1 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-chalk tracking-tight max-w-2xl">
               {category.label}
             </h1>
-            <p className="reveal reveal-2 text-chalk-soft text-lg leading-relaxed mt-6 max-w-xl">
-              {category.intro}
-            </p>
-            <p className="reveal reveal-3 course-code text-xs text-chalk-soft mt-8">
-              {count} guides, sorted by what to do first
-            </p>
+            {category.intro && (
+              <p className="reveal reveal-2 text-chalk-soft text-lg leading-relaxed mt-6 max-w-xl">
+                {category.intro}
+              </p>
+            )}
           </div>
         </section>
 

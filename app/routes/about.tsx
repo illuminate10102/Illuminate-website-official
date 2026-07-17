@@ -111,7 +111,7 @@ export default function About() {
               </h2>
               <p className="text-chalk-soft text-xl leading-relaxed mb-10">
                 If a guide got something wrong, or you can't find what you're
-                looking for, email us. A real person reads every message.
+                looking for, email us.
               </p>
               <a
                 href="mailto:illuminate10102@gmail.com"

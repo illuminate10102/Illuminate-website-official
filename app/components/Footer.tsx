@@ -75,9 +75,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-6 border-t border-rule-dark flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-chalk-soft/70">
+        <div className="mt-12 pt-6 border-t border-rule-dark flex flex-col sm:flex-row items-center gap-3 font-mono text-xs text-chalk-soft/70">
           <p>© {new Date().getFullYear()} Illuminate. Student-led. Nonprofit.</p>
-          <p>Made by students, for students.</p>
         </div>
       </div>
     </footer>
