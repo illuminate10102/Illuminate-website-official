@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { HeroWaves } from "../components/HeroWaves";
 import { getCategory } from "../data/categories";
-import { Icon, categoryIcon, iconBadgeClasses } from "../components/Icon";
+import { Icon } from "../components/Icon";
+import { tierHueStyle } from "../lib/tierStyle";
 
 export function meta({ params }: { params: { category?: string } }) {
   const category = getCategory(params.category);
@@ -50,8 +51,11 @@ export default function CategoryPage() {
         <section className="bg-paper py-20 sm:py-28">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
             {category.tiers.map((tier) => (
-              <div key={tier.label} className="reveal">
-                <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-6">
+              <div key={tier.label} className="reveal" style={tierHueStyle(tier.hue)}>
+                <p
+                  className="font-mono text-xs uppercase tracking-[0.15em] mb-6"
+                  style={{ color: "var(--tier-accent)" }}
+                >
                   {tier.label}
                 </p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,15 +67,27 @@ export default function CategoryPage() {
                     >
                       <div className="flex items-center gap-3 mb-5">
                         <span
-                          className={`flex items-center justify-center w-9 h-9 rounded-full shrink-0 ${iconBadgeClasses(categoryIcon(category.slug))}`}
+                          className="flex items-center justify-center w-9 h-9 rounded-full shrink-0"
+                          style={{
+                            background: "var(--tier-accent-wash)",
+                            color: "var(--tier-accent)",
+                          }}
                         >
-                          <Icon name={categoryIcon(category.slug)} className="w-4 h-4" />
+                          <Icon name={field.icon} className="w-4 h-4" />
                         </span>
-                        <span className="course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5 w-fit">
+                        <span
+                          className="course-code text-sm rounded-md px-2 py-0.5 w-fit border"
+                          style={{
+                            color: "var(--tier-accent)",
+                            borderColor: "var(--tier-accent-border)",
+                          }}
+                        >
                           {field.code}
                         </span>
                       </div>
-                      <h3 className="font-subtitle font-bold text-3xl text-ink group-hover:text-pen underline decoration-transparent group-hover:decoration-marker decoration-4 underline-offset-4 transition-colors mb-2">
+                      <h3
+                        className="font-subtitle font-bold text-3xl text-ink underline decoration-transparent group-hover:decoration-4 underline-offset-4 transition-colors mb-2 group-hover:text-[var(--tier-accent)] group-hover:decoration-[var(--tier-accent)]"
+                      >
                         {field.title}
                       </h3>
                       <p className="text-ink-soft text-base leading-relaxed">

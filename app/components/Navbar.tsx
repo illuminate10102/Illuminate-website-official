@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { ThemeToggle } from "./ThemeToggle";
 import { SearchBox } from "./SearchBox";
+import { Icon } from "./Icon";
 import { getCategory, type Category } from "../data/categories";
+import { tierHueStyle } from "../lib/tierStyle";
 
 const primaryLinks = [
   { label: "About", href: "/about" },
@@ -65,16 +67,27 @@ function TierFieldList({
       }
     >
       {category.tiers.map((tier) => (
-        <div key={tier.label}>
-          <p className="course-code text-[0.65rem] uppercase text-pen mb-4">{tier.label}</p>
-          <ul className="space-y-2">
+        <div key={tier.label} style={tierHueStyle(tier.hue)}>
+          <p
+            className="course-code text-[0.65rem] uppercase mb-4"
+            style={{ color: "var(--tier-accent)" }}
+          >
+            {tier.label}
+          </p>
+          <ul className="space-y-1.5">
             {tier.fields.map((field) => (
               <li key={field.slug}>
                 <Link
                   to={`/${category.slug}/${field.slug}`}
                   onClick={onNavigate}
-                  className="text-sm text-ink-soft hover:text-ink transition-colors block py-0.5"
+                  className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1 rounded-md"
                 >
+                  <span
+                    className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
+                    style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+                  >
+                    <Icon name={field.icon} className="w-3.5 h-3.5" />
+                  </span>
                   {field.title}
                 </Link>
               </li>

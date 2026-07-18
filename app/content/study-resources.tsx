@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { H2 } from "../components/content/Prose";
 
 type SourceLink = {
   label: string;
@@ -15,14 +16,6 @@ export const studyResourcesSources: SourceLink[] = [
     note: "Extra study resource link mentioned below — not used as a source for this guide.",
   },
 ];
-
-function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink tracking-tight mb-5">
-      {children}
-    </h2>
-  );
-}
 
 function DataTable({ columns, rows }: { columns: string[]; rows: string[][] }) {
   return (

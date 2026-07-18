@@ -1,3 +1,5 @@
+import { Callout, H2, H3, ul } from "../components/content/Prose";
+
 type SourceLink = {
   label: string;
   href?: string;
@@ -20,33 +22,6 @@ export const sportsSources: SourceLink[] = [
     note: "Where you apply to exempt a sports course from your GPA, starting in 10th grade.",
   },
 ];
-
-function Callout({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="border border-marker/50 bg-marker/10 rounded-lg p-5">
-      <p className="font-mono text-xs uppercase tracking-wide text-ink mb-2">{label}</p>
-      <div className="text-ink text-sm sm:text-base leading-relaxed">{children}</div>
-    </div>
-  );
-}
-
-function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink tracking-tight mb-5">
-      {children}
-    </h2>
-  );
-}
-
-function H3({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="font-subtitle font-bold text-xl text-ink tracking-tight mb-3 mt-8">
-      {children}
-    </h3>
-  );
-}
-
-const ul = "space-y-2.5 text-ink-soft text-base leading-relaxed list-disc pl-5 marker:text-pen";
 
 export function SportsGuide() {
   return (

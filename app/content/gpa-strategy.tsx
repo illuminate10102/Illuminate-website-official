@@ -1,3 +1,5 @@
+import { H2, H3, ul } from "../components/content/Prose";
+
 type SourceLink = {
   label: string;
   href?: string;
@@ -20,24 +22,6 @@ export const gpaStrategySources: SourceLink[] = [
     href: "https://prepexpert.com/how-to-improve-your-gpa/",
   },
 ];
-
-function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink tracking-tight mb-5">
-      {children}
-    </h2>
-  );
-}
-
-function H3({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="font-subtitle font-bold text-xl text-ink tracking-tight mb-3 mt-8">
-      {children}
-    </h3>
-  );
-}
-
-const ul = "space-y-2.5 text-ink-soft text-base leading-relaxed list-disc pl-5 marker:text-pen";
 
 export function GpaStrategyGuide() {
   return (

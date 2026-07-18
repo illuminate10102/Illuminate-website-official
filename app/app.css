@@ -54,6 +54,31 @@
 :root {
   --shadow-rest: 0 1px 2px 0 oklch(0.2 0.05 264 / 6%);
   --shadow-hover: 0 20px 40px -14px oklch(0.2 0.05 264 / 22%), 0 8px 18px -8px oklch(0.2 0.05 264 / 16%);
+
+  /* Tier-accent system: each category/tier sets --tier-h (a hue angle,
+     0-360) on a wrapper element, via the tierHueStyle() helper in
+     lib/tierStyle.ts — which ALSO re-declares --tier-accent and friends
+     on that same element. That second part matters: custom properties
+     inherit their already-*resolved* value, not a live formula, so a
+     --tier-accent composed once here at :root would freeze at the
+     fallback hue for every descendant regardless of --tier-h. Re-stating
+     the oklch(...) formula at the point --tier-h changes forces a fresh
+     resolution there, which then inherits correctly further down.
+     --tier-l/-c/-wash-a/-border-a are plain (non-derived) values, so they
+     don't have this problem and only need to vary per theme, below. */
+  --tier-l: 0.5;
+  --tier-c: 0.15;
+  --tier-wash-a: 10%;
+  --tier-border-a: 32%;
+  --tier-accent: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264));
+  --tier-accent-wash: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-wash-a));
+  --tier-accent-border: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-border-a));
+
+  /* Fixed-light variant for the chalkboard hero band, which stays dark
+     navy in both site themes — mirrors how --color-marker/--color-chalk
+     are used there instead of --color-ink. */
+  --tier-accent-chalk: oklch(0.82 0.1 var(--tier-h, 264));
+  --tier-accent-chalk-border: oklch(0.82 0.1 var(--tier-h, 264) / 45%);
 }
 
 :root[data-theme="light"] {
@@ -83,12 +108,23 @@
   --color-amber: oklch(0.74 0.15 55);
   --color-heading: oklch(0.7 0.13 70); /* yellow ochre */
 
+  --tier-l: 0.74;
+  --tier-c: 0.16;
+  --tier-wash-a: 16%;
+  --tier-border-a: 38%;
+  --tier-accent-wash: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-wash-a));
+  --tier-accent-border: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-border-a));
+
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.7 0.18 264 / 22%),
     0 10px 24px -10px oklch(0.7 0.18 264 / 30%);
 
-  /* Subtle glow effect for body text in dark mode */
-  --text-glow: 0 0 8px oklch(0.7 0.18 264 / 20%);
+  /* Layered glow for body/description copy in dark mode: a tight bright
+     core so glyphs stay crisp, plus two wider soft passes for the ambient
+     halo. Tuned brighter than a typical shadow because a single soft pass
+     at low opacity reads as nothing against navy. */
+  --text-glow: 0 0 1px oklch(0.9 0.05 264 / 65%), 0 0 8px oklch(0.72 0.19 264 / 55%),
+    0 0 20px oklch(0.62 0.22 264 / 30%);
 }
 
 html,
@@ -250,13 +286,89 @@ main {
   display: none;
 }
 
-/* Add subtle glow to body text in dark mode */
-:root[data-theme="dark"] p,
-:root[data-theme="dark"] li,
-:root[data-theme="dark"] td,
-:root[data-theme="dark"] span.text-ink,
-:root[data-theme="dark"] span.text-ink-soft,
-:root[data-theme="dark"] div.text-ink,
-:root[data-theme="dark"] div.text-ink-soft {
+/* Glow on description/body copy in dark mode — deliberately NOT applied to
+   headings (.font-display / h1-h3) or mono labels, so it reads as "this
+   text is lit from within" rather than a blanket effect on the page. */
+:root[data-theme="dark"] .text-ink-soft,
+:root[data-theme="dark"] .text-chalk-soft,
+:root[data-theme="dark"] article p,
+:root[data-theme="dark"] article li,
+:root[data-theme="dark"] article td {
   text-shadow: var(--text-glow);
+}
+
+/* Guide-content prose system — colored per tier via --tier-h (see :root
+   above). One definition shared by every content/*.tsx guide instead of
+   each file hand-rolling its own callout/list styling. */
+.prose-callout {
+  border: 1px solid var(--tier-accent-border);
+  background: var(--tier-accent-wash);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+.prose-callout-icon {
+  color: var(--tier-accent);
+}
+
+.prose-ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose-ul > li::marker {
+  color: var(--tier-accent);
+}
+
+.prose-ol {
+  list-style: none;
+  counter-reset: prose-step;
+  padding-left: 0;
+}
+.prose-ol > li {
+  counter-increment: prose-step;
+  position: relative;
+  padding-left: 2.5rem;
+}
+.prose-ol > li::before {
+  content: counter(prose-step);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--tier-accent);
+  color: oklch(1 0 0);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prose-check {
+  list-style: none;
+  padding-left: 0;
+}
+.prose-check > li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+.prose-check > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: oklch(0.55 0.13 155 / 16%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23197a4f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.65rem;
+}
+:root[data-theme="dark"] .prose-check > li::before {
+  background-color: oklch(0.68 0.14 155 / 22%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a8e6c8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
 }

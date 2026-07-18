@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { HeroWaves } from "../components/HeroWaves";
 import { VideoPlaceholder } from "../components/VideoPlaceholder";
 import { getField } from "../data/categories";
+import { tierHueStyle } from "../lib/tierStyle";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
 import { GpaStrategyGuide, gpaStrategyAuthor, gpaStrategySources } from "../content/gpa-strategy";
@@ -84,7 +85,7 @@ export default function FieldPage() {
     return <FieldNotFound />;
   }
 
-  const { category, field } = result;
+  const { category, tier, field } = result;
   const guide = guides[`${category.slug}/${field.slug}`];
 
   const breadcrumb = (
@@ -102,7 +103,11 @@ export default function FieldPage() {
   if (guide) {
     const { Body, sources, author } = guide;
     return (
-      <div key={`${category.slug}/${field.slug}`} className="min-h-screen flex flex-col">
+      <div
+        key={`${category.slug}/${field.slug}`}
+        className="min-h-screen flex flex-col"
+        style={tierHueStyle(tier.hue)}
+      >
         <Navbar />
         <main className="flex-1">
           <section className="relative bg-chalkboard overflow-hidden">
@@ -112,7 +117,13 @@ export default function FieldPage() {
                 <div className="min-w-0">
                   {breadcrumb}
 
-                  <span className="course-code text-sm text-marker border border-marker/40 rounded-md px-2 py-0.5 inline-block">
+                  <span
+                    className="course-code text-sm rounded-md px-2 py-0.5 inline-block border"
+                    style={{
+                      color: "var(--tier-accent-chalk)",
+                      borderColor: "var(--tier-accent-chalk-border)",
+                    }}
+                  >
                     {field.code}
                   </span>
 
@@ -190,7 +201,11 @@ export default function FieldPage() {
   }
 
   return (
-    <div key={`${category.slug}/${field.slug}`} className="min-h-screen flex flex-col">
+    <div
+      key={`${category.slug}/${field.slug}`}
+      className="min-h-screen flex flex-col"
+      style={tierHueStyle(tier.hue)}
+    >
       <Navbar />
       <main className="flex-1">
         <section className="relative bg-chalkboard overflow-hidden">
@@ -198,7 +213,13 @@ export default function FieldPage() {
           <div className="relative max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
             {breadcrumb}
 
-            <span className="course-code text-sm text-marker border border-marker/40 rounded-md px-2 py-0.5 inline-block">
+            <span
+              className="course-code text-sm rounded-md px-2 py-0.5 inline-block border"
+              style={{
+                color: "var(--tier-accent-chalk)",
+                borderColor: "var(--tier-accent-chalk-border)",
+              }}
+            >
               {field.code}
             </span>
 

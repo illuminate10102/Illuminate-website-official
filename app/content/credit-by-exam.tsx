@@ -1,3 +1,5 @@
+import { Callout, H2, H3, ul, nestedUl, ol } from "../components/content/Prose";
+
 type SourceLink = {
   label: string;
   href: string;
@@ -31,34 +33,6 @@ export const creditByExamSources: SourceLink[] = [
     note: "All study guides are posted here.",
   },
 ];
-
-function Callout({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="border border-marker/50 bg-marker/10 rounded-lg p-5">
-      <p className="font-mono text-xs uppercase tracking-wide text-ink mb-2">{label}</p>
-      <div className="text-ink text-sm sm:text-base leading-relaxed">{children}</div>
-    </div>
-  );
-}
-
-function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink tracking-tight mb-5">
-      {children}
-    </h2>
-  );
-}
-
-function H3({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="font-subtitle font-bold text-xl text-ink tracking-tight mb-3 mt-8">
-      {children}
-    </h3>
-  );
-}
-
-const ul = "space-y-2.5 text-ink-soft text-base leading-relaxed list-disc pl-5 marker:text-pen";
-const nestedUl = "space-y-2 text-ink-soft text-base leading-relaxed list-[circle] pl-5 mt-2 marker:text-pen";
 
 export function CreditByExamGuide() {
   return (
@@ -298,7 +272,7 @@ export function CreditByExamGuide() {
         <H2>Skipping a course — junior high level — KAP math</H2>
 
         <p className="course-code text-xs text-ink-soft uppercase mb-3">Math steps</p>
-        <ol className="space-y-1.5 text-ink-soft text-base leading-relaxed list-decimal pl-5 marker:text-pen mb-8">
+        <ol className={`${ol} mb-8`}>
           <li>6th-grade Math</li>
           <li>Seventh-grade Math</li>
           <li>8th-grade Math</li>

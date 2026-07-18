@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { researchPrograms } from "../data/researchPrograms";
+import { Callout, H2 } from "../components/content/Prose";
 
 export const researchProgramsAuthor = "Sarvesh Shanthibooshan Subramanian";
 
@@ -15,23 +16,6 @@ export const researchProgramsSources: SourceLink[] = [
     note: "Cost, format, and eligibility can change year to year — confirm current details on each program's official page before applying.",
   },
 ];
-
-function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink tracking-tight mb-5">
-      {children}
-    </h2>
-  );
-}
-
-function Callout({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="border border-marker/50 bg-marker/10 rounded-lg p-5 mb-5">
-      <p className="font-mono text-xs uppercase tracking-wide text-ink mb-2">{label}</p>
-      <div className="text-ink text-sm sm:text-base leading-relaxed">{children}</div>
-    </div>
-  );
-}
 
 const COST_OPTIONS = ["All", "Free", "Paid"] as const;
 type CostFilter = (typeof COST_OPTIONS)[number];

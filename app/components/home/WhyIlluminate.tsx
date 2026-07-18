@@ -35,7 +35,7 @@ export default function WhyIlluminate() {
           <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
             Why Illuminate
           </p>
-          <h2 className="reveal reveal-1 font-display font-extrabold text-6xl sm:text-7xl text-ink tracking-tight mb-8">
+          <h2 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-ink tracking-tight mb-8">
             The gap isn't information.{" "}
             <span className="marker-stroke">It's access.</span>
           </h2>
