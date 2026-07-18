@@ -86,6 +86,9 @@
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.7 0.18 264 / 22%),
     0 10px 24px -10px oklch(0.7 0.18 264 / 30%);
+
+  /* Subtle glow effect for body text in dark mode */
+  --text-glow: 0 0 8px oklch(0.7 0.18 264 / 20%);
 }
 
 html,
@@ -194,8 +197,8 @@ main {
    element is observed, so content is never hidden without something
    watching to reveal it again. */
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: translateY(0);
 }
 .scroll-reveal.is-visible {
   opacity: 1;
@@ -245,4 +248,15 @@ main {
 
 :root[data-theme="dark"] .hero-waves {
   display: none;
+}
+
+/* Add subtle glow to body text in dark mode */
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] li,
+:root[data-theme="dark"] td,
+:root[data-theme="dark"] span.text-ink,
+:root[data-theme="dark"] span.text-ink-soft,
+:root[data-theme="dark"] div.text-ink,
+:root[data-theme="dark"] div.text-ink-soft {
+  text-shadow: var(--text-glow);
 }
