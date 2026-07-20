@@ -118,13 +118,6 @@
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.7 0.18 264 / 22%),
     0 10px 24px -10px oklch(0.7 0.18 264 / 30%);
-
-  /* Layered glow for body/description copy in dark mode: a tight bright
-     core so glyphs stay crisp, plus two wider soft passes for the ambient
-     halo. Tuned brighter than a typical shadow because a single soft pass
-     at low opacity reads as nothing against navy. */
-  --text-glow: 0 0 1px oklch(0.9 0.05 264 / 65%), 0 0 8px oklch(0.72 0.19 264 / 55%),
-    0 0 20px oklch(0.62 0.22 264 / 30%);
 }
 
 html,
@@ -286,15 +279,15 @@ main {
   display: none;
 }
 
-/* Glow on description/body copy in dark mode — deliberately NOT applied to
-   headings (.font-display / h1-h3) or mono labels, so it reads as "this
-   text is lit from within" rather than a blanket effect on the page. */
-:root[data-theme="dark"] .text-ink-soft,
-:root[data-theme="dark"] .text-chalk-soft,
+/* Content-page description copy in dark mode reads pure white rather than
+   the site-wide muted ink-soft grey — deliberately scoped to `article`
+   (the guide body) only, so hero blurbs, card copy, and every other use
+   of .text-ink-soft elsewhere on the site keep their normal muted tone. */
+:root[data-theme="dark"] article .text-ink-soft,
 :root[data-theme="dark"] article p,
 :root[data-theme="dark"] article li,
 :root[data-theme="dark"] article td {
-  text-shadow: var(--text-glow);
+  color: oklch(1 0 0);
 }
 
 /* Guide-content prose system — colored per tier via --tier-h (see :root
