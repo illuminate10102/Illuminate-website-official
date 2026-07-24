@@ -79,6 +79,10 @@
      are used there instead of --color-ink. */
   --tier-accent-chalk: oklch(0.82 0.1 var(--tier-h, 264));
   --tier-accent-chalk-border: oklch(0.82 0.1 var(--tier-h, 264) / 45%);
+
+  /* Nav-pill chip background, top nav. */
+  --nav-pill-bg: oklch(0.52 0.22 264 / 7%);
+  --nav-pill-bg-hover: oklch(0.52 0.22 264 / 15%);
 }
 
 :root[data-theme="light"] {
@@ -114,6 +118,9 @@
   --tier-border-a: 38%;
   --tier-accent-wash: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-wash-a));
   --tier-accent-border: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-border-a));
+
+  --nav-pill-bg: oklch(0.7 0.18 264 / 12%);
+  --nav-pill-bg-hover: oklch(0.7 0.18 264 / 22%);
 
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.7 0.18 264 / 22%),
@@ -244,24 +251,15 @@ main {
   }
 }
 
-/* Underline that grows in from the left on hover — used for the top nav. */
-.nav-link {
-  position: relative;
+/* Small tinted background behind each top-level nav label — brand blue at
+   low, theme-tuned opacity (--nav-pill-bg, set per-theme at :root above)
+   so the chip reads clearly in both themes. */
+.nav-pill {
+  background: var(--nav-pill-bg);
+  transition: background-color 0.2s ease;
 }
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0.625rem;
-  right: 0.625rem;
-  bottom: 0.2rem;
-  height: 1.5px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.nav-link:hover::after {
-  transform: scaleX(1);
+.nav-pill:hover {
+  background: var(--nav-pill-bg-hover);
 }
 
 /* Decorative wave strokes for navy title bands — warm yellow-ochre accents

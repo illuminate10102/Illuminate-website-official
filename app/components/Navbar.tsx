@@ -168,7 +168,7 @@ export default function Navbar() {
 
           <nav
             ref={desktopNavRef}
-            className="hidden lg:flex items-center gap-0.5 font-sans text-sm font-semibold text-ink"
+            className="hidden xl:flex items-center gap-2 font-sans text-sm font-semibold text-ink"
           >
             {primaryLinks.map((item, i) => {
               const category = getCategory(item.href.slice(1));
@@ -176,13 +176,13 @@ export default function Navbar() {
               return (
                 <span
                   key={item.href}
-                  className="flex items-center relative shrink-0"
+                  className="nav-pill group flex items-center relative shrink-0 rounded-lg"
                   onMouseEnter={() => category && openOnHover(category.slug)}
                   onMouseLeave={() => category && scheduleClose()}
                 >
                   <Link
                     to={item.href}
-                    className="nav-link px-2.5 py-2 hover:text-pen transition-colors"
+                    className="px-2.5 py-2 font-bold group-hover:text-pen transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -193,7 +193,7 @@ export default function Navbar() {
                       aria-expanded={isOpen}
                       aria-haspopup="true"
                       aria-label={`${item.label} guide list`}
-                      className="p-1 -ml-1.5 mr-1 text-ink-soft hover:text-pen transition-colors"
+                      className="p-1 -ml-1.5 mr-1 text-ink-soft group-hover:text-pen transition-colors"
                     >
                       <ChevronIcon open={isOpen} />
                     </button>
@@ -236,7 +236,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="lg:hidden flex flex-col justify-center gap-1.5 w-9 h-9"
+              className="xl:hidden flex flex-col justify-center gap-1.5 w-9 h-9"
               aria-label="Toggle menu"
               aria-expanded={open}
             >
@@ -248,18 +248,18 @@ export default function Navbar() {
         </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-rule bg-paper">
+        <nav className="xl:hidden border-t border-rule bg-paper">
           <ul className="max-w-[1280px] mx-auto px-4 sm:px-6 py-2">
             {primaryLinks.map((item) => {
               const category = getCategory(item.href.slice(1));
               const isOpen = !!category && openMobile === category.slug;
               return (
-                <li key={item.href} className="border-b border-rule last:border-b-0">
-                  <div className="flex items-center justify-between">
+                <li key={item.href}>
+                  <div className="nav-pill flex items-center justify-between rounded-lg my-2">
                     <Link
                       to={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex-1 block py-3 course-code text-base font-semibold uppercase text-ink hover:text-pen transition-colors"
+                      className="flex-1 block py-3 px-3 course-code text-base font-bold uppercase text-ink hover:text-pen transition-colors"
                     >
                       {item.label}
                     </Link>
