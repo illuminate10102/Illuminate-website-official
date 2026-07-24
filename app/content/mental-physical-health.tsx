@@ -31,7 +31,7 @@ export function MentalPhysicalHealthGuide() {
             Welcome! On this page, we are going to talk about how to maintain your mental and
             physical health, and why they are so important. Your mental and physical health are
             important for your well-being, and failing to maintain them can have dire
-            consequences
+            consequences.
           </p>
           <p>
             <strong className="text-ink font-semibold">
@@ -76,7 +76,7 @@ export function MentalPhysicalHealthGuide() {
       <section>
         <H2>Why does it matter?</H2>
         <p className="text-ink-soft text-base leading-relaxed mb-3">
-          Good mental and physical health will lead to-
+          Good mental and physical health will lead to:
         </p>
         <ul className={ul}>
           <li>Good mood</li>
@@ -89,7 +89,7 @@ export function MentalPhysicalHealthGuide() {
         </ul>
 
         <p className="text-ink-soft text-base leading-relaxed mt-8 mb-3">
-          Poor mental and physical health will lead to-
+          Poor mental and physical health will lead to:
         </p>
         <ul className={ul}>
           <li>Loss of patience</li>
@@ -135,16 +135,16 @@ export function MentalPhysicalHealthGuide() {
           <p>"I want to study for my AP Chemistry Test!"</p>
           <p className="mt-3">My schedule</p>
           <p className="mt-2">
-            5:30- 6:30 study
+            5:30–6:30 – Study
             <br />
-            6:30- break- 10 minutes
+            6:30–6:40 – Break
             <br />
-            6:40-7:30 study
+            6:40–7:30 – Study
           </p>
         </Callout>
 
         <p className="text-ink-soft text-base leading-relaxed mt-6 mb-2">
-          You can use apps such as-
+          You can use apps such as:
         </p>
         <ul className={ul}>
           <li>Toggl Track</li>
@@ -156,7 +156,7 @@ export function MentalPhysicalHealthGuide() {
           Staying active is an important aspect of maintaining your mental and physical health.
           Exercise helps improve your mood, minimize your stress, make you more energized, and
           make your body strong and healthy. An active lifestyle can lead to long-term benefits
-          for your well-being. Ways to be active include -
+          for your well-being. Ways to be active include:
         </p>
         <ul className={ul}>
           <li>Going for a walk</li>
@@ -167,7 +167,7 @@ export function MentalPhysicalHealthGuide() {
         </ul>
 
         <p className="text-ink-soft text-base leading-relaxed mt-6 mb-2">
-          You can use apps such as-
+          You can use apps such as:
         </p>
         <ul className={ul}>
           <li>Critique AI</li>
@@ -187,7 +187,7 @@ export function MentalPhysicalHealthGuide() {
           health. Eating a balanced meal with fruits, veggies, and proteins, helps your body be
           as healthy as it can get. You should avoid eating junk food such as cheeseburgers,
           pizza, and cake on a daily basis but you can enjoy these foods as an occasional treat.
-          Healthy foods include-
+          Healthy foods include:
         </p>
         <ul className={ul}>
           <li>
@@ -208,7 +208,7 @@ export function MentalPhysicalHealthGuide() {
         </ul>
 
         <p className="text-ink-soft text-base leading-relaxed mt-6 mb-2">
-          You can use apps such as-
+          You can use apps such as:
         </p>
         <ul className={ul}>
           <li>Critique AI</li>
@@ -217,7 +217,7 @@ export function MentalPhysicalHealthGuide() {
 
       <section>
         <p className="text-ink-soft text-base leading-relaxed mb-6">
-          Here are some Pros and Cons of many strategies to maintain your health
+          Here are some pros and cons of different strategies to maintain your health.
         </p>
         <div className="overflow-x-auto border border-rule rounded-lg">
           <table className="w-full text-sm sm:text-base border-collapse">
@@ -259,7 +259,7 @@ export function MentalPhysicalHealthGuide() {
               </tr>
               <tr>
                 <td className="p-4 align-top font-semibold text-ink">Limiting screen time</td>
-                <td className="p-4 align-top">Improves focus, sleep and eye health.</td>
+                <td className="p-4 align-top">Improves focus, sleep, and eye health</td>
                 <td className="p-4 align-top">
                   Many people need phones for texting, work, and school
                 </td>
@@ -274,13 +274,13 @@ export function MentalPhysicalHealthGuide() {
           Here are some resources/tips to get started.
         </p>
 
-        <H3>Tips to get Started-</H3>
+        <H3>Tips to get started</H3>
         <ol className={ol}>
           <li>Have realistic goals (Don't start too big!)</li>
           <li>Take small breaks when under stress over school/work</li>
           <li>Eat nutritious meals</li>
           <li>Find activities that you enjoy, such as playing sports, walking, and running</li>
-          <li>Stay hydrated- Drink a healthy amount of water to keep your body hydrated.</li>
+          <li>Stay hydrated — drink a healthy amount of water throughout the day.</li>
         </ol>
 
         <H3>Resource Apps</H3>

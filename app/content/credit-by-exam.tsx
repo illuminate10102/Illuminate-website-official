@@ -44,7 +44,7 @@ export function CreditByExamGuide() {
             Hello everyone, my name is Nidhish Kakkireni! My experience with the CBE can be
             described in one word: unexpected. It all started when my KAP 6th-grade math
             teacher saw me excel in the subject and learn concepts incredibly fast. This led
-            my teacher to suggest me to take the Credit By Exam to skip 7th and 8th grade
+            my teacher to suggest that I take the Credit By Exam to skip 7th and 8th grade
             math and move to Algebra 1 in my 7th grade year. Now, this was my mindset during
             that time. I had just moved to the US from my home country and was unfamiliar
             with the Katy ISD and US education systems. Hence, because it was a teacher
@@ -63,7 +63,7 @@ export function CreditByExamGuide() {
         <H2>Lessons from my experience</H2>
         <ul className={ul}>
           <li>
-            Skipping the 8th grade CBE contained far more rigour compared to the 6th grade
+            Skipping the 8th grade CBE contained far more rigor compared to the 6th grade
             CBE that most of my future friends took.
           </li>
           <li>
@@ -73,7 +73,7 @@ export function CreditByExamGuide() {
           <li>
             Adding on to the previous point, taking the 6th-grade CBE might be a greater
             challenge than the 8th-grade one. This is because there is typically a big jump
-            in rigour compared to middle school and elementary math. That is also why many
+            in rigor compared to middle school and elementary math. That is also why many
             people who pass the CBE score extremely high if they skip the 8th grade compared
             to the 6th grade.
           </li>
@@ -85,7 +85,7 @@ export function CreditByExamGuide() {
           <li>
             <strong className="text-ink font-semibold">Impact on future grades:</strong> Every
             middle school math course contains some extremely fundamental concepts that are
-            crucial for future maths. Hence, you also need to consider if you will be able to
+            crucial for future math. Hence, you also need to consider if you will be able to
             carry on the concepts that you have self-learned to the next level without
             teacher assistance (but that shouldn't be the main reason to stop you from taking
             the CBE, because most of my future teachers were very flexible in explaining
@@ -99,7 +99,7 @@ export function CreditByExamGuide() {
         <ul className={ul}>
           <li>
             <strong className="text-ink font-semibold">Course:</strong> This is a specific
-            class (Algebra 2, Tennis, Health Science). This term is typically used in High
+            class (Algebra 2, Tennis, Health Science). This term is typically used in high
             school, as there are many courses available in each subject.
           </li>
           <li>
@@ -181,7 +181,7 @@ export function CreditByExamGuide() {
         <p className="text-ink-soft text-base leading-relaxed mt-6">
           According to the scenario, if a person takes the CBE, they will be ahead of a
           person without the CBE, as they will obtain 2 high school credits for math in
-          Junior High instead of 1. This, in the future, will enable a person taking the CBE
+          junior high instead of 1. This, in the future, will enable a person taking the CBE
           to have a greater GPA and more open spots for their courses in high school.
         </p>
       </section>
@@ -203,7 +203,7 @@ export function CreditByExamGuide() {
             schoolers (based on the 2025–26 calendar, dates are typically in this range):
             <ul className={nestedUl}>
               <li>November (end)</li>
-              <li>Feburary (mid)</li>
+              <li>February (mid)</li>
               <li>June</li>
               <li>July</li>
             </ul>
@@ -356,11 +356,11 @@ export function CreditByExamGuide() {
             <ul className={nestedUl}>
               <li>
                 Why? You will be forcing yourself to take Academic 8th-grade Math in 7th
-                grade, with no difference in just doing regular KAP math.
+                grade, with no difference from just doing regular KAP math.
               </li>
               <li>
-                Hence, even if you do the 7th-grade Math CBE or do KAP Math throughout middle
-                school is the same.
+                Hence, whether you take the 7th-grade Math CBE or just do KAP Math throughout
+                middle school, the outcome is the same.
               </li>
             </ul>
           </li>
@@ -381,7 +381,7 @@ export function CreditByExamGuide() {
           Scenario 4: You are in 7th grade and trying to take the Algebra 1 CBE
         </p>
         <Callout label="Caution">
-          This exam will be divided into two parts; you must get a 80% or higher on both
+          This exam will be divided into two parts; you must get an 80% or higher on both
           parts to pass the CBE. If you get lower than a 90%, you will not have a 4.0 GPA for
           this class — it will be a 3.0.
         </Callout>
@@ -423,7 +423,7 @@ export function CreditByExamGuide() {
         <p className="text-ink-soft text-base leading-relaxed mb-4">
           As for my experience, this is another common CBE that many people take after Math.
           It is very good if you want to get a head start with credits, and it enables you to
-          obtain all of your mandatory language courses for High school.
+          obtain all of your mandatory language courses for high school.
         </p>
         <p className="text-ink-soft text-base leading-relaxed mb-2">
           <strong className="text-ink font-semibold">How it works/what is different:</strong>{" "}
@@ -432,7 +432,7 @@ export function CreditByExamGuide() {
         <ul className={ul}>
           <li>You must take the level 1 and level 2 examinations first (yes, I know it is a lot).</li>
           <li>
-            This is very recommended if you already speak, write, and/or read the language
+            This is highly recommended if you already speak, write, and/or read the language
             that corresponds to the CBE you are about to take.
           </li>
           <li>
@@ -471,7 +471,7 @@ export function CreditByExamGuide() {
           instead of taking a 5.0 weighted course, you will skip a 4.0, ACA-level course.
           This can decrease your GPA if you have more than 5.0 courses in your transcript.
           Hence, if you do want to skip or accelerate in those courses, I would recommend
-          that you wait until High School for you to take them as summer courses.
+          that you wait until high school to take them as summer courses.
         </p>
       </section>
 
@@ -502,7 +502,7 @@ export function CreditByExamGuide() {
             <strong className="text-ink font-semibold">STAAR released tests:</strong>{" "}
             although this might seem unconventional at first, as per my experience, the CBE
             (for math) is very similar to that year's STAAR test. Hence, because TEA releases
-            previous year assessments, it is a great resource for you to practice and test
+            the previous year's assessments, it is a great resource for you to practice and test
             your knowledge.
           </li>
           <li>

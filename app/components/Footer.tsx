@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { Icon, type IconName } from "./Icon";
 
 const columns: Record<string, { label: string; href: string }[]> = {
   Learn: [
@@ -17,9 +18,9 @@ const columns: Record<string, { label: string; href: string }[]> = {
   ],
 };
 
-const social = [
-  { label: "Instagram", href: "https://www.instagram.com/project_illuminate101/" },
-  { label: "Email", href: "mailto:illuminate10102@gmail.com" },
+const social: { label: string; href: string; icon: IconName }[] = [
+  { label: "Instagram", href: "https://www.instagram.com/project_illuminate101/", icon: "instagram" },
+  { label: "Email", href: "mailto:illuminate10102@gmail.com", icon: "mail" },
 ];
 
 export default function Footer() {
@@ -36,18 +37,20 @@ export default function Footer() {
               A student-led nonprofit bridging the knowledge gap so every K–12
               student can build their future.
             </p>
-            <div className="flex items-center gap-4 mt-6 font-mono text-xs uppercase tracking-wide">
+            <div className="flex items-center gap-3 mt-6">
               {social.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
+                  aria-label={s.label}
+                  title={s.label}
                   {...(!s.href.startsWith("mailto:") && {
                     target: "_blank",
                     rel: "noopener noreferrer",
                   })}
-                  className="text-chalk-soft hover:text-pen transition-colors"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-rule-dark text-chalk-soft hover:text-chalk hover:border-pen/60 transition-colors"
                 >
-                  {s.label}
+                  <Icon name={s.icon} className="w-4 h-4" />
                 </a>
               ))}
             </div>

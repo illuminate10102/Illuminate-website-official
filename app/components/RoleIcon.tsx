@@ -24,6 +24,13 @@ export function RoleIcon({ slug, className = "w-5 h-5" }: RoleIconProps) {
           <path d="M15 9l-3.6 2.4L9 15l3.6-2.4L15 9z" fill="currentColor" stroke="none" />
         </svg>
       );
+    case "vice-presidents":
+      return (
+        <svg {...common}>
+          <path d="M12 4.5l7 6.5-7-2.7-7 2.7 7-6.5z" />
+          <path d="M12 12l7 6.5-7-2.7-7 2.7 7-6.5z" />
+        </svg>
+      );
     case "officers":
       return (
         <svg {...common}>

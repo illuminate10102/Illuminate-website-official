@@ -30,7 +30,7 @@ export function SportsGuide() {
         <H2>Why play sports in high school?</H2>
         <div className="space-y-4 text-ink-soft text-base sm:text-lg leading-relaxed">
           <p>
-            Playing high school sports such as basketball, football, tennis, or others gives students the opportunity to connect with a larger variety of people and on a different level. I mean, making a friend while being tackled onto the field is definitely a different experience than saying “Hi” to a new classmate in an airconditioned classroom, isn’t it? Sports give students a more personal level of understanding and mutual companionship, which can even extend into adulthood friendships or even personal careers.
+            Playing high school sports such as basketball, football, tennis, or others gives students the opportunity to connect with a larger variety of people and on a different level. I mean, making a friend while being tackled onto the field is definitely a different experience than saying “Hi” to a new classmate in an air-conditioned classroom, isn’t it? Sports give students a more personal level of understanding and mutual companionship, which can even extend into adulthood friendships or even personal careers.
           </p>
           <p>
             However, sports aren't just about making friends. It's about showing colleges{" "}
@@ -45,7 +45,7 @@ export function SportsGuide() {
             A strong involvement in sports throughout your high school career can display
             strong traits such as leadership, time management, discipline, communication,
             passion, and many other strong qualities that colleges value. These traits are
-            reflected on the individual, giving colleges a better understanding of who you are
+            reflected in the individual, giving colleges a better understanding of who you are
             and how capable you are as both a student and an athlete, and could potentially
             have a significant impact on your college application.
           </p>
@@ -84,7 +84,7 @@ export function SportsGuide() {
             be able to play with others.
           </p>
           <p className="mt-3">
-            This also shows colleges' strong initiative and leadership potential as part of
+            This also shows colleges your strong initiative and leadership potential as part of
             your college application, significantly boosting your chances of being accepted to
             your dream school!
           </p>
@@ -94,9 +94,9 @@ export function SportsGuide() {
       <section>
         <H2>PE requirement</H2>
         <p className="text-ink-soft text-base leading-relaxed mb-6">
-          In KatyISD, students are required to fulfill 1.0 credit of "PE" at any time
+          In Katy ISD, students are required to fulfill 1.0 credit of "PE" at any time
           throughout their four years in high school. But don't be alarmed! You don't have to
-          take, for example, football AND a PE course. In the KatyISD district, sports fulfill
+          take, for example, football AND a PE course. In the Katy ISD district, sports fulfill
           this requirement. So, if you've signed up for a sports course like Football or
           baseball, for example, and it's on your physical schedule, completing one year of the
           sport completes this PE requirement. Of course, you can continue with the sport for
@@ -104,8 +104,8 @@ export function SportsGuide() {
         </p>
 
         <Callout label="Don't skip this">
-          Make sure to note that playing a sport as part of a club that's not a course offering/
-          in your schedule does NOT count towards your PE requirement.
+          Make sure to note that playing a sport as part of a club that's not a course offering
+          or in your schedule does NOT count towards your PE requirement.
         </Callout>
       </section>
 
@@ -117,7 +117,7 @@ export function SportsGuide() {
             should consider: the effect on your GPA.
           </p>
           <p>
-            In KatyISD, for example, having a sports course in your schedule is a 4.0, meaning
+            In Katy ISD, for example, having a sports course in your schedule is a 4.0, meaning
             it counts the same as an ACA course (see Nidhish's page for more specific GPA
             breakdowns).
           </p>
@@ -125,7 +125,7 @@ export function SportsGuide() {
 
         <div className="my-6">
           <Callout label="Don't skip this either">
-            Playing a sport that's not a course offering/ in your schedule doesn't count
+            Playing a sport that's not a course offering or in your schedule doesn't count
             towards the GPA because, well, it's not going to be in your transcript (which is
             like an album of every class you took, as well as your grades, that's used to
             calculate your GPA).
@@ -156,10 +156,9 @@ export function SportsGuide() {
             means you either make it or you're cut.
           </p>
           <p>
-            The tryouts for sports are often held sometime in the summer. When it specifically
-            is would be depending on the sport, and even when the coaches set the tryout date,
-            so make sure you join your sports' mode of communication, ex, SportsYou, to stay
-            updated.
+            The tryouts for sports are often held sometime in the summer. Exactly when depends
+            on the sport, and on when the coaches set the tryout date — so make sure you join
+            your sport's mode of communication, ex. SportsYou, to stay updated.
           </p>
           <p>
             Your coaches may also hold practices for anyone who is going to be trying out in
@@ -174,7 +173,7 @@ export function SportsGuide() {
         <div className="my-6">
           <Callout label="Important">
             <p>
-              A Physical (from RankOne and to be submitted to RankONE) is required to try out
+              A Physical (from RankOne and to be submitted to RankOne) is required to try out
               for your chosen sport. Physicals do expire, so you should renew them anytime
               after May 1st. However, keep in mind when your tryout date is. It can be
               difficult to get a Physical form filled out by a doctor on short notice, so keep
@@ -188,10 +187,10 @@ export function SportsGuide() {
         <div className="space-y-4 text-ink-soft text-base leading-relaxed">
           <p>
             A Health form is also required, which can be found from the same place you'll find the
-            Physical Form on the RankOne website.
+            Physical form on the RankOne website.
           </p>
           <p>
-            The Physical and Health Form pictures should be taken separately, as the RankOne
+            The Physical and Health form pictures should be taken separately, as the RankOne
             upload submission will most likely ask for their files to be uploaded separately.
           </p>
         </div>
@@ -217,17 +216,17 @@ export function SportsGuide() {
         <H2>Practice schedule/time commitment</H2>
         <div className="space-y-4 text-ink-soft text-base leading-relaxed">
           <p>
-            After playing your very best and making the team, your Coach may inform or post you
+            After playing your very best and making the team, your coach may inform or post you
             about your practice schedule and your game days. Practices can vary from early in
-            the morning at 5:30 or 6 am to after school when the sun is raining down.
+            the morning at 5:30 or 6 am to after school when the sun is beating down.
           </p>
           <p>
             However, it's important, especially as a 9th grader, to show up to practice as much
             as possible to show your commitment and dedication to improving your game.
           </p>
           <p>
-            At the end of the day, Coach doesn't care if you're the best player in the world but
-            you don't show up to practice and don't care for the team. In high school, sports
+            At the end of the day, it doesn't matter if you're the best player in the world if
+            you don't show up to practice and don't show the team you care. In high school, sports
             are a team effort, not an individual one. Even if you're playing a 1v1, your whole
             team is there to cheer you and your peers on, no matter what. Your team is your
             community.
@@ -259,7 +258,7 @@ export function SportsGuide() {
             be eligible for a GPA exemption.
           </p>
           <p>
-            The GPA exemption tile for KatyISD is called "GPA Exempt", and begins IN 10th
+            The GPA exemption tile for Katy ISD is called "GPA Exempt", and begins in 10th
             grade. You should apply for this as soon as possible after the year starts. If it's
             your second year in the course in a row, you should be able to click on it to
             exempt the class from your transcript/GPA.
@@ -268,7 +267,7 @@ export function SportsGuide() {
 
         <ul className={`${ul} mt-4`}>
           <li>Each student only gets 3.0 credits of total GPA exemptions</li>
-          <li>0.5 credits = 1 semester, so to GPA exempt the whole year of the course it will take 1.0 credits</li>
+          <li>0.5 credits = 1 semester, so to GPA exempt the whole year of the course, it will take 1.0 credits</li>
         </ul>
 
         <H3>What does it mean?</H3>
@@ -290,7 +289,7 @@ export function SportsGuide() {
         <H2>Costs</H2>
         <p className="text-ink-soft text-base leading-relaxed">
           The specific costs depend on the sport, but all sports' fees are payable through the
-          Pay 'N Go tile for KatyISD.
+          Pay 'N Go tile for Katy ISD.
         </p>
       </section>
     </article>

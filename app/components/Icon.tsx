@@ -39,7 +39,9 @@ export type IconName =
   | "chat"
   | "globe"
   | "dumbbell"
-  | "moon";
+  | "moon"
+  | "instagram"
+  | "mail";
 
 type IconProps = {
   name: IconName;
@@ -371,6 +373,21 @@ export function Icon({ name, className = "w-5 h-5" }: IconProps) {
       return (
         <svg {...common}>
           <path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a7 7 0 0 0 9.5 9.5z" />
+        </svg>
+      );
+    case "instagram":
+      return (
+        <svg {...common}>
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4.2" />
+          <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "mail":
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M4 6.5l8 6 8-6" />
         </svg>
       );
     default:

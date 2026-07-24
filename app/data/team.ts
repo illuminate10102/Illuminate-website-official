@@ -3,8 +3,7 @@ export type TeamRole = {
   title: string;
   singular: string;
   subtitle: string;
-  desc: string;
-  members: string[];
+  responsibilities: string[];
 };
 
 export const teamRoles: TeamRole[] = [
@@ -12,38 +11,54 @@ export const teamRoles: TeamRole[] = [
     slug: "directors",
     title: "Directors",
     singular: "Director",
-    subtitle: "Founders · Co-Presidents · Team Leads",
-    desc: "The people who started Illuminate and still run it day to day. They set direction, keep projects moving, and make the final call when something's stuck.",
-    members: ["Nidhish Kakkireni", "Arnav Joshi", "Dhruv Nandy", "Vinh Tran", "Sarvesh Shanthibooshan Subramanian", "Hoang Nguyen"],
+    subtitle: "",
+    responsibilities: [
+      "Nidhish Kakkireni",
+      "Arnav Joshi",
+      "Dhruv Nandy",
+      "Sarvesh Shanthibooshan Subramanian",
+      "Vinh Tran"
+    ],
+  },
+  {
+    slug: "vice-presidents",
+    title: "Vice Presidents",
+    singular: "Vice President",
+    subtitle: "",
+    responsibilities: [
+      "Lead a section of the nonprofit",
+      "Visual Media VP",
+      "Website Assistance VP",
+      "Outreach VP",
+    ],
   },
   {
     slug: "officers",
     title: "Officers",
     singular: "Officer",
-    subtitle: "Topic experts",
-    desc: "Each officer owns one section — testing, academics, extracurriculars — and keeps it accurate as things change.",
-    members: [
-      "Academics Officer",
-      "Testing Officer",
-      "Extracurriculars Officer",
-      "Lifestyle Officer",
-      "College Prep Officer",
+    subtitle: "",
+    responsibilities: [
+      "Manage associates based on their expertise",
+      "Coordinate in-person activities and webinars",
+      "Lead a section of the website (e.g. Arts & Performance)",
     ],
   },
   {
     slug: "associates",
     title: "Associates",
     singular: "Associate",
-    subtitle: "Content contributors",
-    desc: "Students who write guides, do the research, and design the pages. Most people here started as an associate.",
-    members: ["Content Associate", "Research Associate"],
+    subtitle: "",
+    responsibilities: [
+      "Write content for their area of expertise, using guidance and materials from officers",
+      "Help volunteer at in-person activities",
+      "Follow each article's writing guidelines",
+    ],
   },
   {
     slug: "members",
     title: "Members",
     singular: "Member",
     subtitle: "Community",
-    desc: "Anyone using the guides, coming to a workshop, or telling a friend about us. ",
-    members: ["General member", "Workshop attendee", "Community contributor"],
+    responsibilities: ["Use our materials", "Attend our meetings"],
   },
 ];

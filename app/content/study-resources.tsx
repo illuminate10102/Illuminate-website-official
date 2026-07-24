@@ -83,7 +83,7 @@ const studyResourcesData: StudyResource[] = [
   { resource: "Albert.io", category: "Website", description: "AP-level practice questions with detailed explanations." },
   { resource: "Quizlet", category: "Study Tool", description: "Flashcards, games, quizzes, and study sets for every subject." },
   { resource: "Anki", category: "Study Tool", description: "Uses spaced repetition to improve long-term memory." },
-  { resource: "Knowt", category: "Study Tool", description: "Notes, flashcards, quizzes, explanations, MCQ, FRQ practice" },
+  { resource: "Knowt", category: "Study Tool", description: "Notes, flashcards, quizzes, explanations, MCQ, FRQ practice." },
   { resource: "CK-12 Foundation", category: "Website", description: "Free digital textbooks, simulations, and interactive lessons." },
   { resource: "OpenStax", category: "Website", description: "College-level textbooks available for free." },
   { resource: "Desmos", category: "Math Tool", description: "Interactive graphing calculator for Algebra and Calculus." },
@@ -380,7 +380,7 @@ const satActRows: string[][] = [
   [
     "TestMasters",
     "In-Person & Online",
-    "Highly regarded Texas-based SAT/ACT prep with experienced instructors, high-level instruction, and realistic practice tests",
+    "Highly regarded Texas-based SAT/ACT prep with experienced instructors, high-level instruction, and realistic practice tests.",
   ],
   ["Princeton Review", "Online & In-Person", "Comprehensive SAT and ACT courses, tutoring, and practice exams."],
   ["Kaplan Test Prep", "Online & In-Person", "Offers self-paced courses, live classes, tutoring, and extensive question banks."],
@@ -394,7 +394,7 @@ const satActRows: string[][] = [
   [
     "Bluebook",
     "Free SAT Provided by College Board",
-    "An excellent free SAT mock test that provided the same environment as the real test",
+    "An excellent free SAT mock test that provides the same environment as the real test.",
   ],
 ];
 
@@ -444,8 +444,8 @@ export function StudyResourcesGuide() {
         <H2>Example routines when studying for quizzes/tests</H2>
         <p className="text-ink-soft text-base leading-relaxed mb-6">
           Different types of assessment require different amounts of time spent on
-          preparation. These recommendations can help you avoid rushing, last-minute cramming,
-          while still giving yourself enough time to understand the material
+          preparation. These recommendations can help you avoid rushing and last-minute cramming,
+          while still giving yourself enough time to understand the material.
         </p>
         <DataTable
           columns={["Assessment", "Typical Length", "Minimum Study Time", "Ideal Study Time", "Goal"]}
@@ -463,14 +463,14 @@ export function StudyResourcesGuide() {
 
       <section>
         <p className="text-ink-soft text-base leading-relaxed mb-6">
-          SAT & ACT are very important and vital in order to get to college. These provided
+          The SAT and ACT are very important and vital in order to get into college. These
           resources contain practice tests, personalized instructions, and preparation
-          tutoring. While some of these can be expensive, it is worth the price to direct
-          students for competitive colleges.
+          tutoring. While some of these can be expensive, the investment is often worth it for
+          students aiming for competitive colleges.
         </p>
         <DataTable columns={["Resource", "Type", "Description"]} rows={satActRows} />
         <p className="text-ink-soft text-sm mt-6">
-          Links: thea.study (not a source, extra study resouce link)
+          Links: thea.study (not a source, extra study resource link)
         </p>
       </section>
     </article>

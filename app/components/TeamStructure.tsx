@@ -3,6 +3,7 @@ import { RoleIcon } from "./RoleIcon";
 
 const headerStyles: Record<string, string> = {
   directors: "bg-pen-solid text-white",
+  "vice-presidents": "bg-chalkboard text-chalk",
   officers: "bg-marker text-ink-solid",
   associates: "bg-paper-dim text-ink border-b border-rule",
   members: "bg-paper text-ink border-b border-rule",
@@ -10,6 +11,7 @@ const headerStyles: Record<string, string> = {
 
 const subtitleStyles: Record<string, string> = {
   directors: "text-white/70",
+  "vice-presidents": "text-chalk-soft",
   officers: "text-ink-solid/60",
   associates: "text-ink-soft",
   members: "text-ink-soft",
@@ -30,7 +32,7 @@ const applyHref: Record<string, string> = {
 
 export function TeamStructure({ variant = "info" }: TeamStructureProps) {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
       {teamRoles.map((role, i) => (
         <div
           key={role.slug}
@@ -46,17 +48,14 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
           </div>
 
           <div className="p-5 flex-1 flex flex-col">
-            <p className="text-ink-soft text-sm leading-relaxed mb-3">{role.desc}</p>
-            <ul className={`space-y-1.5 ${role.slug === "directors" ? "" : "mb-4"}`}>
-              {role.members.map((m) => (
-                <li
-                  key={m}
-                  className={`flex items-center gap-2 text-ink ${
-                    role.slug === "directors" ? "text-sm" : "text-xs"
-                  }`}
-                >
-                  <span className="w-1 h-1 rounded-full bg-marker shrink-0" aria-hidden="true" />
-                  {m}
+            <ul className="space-y-1.5 mb-4">
+              {role.responsibilities.map((r) => (
+                <li key={r} className="flex items-start gap-2 text-ink text-xs leading-relaxed">
+                  <span
+                    className="w-1 h-1 rounded-full bg-marker shrink-0 mt-1.5"
+                    aria-hidden="true"
+                  />
+                  {r}
                 </li>
               ))}
             </ul>

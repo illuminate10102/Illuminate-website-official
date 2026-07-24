@@ -5,6 +5,7 @@ import { HeroWaves } from "../components/HeroWaves";
 import { VideoPlaceholder } from "../components/VideoPlaceholder";
 import { getField } from "../data/categories";
 import { tierHueStyle } from "../lib/tierStyle";
+import { Icon, categoryIcon } from "../components/Icon";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
 import { GpaStrategyGuide, gpaStrategyAuthor, gpaStrategySources } from "../content/gpa-strategy";
@@ -88,6 +89,19 @@ export default function FieldPage() {
   const { category, tier, field } = result;
   const guide = guides[`${category.slug}/${field.slug}`];
 
+  const categoryBadge = (
+    <span
+      className="inline-flex items-center justify-center w-9 h-9 rounded-full shrink-0"
+      style={{
+        background: "oklch(0.82 0.1 var(--tier-h, 264) / 16%)",
+        color: "var(--tier-accent-chalk)",
+      }}
+      title={category.label}
+    >
+      <Icon name={categoryIcon(category.slug)} className="w-4 h-4" />
+    </span>
+  );
+
   const breadcrumb = (
     <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-6">
       <Link to="/" className="hover:text-chalk transition-colors">
@@ -115,7 +129,10 @@ export default function FieldPage() {
             <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-10">
                 <div className="min-w-0">
-                  {breadcrumb}
+                  <div className="flex items-center gap-3">
+                    {categoryBadge}
+                    {breadcrumb}
+                  </div>
 
                   <span
                     className="course-code text-sm rounded-md px-2 py-0.5 inline-block border"
@@ -211,7 +228,10 @@ export default function FieldPage() {
         <section className="relative bg-chalkboard overflow-hidden">
           <HeroWaves />
           <div className="relative max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
-            {breadcrumb}
+            <div className="flex items-center gap-3">
+              {categoryBadge}
+              {breadcrumb}
+            </div>
 
             <span
               className="course-code text-sm rounded-md px-2 py-0.5 inline-block border"

@@ -48,21 +48,21 @@ export function GpaStrategyGuide() {
         <ul className={ul}>
           <li>
             <strong className="text-ink font-semibold">Academic (ACA) / Standard Classes:</strong>{" "}
-            These are the foundational courses and have the easiest workload though you can
-            only obtain a maximum of 4.0 points.if you earn an A(90-100)
+            These are the foundational courses and have the easiest workload, though you can
+            only obtain a maximum of 4.0 points if you earn an A (90–100).
           </li>
           <li>
             <strong className="text-ink font-semibold">KAP / Honors Classes:</strong> These
             intermediate courses require more effort and faster pacing. Because of the
-            increased rigor you can obtain a maximum of 5.0 points if you earn an A(90-100).
+            increased rigor you can obtain a maximum of 5.0 points if you earn an A (90–100).
           </li>
           <li>
             <strong className="text-ink font-semibold">Advanced Placement (AP) Classes:</strong>{" "}
             This is the highest tier of coursework in this hierarchy. This is due to the fact
             that not only do AP classes use a 5.0 point scale, but they also prepare you for
             the AP Exams in May. Scoring a 3 or higher (on a 1–5 scale) can earn you college
-            credit and demonstrate to universities that you are capable of college level
-            work..
+            credit and demonstrate to universities that you are capable of college-level
+            work.
           </li>
         </ul>
       </section>
@@ -122,10 +122,10 @@ export function GpaStrategyGuide() {
         <H2>3. GPA "Leveling" and Strategy</H2>
         <p className="text-ink-soft text-base leading-relaxed">
           Since GPA is an average, taking a high volume of 4.0 classes will skew your overall
-          GPA down even if you have straight A's.To keep your GPA highly competitive, limit
+          GPA down even if you have straight A's. To keep your GPA highly competitive, limit
           your 4.0-scale classes strictly to graduation requirements and/or interest classes
           for your future career path. Fill the remainder of your schedule with 5.0-scale
-          Honors/KAP and AP courses to offset the drop from ACA/Standard classes..
+          Honors/KAP and AP courses to offset the drop from ACA/Standard classes.
         </p>
       </section>
 
@@ -141,8 +141,8 @@ export function GpaStrategyGuide() {
         <H3>My Personal Experience</H3>
         <p className="text-ink-soft text-base leading-relaxed">
           When I entered my freshman year, I was overwhelmed by the sheer volume of choices. I
-          was unaware of the math behind calculating GPA and took many 4.0's which were
-          hurting my potential unnoticingly.The good news is that you can always recover. I
+          was unaware of the math behind calculating GPA and took many 4.0's, which were
+          hurting my potential without me noticing. The good news is that you can always recover. I
           learned to identify which foundational classes were required for my graduation and
           career interests, and then intentionally filled the rest of my schedule with
           5.0-scale courses to pull my average back up.
@@ -159,7 +159,7 @@ export function GpaStrategyGuide() {
       </section>
 
       <section>
-        <H2>MATH BEHIND GPA:</H2>
+        <H2>5. The Math Behind GPA</H2>
         <p className="text-ink-soft text-base leading-relaxed mb-4">
           To see how this works in action, let's look at the math. In a typical high school
           year, you will take 7 classes. To find your GPA, you add up the points from your
