@@ -1,6 +1,5 @@
 import { teamRoles } from "../data/team";
 import { RoleIcon } from "./RoleIcon";
-import { Icon } from "./Icon";
 
 const headerStyles: Record<string, string> = {
   directors: "bg-pen-solid text-white",
@@ -77,13 +76,14 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
             )}
           </div>
 
-          {/* Fills the leftover space at the end of the row on wide screens —
-              a placeholder for a future team/role photo. */}
-          <div
-            className="hidden md:flex md:w-48 lg:w-56 md:shrink-0 items-center justify-center border-t md:border-t-0 md:border-l border-dashed border-rule bg-paper-dim"
-            aria-hidden="true"
-          >
-            <Icon name="camera" className="w-8 h-8 text-ink-soft/30" />
+          {/* Fills the leftover space at the end of the row on wide screens;
+              stacks as a full-width band on mobile. */}
+          <div className="w-full h-48 md:h-auto md:w-48 lg:w-56 md:shrink-0 border-t md:border-t-0 md:border-l border-rule overflow-hidden">
+            <img
+              src={`/hierarchy/${role.slug}.png`}
+              alt={`${role.title} illustration`}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       ))}
