@@ -1,5 +1,6 @@
 import { teamRoles } from "../data/team";
 import { RoleIcon } from "./RoleIcon";
+import { Icon } from "./Icon";
 
 const headerStyles: Record<string, string> = {
   directors: "bg-pen-solid text-white",
@@ -32,27 +33,31 @@ const applyHref: Record<string, string> = {
 
 export function TeamStructure({ variant = "info" }: TeamStructureProps) {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+    <div className="flex flex-col gap-5">
       {teamRoles.map((role, i) => (
         <div
           key={role.slug}
-          className="card-elevate border border-rule rounded-lg overflow-hidden bg-paper flex flex-col"
+          className="card-elevate border border-rule rounded-lg overflow-hidden bg-paper flex flex-col md:flex-row"
         >
-          <div className={`px-5 py-5 ${headerStyles[role.slug]}`}>
-            <div className="flex items-center justify-between mb-2">
+          <div
+            className={`p-6 md:w-64 md:shrink-0 flex flex-col justify-center ${headerStyles[role.slug]}`}
+          >
+            <div className="flex items-center justify-between mb-3">
               <RoleIcon slug={role.slug} className="w-5 h-5" />
               <span className="course-code text-xs opacity-50">0{i + 1}</span>
             </div>
             <h3 className="font-subtitle font-bold text-2xl">{role.title}</h3>
-            <p className={`text-xs mt-0.5 ${subtitleStyles[role.slug]}`}>{role.subtitle}</p>
+            {role.subtitle && (
+              <p className={`text-sm mt-1 ${subtitleStyles[role.slug]}`}>{role.subtitle}</p>
+            )}
           </div>
 
-          <div className="p-5 flex-1 flex flex-col">
-            <ul className="space-y-1.5 mb-4">
+          <div className="p-6 flex-1 flex flex-col justify-center border-t md:border-t-0 md:border-l border-rule">
+            <ul className="space-y-3">
               {role.responsibilities.map((r) => (
-                <li key={r} className="flex items-start gap-2 text-ink text-xs leading-relaxed">
+                <li key={r} className="flex items-start gap-2.5 text-ink text-sm leading-relaxed">
                   <span
-                    className="w-1 h-1 rounded-full bg-marker shrink-0 mt-1.5"
+                    className="w-1.5 h-1.5 rounded-full bg-marker shrink-0 mt-1.5"
                     aria-hidden="true"
                   />
                   {r}
@@ -65,11 +70,20 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
                 href={applyHref[role.slug]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-pen hover:text-pen-dim transition-colors"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pen hover:text-pen-dim transition-colors"
               >
                 Apply as a {role.singular} <span aria-hidden="true">→</span>
               </a>
             )}
+          </div>
+
+          {/* Fills the leftover space at the end of the row on wide screens —
+              a placeholder for a future team/role photo. */}
+          <div
+            className="hidden md:flex md:w-48 lg:w-56 md:shrink-0 items-center justify-center border-t md:border-t-0 md:border-l border-dashed border-rule bg-paper-dim"
+            aria-hidden="true"
+          >
+            <Icon name="camera" className="w-8 h-8 text-ink-soft/30" />
           </div>
         </div>
       ))}
