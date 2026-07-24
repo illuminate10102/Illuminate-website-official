@@ -25,7 +25,7 @@ export default function About() {
             src="/about-group-photo.jpg"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-[center_20%] opacity-70"
+            className="absolute inset-0 w-full h-full object-contain object-center sm:object-cover sm:object-[center_20%] opacity-70"
           />
           <div className="absolute inset-0 bg-chalkboard/55" />
           <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-48 pb-28 sm:pt-64 sm:pb-36">
