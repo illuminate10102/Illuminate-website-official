@@ -124,6 +124,27 @@ export default function GetInvolved() {
           </div>
         </section>
 
+        <section className="bg-paper-dim py-20 sm:py-28 border-t border-rule">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="reveal max-w-xl">
+              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-ink tracking-tight mb-4">
+                Any issues? Contact us.
+              </h2>
+              <p className="text-ink-soft text-lg leading-relaxed mb-8">
+                Questions about applying, or something not working right? Send
+                us an email and we'll get back to you.
+              </p>
+              <a
+                href="mailto:illuminate10102@gmail.com"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+              >
+                <Icon name="mail" className="w-5 h-5" />
+                illuminate10102@gmail.com
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Temporarily removed — Partner with us section.
         <section id="partner" className="bg-paper-dim py-24 sm:py-32 border-t border-rule scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">

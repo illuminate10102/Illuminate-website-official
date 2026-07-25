@@ -5,6 +5,7 @@ import Hero from "../components/home/Hero";
 import Catalog from "../components/home/Catalog";
 import WhyIlluminate from "../components/home/WhyIlluminate";
 import FinalCta from "../components/home/FinalCta";
+import Contact from "../components/home/Contact";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -25,6 +26,7 @@ export default function Home() {
         <Hero />
         <Catalog />
         <WhyIlluminate />
+        <Contact />
         <FinalCta />
       </main>
       <Footer />

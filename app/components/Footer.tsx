@@ -14,13 +14,14 @@ const columns: Record<string, { label: string; href: string }[]> = {
     { label: "About us", href: "/about" },
     { label: "Our team", href: "/about#team" },
     { label: "Get involved", href: "/get-involved" },
-    { label: "Contact", href: "/about#contact" },
+    { label: "Contact", href: "/#contact" },
   ],
 };
 
 const social: { label: string; href: string; icon: IconName }[] = [
   { label: "Instagram", href: "https://www.instagram.com/project_illuminate101/", icon: "instagram" },
   { label: "YouTube", href: "https://www.youtube.com/channel/UCU3r-ZvAxnBDVQbeZOkNvug", icon: "youtube" },
+  { label: "TikTok", href: "https://www.tiktok.com/@project.illuminat0", icon: "tiktok" },
   { label: "Email", href: "mailto:illuminate10102@gmail.com", icon: "mail" },
 ];
 

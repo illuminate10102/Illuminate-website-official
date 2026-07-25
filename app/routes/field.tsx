@@ -109,6 +109,7 @@ export default function FieldPage() {
     return (
       <div
         key={`${category.slug}/${field.slug}`}
+        data-no-scroll-reveal
         className="min-h-screen flex flex-col"
         style={tierHueStyle(tier.hue)}
       >
@@ -210,6 +211,7 @@ export default function FieldPage() {
   return (
     <div
       key={`${category.slug}/${field.slug}`}
+      data-no-scroll-reveal
       className="min-h-screen flex flex-col"
       style={tierHueStyle(tier.hue)}
     >

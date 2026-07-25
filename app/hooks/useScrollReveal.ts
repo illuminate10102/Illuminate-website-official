@@ -10,6 +10,10 @@ import { useLocation } from "react-router";
  * The first section on a page is skipped: it's already visible on load and
  * has its own load-in animation via the .reveal utility classes, so
  * re-hiding it would cause a flash before the observer catches up.
+ *
+ * Guide/article pages (routes/field.tsx) opt out entirely via a
+ * [data-no-scroll-reveal] marker on their root element — reading a guide
+ * shouldn't require scrolling each paragraph into view to see it.
  */
 export function useScrollReveal() {
   const { pathname } = useLocation();
@@ -17,6 +21,7 @@ export function useScrollReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (document.querySelector("[data-no-scroll-reveal]")) return;
 
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
     const targets = sections.slice(1);

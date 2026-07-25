@@ -4,12 +4,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
-import { Icon, type IconName } from "../components/Icon";
-
-const socialLinks: { label: string; href: string; icon: IconName }[] = [
-  { label: "Instagram", href: "https://www.instagram.com/project_illuminate101/", icon: "instagram" },
-  { label: "YouTube", href: "https://www.youtube.com/channel/UCU3r-ZvAxnBDVQbeZOkNvug", icon: "youtube" },
-];
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -88,9 +82,7 @@ export default function About() {
             <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
               How Illuminate is organized
             </h2>
-            <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-16">
-              Four tiers, and a way in at every level — nobody starts as a director.
-            </p>
+            
 
             <div className="reveal reveal-3">
               <TeamStructure variant="info" />
@@ -106,42 +98,6 @@ export default function About() {
               </Link>
               .
             </p>
-          </div>
-        </section>
-
-        <section id="contact" className="bg-chalkboard py-24 sm:py-32 scroll-mt-20">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="reveal max-w-xl">
-              
-              <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-chalk tracking-tight mb-6">
-                Contact / Social Media
-              </h2>
-              <p className="text-chalk-soft text-xl leading-relaxed mb-10">
-                If a guide got something wrong, or you can't find what you're
-                looking for, emsil us — or find us on social media.
-              </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="mailto:illuminate10102@gmail.com"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
-                >
-                  <Icon name="mail" className="w-5 h-5" />
-                  illuminate10102@gmail.com
-                </a>
-                {socialLinks.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 border border-chalk-soft/30 text-chalk font-bold rounded-lg hover:border-marker hover:text-marker hover:-translate-y-0.5 transition-all"
-                  >
-                    <Icon name={s.icon} className="w-5 h-5" />
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
       </main>
