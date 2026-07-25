@@ -20,11 +20,6 @@ import {
   studyResourcesAuthor,
   studyResourcesSources,
 } from "../content/study-resources";
-import {
-  MentalPhysicalHealthGuide,
-  mentalHealthAuthor,
-  mentalHealthSources,
-} from "../content/mental-physical-health";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -62,11 +57,6 @@ const guides: Record<
     sources: studyResourcesSources,
     author: studyResourcesAuthor,
   },
-  "lifestyle/mental-physical-health": {
-    Body: MentalPhysicalHealthGuide,
-    sources: mentalHealthSources,
-    author: mentalHealthAuthor,
-  },
 };
 
 export function meta({ params }: { params: { category?: string; field?: string } }) {
@@ -103,7 +93,7 @@ export default function FieldPage() {
   );
 
   const breadcrumb = (
-    <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-6">
+    <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-8">
       <Link to="/" className="hover:text-chalk transition-colors">
         Illuminate
       </Link>

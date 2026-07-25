@@ -75,16 +75,6 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
               </a>
             )}
           </div>
-
-          {/* Fills the leftover space at the end of the row on wide screens;
-              stacks as a full-width band on mobile. */}
-          <div className="w-full h-48 md:h-auto md:w-48 lg:w-56 md:shrink-0 border-t md:border-t-0 md:border-l border-rule overflow-hidden">
-            <img
-              src={`/hierarchy/${role.slug}.png`}
-              alt={`${role.title} illustration`}
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
       ))}
     </div>

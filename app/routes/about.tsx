@@ -4,6 +4,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
+import { Icon, type IconName } from "../components/Icon";
+
+const socialLinks: { label: string; href: string; icon: IconName }[] = [
+  { label: "Instagram", href: "https://www.instagram.com/project_illuminate101/", icon: "instagram" },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCU3r-ZvAxnBDVQbeZOkNvug", icon: "youtube" },
+];
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -21,14 +27,17 @@ export default function About() {
       <Navbar />
       <main className="flex-1">
         <section className="relative bg-chalkboard overflow-hidden">
+          {/* Mobile: photo and title stack in normal flow so the text never
+              sits on top of (and hides) faces in the photo. Desktop keeps
+              the original full-bleed photo with text overlaid on top. */}
           <img
             src="/about-group-photo.jpg"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-contain object-center sm:object-cover sm:object-[center_20%] opacity-70"
+            className="relative w-full aspect-[4/3] object-cover sm:absolute sm:inset-0 sm:aspect-auto sm:h-full sm:object-[center_20%] opacity-100 sm:opacity-70"
           />
-          <div className="absolute inset-0 bg-chalkboard/55" />
-          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-48 pb-28 sm:pt-64 sm:pb-36">
+          <div className="hidden sm:block absolute inset-0 bg-chalkboard/55" />
+          <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 sm:pt-64 sm:pb-36">
             <p className="reveal font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-marker mb-8">
               About us
             </p>
@@ -103,22 +112,35 @@ export default function About() {
         <section id="contact" className="bg-chalkboard py-24 sm:py-32 scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="reveal max-w-xl">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-5">
-                Contact
-              </p>
+              
               <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-chalk tracking-tight mb-6">
-                Questions, corrections, ideas — send them over.
+                Contact / Social Media
               </h2>
               <p className="text-chalk-soft text-xl leading-relaxed mb-10">
                 If a guide got something wrong, or you can't find what you're
-                looking for, email us.
+                looking for, emsil us — or find us on social media.
               </p>
-              <a
-                href="mailto:illuminate10102@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
-              >
-                illuminate10102@gmail.com
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="mailto:illuminate10102@gmail.com"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                >
+                  <Icon name="mail" className="w-5 h-5" />
+                  illuminate10102@gmail.com
+                </a>
+                {socialLinks.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 border border-chalk-soft/30 text-chalk font-bold rounded-lg hover:border-marker hover:text-marker hover:-translate-y-0.5 transition-all"
+                  >
+                    <Icon name={s.icon} className="w-5 h-5" />
+                    {s.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
