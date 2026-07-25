@@ -167,11 +167,19 @@ main {
 /* Shared card depth effect. Uses theme-aware shadow variables instead of
    Tailwind's default black shadow-md, which is basically invisible on a
    dark navy background — dark mode gets a soft blue-tinted glow instead
-   of a light-mode drop shadow. */
+   of a light-mode drop shadow.
+
+   box-shadow is deliberately NOT in the transition list: it's a large-blur
+   (up to 48px) shadow, and animating it means repainting that blur every
+   frame for 0.35s. On a grid with 20+ cards (category pages), scrolling
+   with the mouse stationary fires hover in/out on every card that passes
+   under the cursor — each one repainting ~20 times instead of once. It
+   still changes on hover, just instantly (one repaint) instead of
+   animated. transform/background-color/border-color stay animated since
+   none of them require re-rasterizing a blur. */
 .card-elevate {
   box-shadow: var(--shadow-rest);
-  transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease,
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease,
     border-color 0.3s ease;
 }
 .card-elevate:hover {
@@ -183,7 +191,7 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .card-elevate,
   .card-elevate:hover {
-    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: border-color 0.2s ease;
     transform: none;
   }
 }
