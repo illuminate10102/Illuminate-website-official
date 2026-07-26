@@ -63,11 +63,11 @@ export default function CategoryPage() {
                     <Link
                       key={field.slug}
                       to={`/${category.slug}/${field.slug}`}
-                      className="card-elevate group bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
+                      className="stagger-item card-elevate group bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
                     >
                       <div className="flex items-center gap-3 mb-5">
                         <span
-                          className="flex items-center justify-center w-9 h-9 rounded-full shrink-0"
+                          className="flex items-center justify-center w-9 h-9 rounded-full shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
                           style={{
                             background: "var(--tier-accent-wash)",
                             color: "var(--tier-accent)",

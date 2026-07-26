@@ -39,7 +39,9 @@ export function Callout({
 export function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink tracking-tight mb-5">
-      {children}
+      <span className="inline-block pb-1 border-b-2" style={{ borderColor: "var(--tier-accent)" }}>
+        {children}
+      </span>
     </h2>
   );
 }

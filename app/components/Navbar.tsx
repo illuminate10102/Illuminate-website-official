@@ -230,7 +230,7 @@ export default function Navbar() {
             <ThemeToggle className="hidden sm:inline-flex" />
             <Link
               to="/get-involved"
-              className="hidden sm:inline-flex items-center px-4 py-2 bg-pen-solid hover:bg-pen-solid-dim text-white font-mono text-xs font-semibold uppercase tracking-wide rounded-md transition-colors hover:-translate-y-0.5"
+              className="hidden sm:inline-flex items-center px-4 py-2 bg-pen-solid hover:bg-pen-solid-dim text-white font-mono text-xs font-semibold uppercase tracking-wide rounded-md transition-colors hover:-translate-y-1 hover:scale-[1.03]"
             >
               Get involved
             </Link>

@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="reveal reveal-3 flex flex-wrap items-center gap-5 mt-12">
           <Link
             to="/resources"
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
           >
             Start exploring <span aria-hidden="true">→</span>
           </Link>

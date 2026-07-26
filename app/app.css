@@ -17,15 +17,21 @@
   --color-chalkboard-soft: oklch(0.22 0.055 264); /* brand navy-light */
   --color-paper: oklch(1 0 0); /* white */
   --color-paper-dim: oklch(0.96 0.008 264); /* brand muted */
+  /* Warm counterpart to paper-dim — a barely-there gold wash, used to
+     break up the site's otherwise cool-only alternating section rhythm. */
+  --color-paper-warm: oklch(0.97 0.02 75);
   --color-ink: oklch(0.15 0.01 264); /* brand foreground */
-  --color-ink-soft: oklch(0.52 0.02 264); /* brand muted-foreground */
+  /* Chroma nudged up from a near-gray 0.02 so "muted" body text/borders
+     still read as tinted-navy rather than generic UI gray, without
+     looking any more "colorful" at a glance. */
+  --color-ink-soft: oklch(0.52 0.035 264); /* brand muted-foreground */
   --color-chalk: oklch(0.93 0.01 264); /* off-white text on navy */
   --color-chalk-soft: oklch(0.65 0.02 264); /* muted text on navy */
   --color-marker: oklch(0.72 0.16 75); /* brand amber gold */
   --color-marker-dim: oklch(0.65 0.16 75); /* gold hover */
   --color-pen: oklch(0.52 0.22 264); /* brand royal blue — adapts per theme */
   --color-pen-dim: oklch(0.45 0.22 264); /* blue hover — adapts per theme */
-  --color-rule: oklch(0.9 0.01 264); /* brand border */
+  --color-rule: oklch(0.9 0.02 264); /* brand border */
   --color-rule-dark: oklch(1 0 0 / 12%); /* border on navy */
 
   /* Fixed (non-adaptive) variants: used where a color sits on a surface
@@ -97,13 +103,21 @@
   color-scheme: dark;
   --color-paper: oklch(0.22 0.05 264);
   --color-paper-dim: oklch(0.27 0.055 264);
+  --color-paper-warm: oklch(0.24 0.035 75);
   --color-ink: oklch(0.95 0.008 264);
-  --color-ink-soft: oklch(0.72 0.03 264);
+  /* A bit more chroma than the light-mode bump — dark-mode grays
+     desaturate faster to the eye at the same chroma value, so this needs
+     a slightly bigger push for the equivalent "tinted, not gray" effect. */
+  --color-ink-soft: oklch(0.72 0.045 264);
   --color-chalkboard: oklch(0.15 0.07 264);
   --color-chalkboard-soft: oklch(0.19 0.065 264);
+  /* Richer/lighter than the light-mode gold — "glowing chalk on a
+     blackboard" rather than the same gold dimmed by the dark backdrop. */
+  --color-marker: oklch(0.78 0.19 75);
+  --color-marker-dim: oklch(0.7 0.19 75);
   --color-pen: oklch(0.7 0.18 264);
   --color-pen-dim: oklch(0.63 0.18 264);
-  --color-rule: oklch(0.4 0.045 264);
+  --color-rule: oklch(0.4 0.06 264);
   --color-dropdown-bg: oklch(0.26 0.05 264);
 
   --color-mint: oklch(0.68 0.14 155);
@@ -169,23 +183,39 @@ main {
    dark navy background — dark mode gets a soft blue-tinted glow instead
    of a light-mode drop shadow.
 
-   box-shadow is deliberately NOT in the transition list: it's a large-blur
-   (up to 48px) shadow, and animating it means repainting that blur every
-   frame for 0.35s. On a grid with 20+ cards (category pages), scrolling
-   with the mouse stationary fires hover in/out on every card that passes
-   under the cursor — each one repainting ~20 times instead of once. It
-   still changes on hover, just instantly (one repaint) instead of
-   animated. transform/background-color/border-color stay animated since
-   none of them require re-rasterizing a blur. */
+   The hover shadow is a separate ::after layer, not an animated box-shadow
+   on the card itself: box-shadow has a large blur (up to 48px), and
+   animating it directly means repainting that blur every frame for 0.35s.
+   On a grid with 20+ cards (category pages), scrolling with the mouse
+   stationary fires hover in/out on every card that passes under the
+   cursor — that's ~20 repaints per card instead of one. Pre-rendering the
+   hover shadow on its own layer and only animating its *opacity* sidesteps
+   this entirely: opacity is compositor-only, so the blur is rasterized
+   once and reused every frame regardless of how many cards animate at
+   once. This is what actually brings the "shadow grows in" feel back
+   without reintroducing the scroll lag. */
 .card-elevate {
+  position: relative;
   box-shadow: var(--shadow-rest);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease,
     border-color 0.3s ease;
 }
-.card-elevate:hover {
+.card-elevate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.card-elevate:hover {
+  transform: translateY(-6px) scale(1.015);
   border-color: var(--color-pen);
+}
+.card-elevate:hover::after {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -193,6 +223,9 @@ main {
   .card-elevate:hover {
     transition: border-color 0.2s ease;
     transform: none;
+  }
+  .card-elevate::after {
+    transition: none;
   }
 }
 
@@ -261,15 +294,66 @@ main {
   }
 }
 
+/* Cards inside a scroll-revealed section cascade in one after another
+   instead of all appearing at once. Piggybacks on the same is-visible
+   toggle above — no extra IntersectionObservers, and opacity/transform
+   are compositor-only so animating a whole grid of these at once stays
+   cheap (this is deliberately NOT box-shadow — see .card-elevate for why
+   that matters). Delays are capped at item 10; anything after that reveals
+   alongside the 10th so a 21-card grid doesn't make you wait. */
+/* The ancestor part of each selector below is wrapped in :where(...),
+   which always contributes zero specificity. Without that, e.g.
+   ".scroll-reveal.is-visible .stagger-item" (3 classes) would permanently
+   outrank ".card-elevate:hover" (2 classes) once a card has revealed,
+   pinning transform: translateY(0) forever and silently killing the hover
+   lift on every card — exactly the bug this is fixing. With :where(), both
+   rules below carry the same specificity as a single ".stagger-item"
+   class, so :hover on the same element correctly wins. */
+:where(.scroll-reveal) .stagger-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+:where(.scroll-reveal.is-visible) .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+:where(.scroll-reveal) .stagger-item:nth-child(1) { transition-delay: 0s; }
+:where(.scroll-reveal) .stagger-item:nth-child(2) { transition-delay: 0.04s; }
+:where(.scroll-reveal) .stagger-item:nth-child(3) { transition-delay: 0.08s; }
+:where(.scroll-reveal) .stagger-item:nth-child(4) { transition-delay: 0.12s; }
+:where(.scroll-reveal) .stagger-item:nth-child(5) { transition-delay: 0.16s; }
+:where(.scroll-reveal) .stagger-item:nth-child(6) { transition-delay: 0.2s; }
+:where(.scroll-reveal) .stagger-item:nth-child(7) { transition-delay: 0.24s; }
+:where(.scroll-reveal) .stagger-item:nth-child(8) { transition-delay: 0.28s; }
+:where(.scroll-reveal) .stagger-item:nth-child(9) { transition-delay: 0.32s; }
+:where(.scroll-reveal) .stagger-item:nth-child(n+10) { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.scroll-reveal) .stagger-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Small tinted background behind each top-level nav label — brand blue at
    low, theme-tuned opacity (--nav-pill-bg, set per-theme at :root above)
    so the chip reads clearly in both themes. */
 .nav-pill {
   background: var(--nav-pill-bg);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .nav-pill:hover {
   background: var(--nav-pill-bg-hover);
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill:hover {
+    transform: none;
+  }
 }
 
 /* Decorative wave strokes for navy title bands — warm yellow-ochre accents

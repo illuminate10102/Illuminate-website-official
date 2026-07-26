@@ -98,7 +98,7 @@ export default function GetInvolved() {
             </div>
             <a
               href="mailto:illuminate10102@gmail.com?subject=I%20want%20to%20help"
-              className="reveal reveal-3 inline-flex items-center gap-2 mt-12 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+              className="reveal reveal-3 inline-flex items-center gap-2 mt-12 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
             >
               Tell us you're in <span aria-hidden="true">→</span>
             </a>
@@ -136,7 +136,7 @@ export default function GetInvolved() {
               </p>
               <a
                 href="mailto:illuminate10102@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
               >
                 <Icon name="mail" className="w-5 h-5" />
                 illuminate10102@gmail.com
@@ -163,7 +163,7 @@ export default function GetInvolved() {
               </p>
               <a
                 href="mailto:illuminate10102@gmail.com?subject=Partnership%20inquiry"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-pen-solid hover:bg-pen-solid-dim text-white font-semibold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
               >
                 Start a conversation
               </a>

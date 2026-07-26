@@ -15,7 +15,7 @@ export default function FinalCta() {
           <div className="flex flex-wrap items-center gap-8">
             <Link
               to="/resources"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-marker hover:bg-marker-dim text-ink-solid font-bold text-lg rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-marker hover:bg-marker-dim text-ink-solid font-bold text-lg rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
             >
               Explore all resources <span aria-hidden="true">→</span>
             </Link>

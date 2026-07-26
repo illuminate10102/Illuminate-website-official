@@ -36,10 +36,10 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
       {teamRoles.map((role, i) => (
         <div
           key={role.slug}
-          className="card-elevate border border-rule rounded-lg overflow-hidden bg-paper flex flex-col md:flex-row"
+          className="card-elevate border border-rule rounded-lg bg-paper flex flex-col md:flex-row"
         >
           <div
-            className={`p-6 md:w-64 md:shrink-0 flex flex-col justify-center ${headerStyles[role.slug]}`}
+            className={`p-6 md:w-64 md:shrink-0 flex flex-col justify-center rounded-tl-lg rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg ${headerStyles[role.slug]}`}
           >
             <div className="flex items-center justify-between mb-3">
               <RoleIcon slug={role.slug} className="w-5 h-5" />
@@ -51,7 +51,7 @@ export function TeamStructure({ variant = "info" }: TeamStructureProps) {
             )}
           </div>
 
-          <div className="p-6 flex-1 flex flex-col justify-center border-t md:border-t-0 md:border-l border-rule">
+          <div className="p-6 flex-1 flex flex-col justify-center border-t md:border-t-0 md:border-l border-rule rounded-bl-lg md:rounded-bl-none rounded-br-lg md:rounded-tr-lg">
             <ul className="space-y-3">
               {role.responsibilities.map((r) => (
                 <li key={r} className="flex items-start gap-2.5 text-ink text-sm leading-relaxed">

@@ -21,7 +21,7 @@ export default function Contact() {
             <div className="flex flex-wrap items-center gap-4">
               {/* <a
                 href="mailto:illuminate10102@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-marker hover:bg-marker-dim text-ink-solid font-bold rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
               >
                 <Icon name="mail" className="w-5 h-5" />
                 illuminate10102@gmail.com
@@ -32,7 +32,7 @@ export default function Contact() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-rule text-ink font-bold rounded-lg hover:border-pen hover:text-pen hover:-translate-y-0.5 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-rule text-ink font-bold rounded-lg hover:border-pen hover:text-pen hover:-translate-y-1 hover:scale-[1.03] transition-all"
                 >
                   <Icon name={s.icon} className="w-5 h-5" />
                   {s.label}

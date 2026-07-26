@@ -67,12 +67,12 @@ export default function Catalog() {
             <Link
               key={s.code}
               to={s.href}
-              className="card-elevate group bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
+              className="stagger-item card-elevate group bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
             >
               <div className="flex items-start justify-between mb-5">
                 <div className="flex items-center gap-3">
                   <span
-                    className={`flex items-center justify-center w-10 h-10 rounded-full shrink-0 ${iconBadgeClasses(categoryIcon(s.href.slice(1)))}`}
+                    className={`flex items-center justify-center w-10 h-10 rounded-full shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 ${iconBadgeClasses(categoryIcon(s.href.slice(1)))}`}
                   >
                     <Icon name={categoryIcon(s.href.slice(1))} className="w-5 h-5" />
                   </span>
