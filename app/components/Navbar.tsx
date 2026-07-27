@@ -49,6 +49,13 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
+/**
+ * The dropdown/mega-menu is theme-adaptive, same as the main bar: white
+ * surface with dark text in light mode, dark navy with light text in dark
+ * mode. Tier colors use --tier-accent (paper-tuned, adaptive) rather than
+ * --tier-accent-chalk (the fixed-for-navy variant used on chalkboard hero
+ * bands), since this panel now sits on an adaptive paper-style surface.
+ */
 function TierFieldList({
   category,
   onNavigate,
@@ -80,11 +87,14 @@ function TierFieldList({
                 <Link
                   to={`/${category.slug}/${field.slug}`}
                   onClick={onNavigate}
-                  className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1 rounded-md"
+                  className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
                 >
                   <span
                     className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
-                    style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+                    style={{
+                      background: "var(--tier-accent-wash)",
+                      color: "var(--tier-accent)",
+                    }}
                   >
                     <Icon name={field.icon} className="w-3.5 h-3.5" />
                   </span>
@@ -154,8 +164,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-paper transition-shadow ${
-        scrolled ? "shadow-[0_1px_0_0_var(--color-rule)]" : ""
+      className={`sticky top-0 z-50 bg-paper border-b border-rule transition-shadow ${
+        scrolled ? "shadow-[0_4px_16px_-4px_oklch(0_0_0/12%)]" : ""
       }`}
     >
       <div className="flex items-center justify-between h-20 gap-3 lg:gap-4 pl-3 sm:pl-4 pr-4 sm:pr-6 lg:pr-6">
@@ -177,12 +187,13 @@ export default function Navbar() {
                 <span
                   key={item.href}
                   className="nav-pill group flex items-center relative shrink-0 rounded-lg"
+                  style={category ? tierHueStyle(category.tiers[0].hue) : undefined}
                   onMouseEnter={() => category && openOnHover(category.slug)}
                   onMouseLeave={() => category && scheduleClose()}
                 >
                   <Link
                     to={item.href}
-                    className="px-2.5 py-2 font-bold group-hover:text-pen transition-colors"
+                    className="px-2.5 py-2 font-bold group-hover:text-[var(--tier-accent)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -193,7 +204,7 @@ export default function Navbar() {
                       aria-expanded={isOpen}
                       aria-haspopup="true"
                       aria-label={`${item.label} guide list`}
-                      className="p-1 -ml-1.5 mr-1 text-ink-soft group-hover:text-pen transition-colors"
+                      className="p-1 -ml-1.5 mr-1 text-ink-soft group-hover:text-[var(--tier-accent)] transition-colors"
                     >
                       <ChevronIcon open={isOpen} />
                     </button>
@@ -213,7 +224,8 @@ export default function Navbar() {
                         <Link
                           to={`/${category.slug}`}
                           onClick={() => setOpenDesktop(null)}
-                          className="text-xs font-semibold text-pen hover:text-pen-dim transition-colors"
+                          className="text-xs font-semibold hover:text-ink transition-colors"
+                          style={{ color: "var(--tier-accent)" }}
                         >
                           View all {category.label} guides <span aria-hidden="true">→</span>
                         </Link>
@@ -255,11 +267,14 @@ export default function Navbar() {
               const isOpen = !!category && openMobile === category.slug;
               return (
                 <li key={item.href}>
-                  <div className="nav-pill flex items-center justify-between rounded-lg my-2">
+                  <div
+                    className="nav-pill flex items-center justify-between rounded-lg my-2"
+                    style={category ? tierHueStyle(category.tiers[0].hue) : undefined}
+                  >
                     <Link
                       to={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex-1 block py-3 px-3 course-code text-base font-bold uppercase text-ink hover:text-pen transition-colors"
+                      className="flex-1 block py-3 px-3 course-code text-base font-bold uppercase text-ink hover:text-[var(--tier-accent)] transition-colors"
                     >
                       {item.label}
                     </Link>

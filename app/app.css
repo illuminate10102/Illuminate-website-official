@@ -17,9 +17,6 @@
   --color-chalkboard-soft: oklch(0.22 0.055 264); /* brand navy-light */
   --color-paper: oklch(1 0 0); /* white */
   --color-paper-dim: oklch(0.96 0.008 264); /* brand muted */
-  /* Warm counterpart to paper-dim — a barely-there gold wash, used to
-     break up the site's otherwise cool-only alternating section rhythm. */
-  --color-paper-warm: oklch(0.97 0.02 75);
   --color-ink: oklch(0.15 0.01 264); /* brand foreground */
   /* Chroma nudged up from a near-gray 0.02 so "muted" body text/borders
      still read as tinted-navy rather than generic UI gray, without
@@ -86,9 +83,13 @@
   --tier-accent-chalk: oklch(0.82 0.1 var(--tier-h, 264));
   --tier-accent-chalk-border: oklch(0.82 0.1 var(--tier-h, 264) / 45%);
 
-  /* Nav-pill chip background, top nav. */
+  /* Nav-pill resting/hover background. The main bar is theme-adaptive
+     (white in light mode, dark navy in dark mode — see .bg-paper on
+     header), so this needs its own per-theme value too: a white overlay
+     here would be invisible against light mode's white bar, so light
+     mode gets a visible blue-tinted wash instead. */
   --nav-pill-bg: oklch(0.52 0.22 264 / 7%);
-  --nav-pill-bg-hover: oklch(0.52 0.22 264 / 15%);
+  --nav-pill-bg-hover: oklch(0.52 0.22 264 / 13%);
 }
 
 :root[data-theme="light"] {
@@ -103,7 +104,6 @@
   color-scheme: dark;
   --color-paper: oklch(0.22 0.05 264);
   --color-paper-dim: oklch(0.27 0.055 264);
-  --color-paper-warm: oklch(0.24 0.035 75);
   --color-ink: oklch(0.95 0.008 264);
   /* A bit more chroma than the light-mode bump — dark-mode grays
      desaturate faster to the eye at the same chroma value, so this needs
@@ -113,40 +113,60 @@
   --color-chalkboard-soft: oklch(0.19 0.065 264);
   /* Richer/lighter than the light-mode gold — "glowing chalk on a
      blackboard" rather than the same gold dimmed by the dark backdrop. */
-  --color-marker: oklch(0.78 0.19 75);
-  --color-marker-dim: oklch(0.7 0.19 75);
-  --color-pen: oklch(0.7 0.18 264);
-  --color-pen-dim: oklch(0.63 0.18 264);
+  --color-marker: oklch(0.78 0.22 75);
+  --color-marker-dim: oklch(0.7 0.22 75);
+  /* Ultramarine — deeper and noticeably more saturated than the light-mode
+     royal blue, not just a lighter tint of it. This is the accent that
+     carries most of dark mode's "vivid, not dull" character. */
+  --color-pen: oklch(0.62 0.25 265);
+  --color-pen-dim: oklch(0.55 0.25 265);
   --color-rule: oklch(0.4 0.06 264);
   --color-dropdown-bg: oklch(0.26 0.05 264);
 
-  --color-mint: oklch(0.68 0.14 155);
-  --color-rose: oklch(0.7 0.17 20);
-  --color-violet: oklch(0.68 0.18 300);
-  --color-amber: oklch(0.74 0.15 55);
+  /* Same hues as light mode, meaningfully more chroma — dark mode can
+     carry a lot more saturation before a color reads as "loud" against
+     navy, and the previous values were too close to light mode's to feel
+     like a deliberate dark palette rather than a dimmed one. */
+  --color-mint: oklch(0.68 0.19 155);
+  --color-rose: oklch(0.7 0.22 20);
+  --color-violet: oklch(0.68 0.23 300);
+  --color-amber: oklch(0.74 0.19 55);
   --color-heading: oklch(0.7 0.13 70); /* yellow ochre */
 
   --tier-l: 0.74;
-  --tier-c: 0.16;
+  --tier-c: 0.2;
   --tier-wash-a: 16%;
   --tier-border-a: 38%;
   --tier-accent-wash: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-wash-a));
   --tier-accent-border: oklch(var(--tier-l) var(--tier-c) var(--tier-h, 264) / var(--tier-border-a));
 
-  --nav-pill-bg: oklch(0.7 0.18 264 / 12%);
-  --nav-pill-bg-hover: oklch(0.7 0.18 264 / 22%);
+  /* Tinted ultramarine wash instead of light mode's neutral white one —
+     ties the pill into dark mode's richer accent palette rather than
+     looking like the exact same overlay regardless of theme. */
+  --nav-pill-bg: oklch(0.62 0.25 265 / 16%);
+  --nav-pill-bg-hover: oklch(0.62 0.25 265 / 28%);
 
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
-  --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.7 0.18 264 / 22%),
-    0 10px 24px -10px oklch(0.7 0.18 264 / 30%);
+  --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.62 0.25 265 / 25%),
+    0 10px 24px -10px oklch(0.62 0.25 265 / 32%);
 }
 
 html,
 body {
   background: var(--color-paper);
   color: var(--color-ink);
+}
+
+html {
   /* Belt-and-suspenders: nothing on the page should ever force a
-     horizontal scrollbar, regardless of nav width, long words, etc. */
+     horizontal scrollbar, regardless of nav width, long words, etc.
+     Deliberately on html only, not body: setting overflow-x on an
+     element forces its overflow-y to compute as auto if it was visible
+     (a CSS spec quirk), so putting this on BOTH html and body turns each
+     into its own independent scroll container. With two competing
+     scroll containers, `position: sticky` on the header can no longer
+     reliably resolve "stick to the viewport" — this is exactly what was
+     breaking the sticky nav. One container (html) fixes it. */
   overflow-x: hidden;
   max-width: 100vw;
 }
@@ -212,7 +232,11 @@ main {
 }
 .card-elevate:hover {
   transform: translateY(-6px) scale(1.015);
-  border-color: var(--color-pen);
+  /* Picks up whatever --tier-h a tier wrapper set (see lib/tierStyle.ts) so
+     each category's cards highlight in that category's own color instead
+     of one uniform blue everywhere; falls back to the default hue (264,
+     pen-ish blue) outside any tier context. */
+  border-color: var(--tier-accent);
 }
 .card-elevate:hover::after {
   opacity: 1;
@@ -338,15 +362,23 @@ main {
   }
 }
 
-/* Small tinted background behind each top-level nav label — brand blue at
-   low, theme-tuned opacity (--nav-pill-bg, set per-theme at :root above)
-   so the chip reads clearly in both themes. */
+/* Top-level nav label: no resting/hover background (that's reserved for
+   dropdown sub-items below), just a border that appears on hover. */
 .nav-pill {
+  /* Permanent (not hover-only) pill background — --nav-pill-bg differs by
+     theme (see :root above): a visible blue tint in light mode (the bar
+     itself is white there, so a white overlay would be invisible) and an
+     ultramarine tint in dark mode. */
   background: var(--nav-pill-bg);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .nav-pill:hover {
+  /* Depth/elevation instead of an outline — --shadow-hover is already
+     theme-adaptive (dark shadow on light mode's white bar, a lighter
+     blue-tinted glow on dark mode's navy bar), so this "just works" in
+     both themes without a separate dark-mode override. */
   background: var(--nav-pill-bg-hover);
+  box-shadow: var(--shadow-hover);
   transform: scale(1.05);
 }
 

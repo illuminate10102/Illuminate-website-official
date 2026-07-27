@@ -31,7 +31,7 @@ const sections = [
     count: "16 guides",
   },
   {
-    code: "CP",
+    code: "CO",
     label: "College prep",
     href: "/college",
     desc: "Applications, essays, financial aid, and scholarships, explained plainly.",

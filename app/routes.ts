@@ -5,6 +5,8 @@ export default [
   route("about", "routes/about.tsx"),
   route("get-involved", "routes/get-involved.tsx"),
   route("resources", "routes/resources.tsx"),
+  route("testing", "routes/testing.tsx"),
+  route("summer", "routes/summer.tsx"),
   route(":category", "routes/category.tsx"),
   route(":category/:field", "routes/field.tsx"),
 ] satisfies RouteConfig;

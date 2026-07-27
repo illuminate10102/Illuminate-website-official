@@ -29,7 +29,7 @@ const points = [
 
 export default function WhyIlluminate() {
   return (
-    <section className="bg-paper-warm py-24 sm:py-32 border-y border-rule">
+    <section className="bg-paper-dim py-24 sm:py-32 border-y border-rule">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reveal max-w-3xl mx-auto text-center">
           <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
