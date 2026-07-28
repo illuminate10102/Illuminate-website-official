@@ -84,7 +84,7 @@ export default function Catalog() {
                   {s.count}
                 </span>
               </div>
-              <h3 className="font-subtitle font-bold text-3xl text-ink group-hover:text-pen underline decoration-transparent group-hover:decoration-marker decoration-4 underline-offset-4 transition-colors mb-2">
+              <h3 className="font-subtitle font-bold text-3xl text-ink group-hover:text-[var(--field-title-hover)] underline decoration-transparent group-hover:decoration-[var(--field-underline-hover)] decoration-4 underline-offset-4 transition-colors mb-2">
                 {s.label}
               </h3>
               <p className="text-ink-soft text-base leading-relaxed">

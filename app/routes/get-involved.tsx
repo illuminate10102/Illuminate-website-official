@@ -114,9 +114,9 @@ export default function GetInvolved() {
             <h2 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-ink tracking-tight mb-4">
               Join us to Illuminate the future.
             </h2>
-            <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-12">
+            {/* <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-12">
               Pick the tier that fits where you're at.
-            </p>
+            </p> */}
 
             <div className="reveal reveal-3">
               <HierarchyDetails />

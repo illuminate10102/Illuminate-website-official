@@ -4,30 +4,34 @@ import { Icon, type IconName } from "../Icon";
  * Wording taken verbatim from CoreValues.pdf (the team's own core-values
  * doc) — only formatted into cards here, not reworded.
  */
-const values: { title: string; desc: string; icon: IconName; swatch: string }[] = [
+const values: { title: string; desc: string; icon: IconName; swatch: string; edge: string }[] = [
   {
     title: "Accessibility",
     desc: "We believe every single person, regardless of their background, income or location, deserves equal access to high quality information, resources and guidance, whether it be academic, extracurricular, or career-related. Our goal is to empower students by maximizing their potential with each and every product and service Project Illuminate provides.",
     icon: "globe",
     swatch: "bg-pen/15 text-pen",
+    edge: "border-l-pen",
   },
   {
     title: "Credibility",
     desc: "At Illuminate, nothing is written without basis. Whether it's from the experiences and advice of upperclassmen, resources from trusted academic sources, or tips based on district policy, Project Illuminate uses trusted information to provide reliable and credible guidance for everyone. Our content is sourced from credible resources as well as real experiences to produce accurate information to help students navigate their high school journey.",
     icon: "shield",
     swatch: "bg-amber/15 text-amber",
+    edge: "border-l-amber",
   },
   {
     title: "Community",
     desc: "Illuminate is built on collaboration. We encourage students to grow in a supportive environment by facilitating collaborative learning and contribution, informative workshops, and shared experiences. The result is an engaging and encouraging community that fosters development and growth academically and socially.",
     icon: "users",
     swatch: "bg-violet/15 text-violet",
+    edge: "border-l-violet",
   },
   {
     title: "Compatibility",
     desc: "Our resources are meant to be relevant, informative, functional, and easy to understand so every student can put them to efficient and effective use. We offer a wide variety of products and services to appeal to different types of students and their learning styles.",
     icon: "wrench",
     swatch: "bg-mint/15 text-mint",
+    edge: "border-l-mint",
   },
 ];
 
@@ -44,20 +48,36 @@ export function CoreValues() {
           </h2>
         </div>
 
-        <div className="reveal reveal-2 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="reveal reveal-2 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {values.map((v) => (
-            <div
+            <details
               key={v.title}
-              className="stagger-item rounded-lg border border-rule-dark bg-chalkboard-soft p-6 flex flex-col"
+              className={`group stagger-item rounded-lg border border-rule-dark border-l-4 ${v.edge} bg-chalkboard-soft overflow-hidden`}
             >
-              <span
-                className={`flex items-center justify-center w-11 h-11 rounded-lg shrink-0 mb-5 ${v.swatch}`}
-              >
-                <Icon name={v.icon} className="w-5 h-5" />
-              </span>
-              <h3 className="font-subtitle font-bold text-xl text-chalk mb-2">{v.title}</h3>
-              <p className="text-chalk-soft text-sm leading-relaxed">{v.desc}</p>
-            </div>
+              <summary className="list-none cursor-pointer select-none p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-5">
+                  <span
+                    className={`flex items-center justify-center w-11 h-11 rounded-lg shrink-0 ${v.swatch}`}
+                  >
+                    <Icon name={v.icon} className="w-5 h-5" />
+                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-chalk-soft shrink-0 transition-transform duration-200 group-open:rotate-180"
+                    aria-hidden="true"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <h3 className="font-subtitle font-bold text-xl text-chalk">{v.title}</h3>
+              </summary>
+              <p className="text-chalk-soft text-sm leading-relaxed px-6 pb-6">{v.desc}</p>
+            </details>
           ))}
         </div>
       </div>

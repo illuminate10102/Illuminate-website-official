@@ -90,6 +90,13 @@
      mode gets a visible blue-tinted wash instead. */
   --nav-pill-bg: oklch(0.52 0.22 264 / 7%);
   --nav-pill-bg-hover: oklch(0.52 0.22 264 / 13%);
+
+  /* Home page "6 fields" card hover (Catalog.tsx only): title color /
+     underline color. Ultramarine title + gold underline reads best in
+     light mode; swapped (gold title + ultramarine underline) reads
+     better in dark mode against the darker card surface. */
+  --field-title-hover: var(--color-pen);
+  --field-underline-hover: var(--color-marker);
 }
 
 :root[data-theme="light"] {
@@ -145,6 +152,10 @@
      looking like the exact same overlay regardless of theme. */
   --nav-pill-bg: oklch(0.62 0.25 265 / 16%);
   --nav-pill-bg-hover: oklch(0.62 0.25 265 / 28%);
+
+  /* Swapped from light mode — gold title, ultramarine underline. */
+  --field-title-hover: var(--color-marker);
+  --field-underline-hover: var(--color-pen);
 
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.62 0.25 265 / 25%),
