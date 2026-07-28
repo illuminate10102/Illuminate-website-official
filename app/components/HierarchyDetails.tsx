@@ -1,4 +1,5 @@
 import { RoleIcon } from "./RoleIcon";
+import { Icon, type IconName } from "./Icon";
 import { APPLICATION_FORM_URL } from "./TeamStructure";
 
 /**
@@ -76,7 +77,7 @@ function ApplyLink({ slug, label }: { slug: string; label: string }) {
 /** Colored, no-clutter wrapper for a role's lead paragraph(s). */
 function IntroCard({ slug, children }: { slug: string; children: React.ReactNode }) {
   const a = accent[slug];
-  return <div className={`rounded-lg p-5 sm:p-6 space-y-3 ${a.wash}`}>{children}</div>;
+  return <div className={`rounded-lg border ${a.ring} p-5 sm:p-6 space-y-3 ${a.wash}`}>{children}</div>;
 }
 
 /** Nudges first-time visitors that the summary row is interactive; hides itself once opened. */
@@ -116,11 +117,10 @@ function Misconceptions({ items, slug }: { items: string[]; slug: string }) {
       <p className={`font-mono text-xs font-semibold uppercase tracking-wide ${a.text} mb-3`}>
         Common misconceptions
       </p>
-      <ul className="space-y-3">
+      <ul className={`list-disc pl-5 space-y-3 marker:${a.text}`}>
         {items.map((item, i) => (
-          <li key={i} className="flex gap-2.5 text-ink-soft text-sm leading-relaxed">
-            <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${a.text.replace("text-", "bg-")}`} />
-            <span>{item}</span>
+          <li key={i} className="text-ink-soft text-sm leading-relaxed pl-1">
+            {item}
           </li>
         ))}
       </ul>
@@ -166,7 +166,7 @@ function RoleSection({
           <path d="M6 9l6 6 6-6" />
         </svg>
       </summary>
-      <div className="accordion-content px-5 sm:px-6 pb-6 sm:pb-7 pt-1 space-y-6 border-t border-rule">
+      <div className="accordion-content px-5 sm:px-6 pb-6 sm:pb-7 pt-4 space-y-6 border-t border-rule">
         {children}
       </div>
     </details>
@@ -189,30 +189,40 @@ const deptAccent: Record<string, { border: string; wash: string; text: string }>
   pen: { border: "border-pen/30", wash: "bg-pen/6", text: "text-pen" },
 };
 
-const vpDepartments: { title: string; status: string; body: string; color: keyof typeof deptAccent }[] = [
+const vpDepartments: {
+  title: string;
+  status: string;
+  body: string;
+  color: keyof typeof deptAccent;
+  icon: IconName;
+}[] = [
   {
     title: "Social Media Vice President",
     status: "Open!",
     body: "The Social Media Vice President manages the social media of Illuminate. Their main responsibilities include: posting videos, updates about changes, teasers, and broadcasting important events to our online audience.",
     color: "violet",
+    icon: "megaphone",
   },
   {
     title: "Visual Media Vice President",
     status: "Filled",
     body: "The Visual Media Vice President manages the visual aspect of Illuminate. This can include videos both in and out of the website and pictures during in-person events.",
     color: "amber",
+    icon: "camera",
   },
   {
     title: "Outreach Vice President",
     status: "Open!",
     body: "The Outreach Vice President manages the diffusion of Illuminate. This individual actively discusses our goal to potential candidates, manages, creates, and spreads awareness.",
     color: "mint",
+    icon: "network",
   },
   {
     title: "Website Vice President",
     status: "Filled",
     body: "The Website Vice President helps the directors build and maintain the website. They make sure that articles are being uploaded timely, technical issues are being solved, and features are working properly.",
     color: "pen",
+    icon: "wrench",
   },
 ];
 
@@ -260,7 +270,14 @@ export function HierarchyDetails() {
             return (
               <div key={d.title} className={`border ${da.border} rounded-lg p-4 ${da.wash}`}>
                 <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <p className={`font-subtitle font-bold text-sm sm:text-base ${da.text}`}>{d.title}</p>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span
+                      className={`flex items-center justify-center w-7 h-7 rounded-full shrink-0 bg-paper ${da.text}`}
+                    >
+                      <Icon name={d.icon} className="w-3.5 h-3.5" />
+                    </span>
+                    <p className={`font-subtitle font-bold text-sm sm:text-base ${da.text}`}>{d.title}</p>
+                  </div>
                   <span
                     className={`course-code text-[0.65rem] uppercase px-2 py-0.5 rounded-full shrink-0 ${
                       d.status === "Filled"
