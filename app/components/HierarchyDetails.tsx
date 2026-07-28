@@ -198,7 +198,7 @@ const vpDepartments: {
 }[] = [
   {
     title: "Social Media Vice President",
-    status: "Open!",
+    status: "Filled",
     body: "The Social Media Vice President manages the social media of Illuminate. Their main responsibilities include: posting videos, updates about changes, teasers, and broadcasting important events to our online audience.",
     color: "violet",
     icon: "megaphone",
