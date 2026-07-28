@@ -213,7 +213,7 @@ const vpDepartments: {
   {
     title: "Outreach Vice President",
     status: "Open!",
-    body: "The Outreach Vice President manages the diffusion of Illuminate. This individual actively discusses our goal to potential candidates, manages, creates, and spreads awareness.",
+    body: "The Outreach Vice President manages the expansion of Illuminate. This individual actively advocates for Project Illuminate’s mission- recruiting potential candidates, managing expansion, and spreading awareness to a larger audience.",
     color: "mint",
     icon: "network",
   },
@@ -365,6 +365,10 @@ export function HierarchyDetails() {
             officers are attempting to create. Their writing must be detailed, credible, and
             easy to understand.
           </p>
+
+          <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
+            Associates earn volunteer hours by contributing to their content pages and/or helping the nonprofit in other ways (e.g. webinars, in-school chapters, etc.)
+          </p>
         </IntroCard>
         <div>
           <p className="font-mono text-xs font-semibold uppercase tracking-wide text-mint mb-3">Responsibilities</p>
@@ -384,10 +388,7 @@ export function HierarchyDetails() {
       <RoleSection slug="members" title="Members">
         <IntroCard slug="members">
           <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
-            All these efforts of coordination, quality information, and expertise are meant
-            for the members. They are the obtainers of the information and use it for their
-            academic journeys. There is no specific path or application to become a member,
-            as most of our information is open source.
+            All these efforts of coordination, quality information, and  specialized expertise are meant for the members. They can access the information free of cost and use it to better their academic pursuits. There is no specific path or application to become a member as most of our information is open source.
           </p>
         </IntroCard>
       </RoleSection>
