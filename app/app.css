@@ -304,6 +304,33 @@ main {
   }
 }
 
+/* Accordion-open reveal for <details> dropdowns (HierarchyDetails,
+   CoreValues). Native <details> content is display:none while closed, so
+   the moment it opens the browser mounts it fresh and any animation on it
+   restarts from 0% automatically — no JS/open-state tracking needed. Only
+   plays on open (there's no CSS-only equivalent for a close animation on
+   a plain <details>), which matches "animate in when it loads/expands". */
+@keyframes accordion-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion-content {
+  animation: accordion-reveal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-content {
+    animation: none;
+  }
+}
+
 /* Scroll-triggered fade-in for sections below the fold (see
    useScrollReveal). This class is only ever added by JS right before the
    element is observed, so content is never hidden without something

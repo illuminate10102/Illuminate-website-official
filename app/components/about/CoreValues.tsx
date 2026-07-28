@@ -76,7 +76,7 @@ export function CoreValues() {
                 </div>
                 <h3 className="font-subtitle font-bold text-xl text-chalk">{v.title}</h3>
               </summary>
-              <p className="text-chalk-soft text-sm leading-relaxed px-6 pb-6">{v.desc}</p>
+              <p className="accordion-content text-chalk-soft text-sm leading-relaxed px-6 pb-6">{v.desc}</p>
             </details>
           ))}
         </div>

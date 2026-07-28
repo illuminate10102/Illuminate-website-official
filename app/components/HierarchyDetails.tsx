@@ -166,7 +166,7 @@ function RoleSection({
           <path d="M6 9l6 6 6-6" />
         </svg>
       </summary>
-      <div className="px-5 sm:px-6 pb-6 sm:pb-7 pt-1 space-y-6 border-t border-rule">
+      <div className="accordion-content px-5 sm:px-6 pb-6 sm:pb-7 pt-1 space-y-6 border-t border-rule">
         {children}
       </div>
     </details>
