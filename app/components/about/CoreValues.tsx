@@ -37,13 +37,13 @@ const values: { title: string; desc: string; icon: IconName; swatch: string; edg
 
 export function CoreValues() {
   return (
-    <section className="bg-chalkboard py-24 sm:py-32">
+    <section className="bg-values py-24 sm:py-32">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reveal max-w-2xl mx-auto text-center mb-16">
-          <p className="font-mono text-xs uppercase tracking-[0.15em] text-marker mb-4">
+          <p className="font-mono text-xs uppercase tracking-[0.15em] text-values-eyebrow mb-4">
             Core values
           </p>
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-chalk tracking-tight">
+          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-values-fg tracking-tight">
             What we stand by.
           </h2>
         </div>
@@ -52,7 +52,7 @@ export function CoreValues() {
           {values.map((v) => (
             <details
               key={v.title}
-              className={`group stagger-item rounded-lg border border-rule-dark border-l-4 ${v.edge} bg-chalkboard-soft overflow-hidden`}
+              className={`group stagger-item rounded-lg border border-values-edge border-l-4 ${v.edge} bg-values-card overflow-hidden`}
             >
               <summary className="list-none cursor-pointer select-none p-6 flex flex-col">
                 <div className="flex items-center justify-between mb-5">
@@ -68,15 +68,15 @@ export function CoreValues() {
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-5 h-5 text-chalk-soft shrink-0 transition-transform duration-200 group-open:rotate-180"
+                    className="w-5 h-5 text-values-fg-soft shrink-0 transition-transform duration-200 group-open:rotate-180"
                     aria-hidden="true"
                   >
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </div>
-                <h3 className="font-subtitle font-bold text-xl text-chalk">{v.title}</h3>
+                <h3 className="font-subtitle font-bold text-xl text-values-fg">{v.title}</h3>
               </summary>
-              <p className="accordion-content text-chalk-soft text-sm leading-relaxed px-6 pb-6">{v.desc}</p>
+              <p className="accordion-content text-values-fg-soft text-sm leading-relaxed px-6 pb-6">{v.desc}</p>
             </details>
           ))}
         </div>

@@ -25,8 +25,10 @@ export function meta() {
  */
 const TEST_META: Record<string, { range: string; rangeLabel: string; fill: string; hue: number }> = {
   sat: { range: "400–1600", rangeLabel: "Score range", fill: "oklch(0.5 0.19 264)", hue: 264 },
-  act: { range: "1–36", rangeLabel: "Score range", fill: "oklch(0.53 0.21 20)", hue: 20 },
-  psat: { range: "320–1520", rangeLabel: "Score range", fill: "oklch(0.48 0.14 155)", hue: 155 },
+  // Hue/fill re-based on the updated palette's Terracotta (was rose's old
+  // hue 20) and Sage Green (was mint's old hue 155) accents — see app.css.
+  act: { range: "1–36", rangeLabel: "Score range", fill: "oklch(0.53 0.17 35)", hue: 35 },
+  psat: { range: "320–1520", rangeLabel: "Score range", fill: "oklch(0.48 0.09 165)", hue: 165 },
   staar: { range: "Approaches → Masters", rangeLabel: "Score bands", fill: "oklch(0.6 0.17 55)", hue: 55 },
 };
 

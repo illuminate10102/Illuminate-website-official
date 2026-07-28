@@ -13,8 +13,12 @@
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif; /* body copy */
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
 
-  --color-chalkboard: oklch(0.18 0.06 264); /* brand navy */
-  --color-chalkboard-soft: oklch(0.22 0.055 264); /* brand navy-light */
+  /* Midnight Navy (#0B132B) from the updated palette matrix — the
+     "anchor" color for dark-mode structure. Chalkboard-soft keeps the
+     same relative lightness/chroma offset it always had, just re-based
+     onto this hue. */
+  --color-chalkboard: oklch(0.19 0.05 267); /* brand navy — Midnight Navy #0B132B */
+  --color-chalkboard-soft: oklch(0.23 0.045 267); /* brand navy-light */
   --color-paper: oklch(1 0 0); /* white */
   --color-paper-dim: oklch(0.96 0.008 264); /* brand muted */
   --color-ink: oklch(0.15 0.01 264); /* brand foreground */
@@ -40,9 +44,15 @@
 
   /* Icon accent colors — one per content area, so category/action badges
      read as distinct at a glance instead of uniform brand blue. Adapt
-     per theme like pen does. */
-  --color-mint: oklch(0.55 0.13 155);
-  --color-rose: oklch(0.58 0.19 20);
+     per theme like pen does.
+     mint and rose are re-based on the palette matrix's Sage Green
+     (#387765, "success indicators, secondary tags") and Terracotta
+     (#C2593F, "warm hover states, alert tags, primary CTAs") — same
+     token names/usage sites throughout the app, just refined hues:
+     sage is a duller, more muted green than the old bright mint, and
+     terracotta shifts hue from pink-red toward an earthy burnt-orange. */
+  --color-mint: oklch(0.52 0.07 165);
+  --color-rose: oklch(0.59 0.14 35);
   --color-violet: oklch(0.52 0.2 300);
   --color-amber: oklch(0.56 0.16 55);
 
@@ -52,6 +62,19 @@
 
   /* Section heading accent — ink in light mode, yellow ochre in dark. */
   --color-heading: oklch(0.15 0.01 264);
+
+  /* Core-values band — reuses the same paper-dim/paper surface as the
+     "Why Illuminate" section in light mode, instead of the fixed-dark
+     chalkboard used for hero bands elsewhere. Dark mode overrides these
+     below to the exact old chalkboard/chalk values, so the dark-mode
+     look is unchanged. Foreground tokens just alias ink, which already
+     flips light/dark on its own — no separate override needed for those. */
+  --color-values: var(--color-paper-dim);
+  --color-values-card: var(--color-paper);
+  --color-values-edge: var(--color-rule);
+  --color-values-eyebrow: oklch(0.5 0.15 70);
+  --color-values-fg: var(--color-ink);
+  --color-values-fg-soft: var(--color-ink-soft);
 }
 
 :root {
@@ -116,8 +139,8 @@
      desaturate faster to the eye at the same chroma value, so this needs
      a slightly bigger push for the equivalent "tinted, not gray" effect. */
   --color-ink-soft: oklch(0.72 0.045 264);
-  --color-chalkboard: oklch(0.15 0.07 264);
-  --color-chalkboard-soft: oklch(0.19 0.065 264);
+  --color-chalkboard: oklch(0.16 0.055 267); /* Midnight Navy #0B132B, dark-mode variant */
+  --color-chalkboard-soft: oklch(0.2 0.05 267);
   /* Richer/lighter than the light-mode gold — "glowing chalk on a
      blackboard" rather than the same gold dimmed by the dark backdrop. */
   --color-marker: oklch(0.78 0.22 75);
@@ -134,11 +157,20 @@
      carry a lot more saturation before a color reads as "loud" against
      navy, and the previous values were too close to light mode's to feel
      like a deliberate dark palette rather than a dimmed one. */
-  --color-mint: oklch(0.68 0.19 155);
-  --color-rose: oklch(0.7 0.22 20);
+  --color-mint: oklch(0.62 0.1 165); /* Sage Green #387765, dark-mode variant */
+  --color-rose: oklch(0.71 0.17 35); /* Terracotta #C2593F, dark-mode variant */
   --color-violet: oklch(0.68 0.23 300);
   --color-amber: oklch(0.74 0.19 55);
   --color-heading: oklch(0.7 0.13 70); /* yellow ochre */
+
+  /* Core-values band stays exactly as before in dark mode — same
+     chalkboard surface, same amber eyebrow (--color-values-fg/-fg-soft
+     aren't listed here since they just alias --color-ink/-ink-soft,
+     which are already remapped above). */
+  --color-values: var(--color-chalkboard);
+  --color-values-card: var(--color-chalkboard-soft);
+  --color-values-edge: var(--color-rule-dark);
+  --color-values-eyebrow: var(--color-marker);
 
   --tier-l: 0.74;
   --tier-c: 0.2;
@@ -517,13 +549,17 @@ main {
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 999px;
-  background: oklch(0.55 0.13 155 / 16%);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23197a4f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+  /* Wash + embedded SVG stroke re-derived from the new Sage Green mint
+     (oklch(0.52 0.07 165) light / oklch(0.62 0.1 165) dark) — can't
+     reference var(--color-mint) inside a data-URI, so these are kept in
+     sync by hand whenever that token changes. */
+  background: oklch(0.52 0.07 165 / 16%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2342685a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 0.65rem;
 }
 :root[data-theme="dark"] .prose-check > li::before {
-  background-color: oklch(0.68 0.14 155 / 22%);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a8e6c8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+  background-color: oklch(0.62 0.1 165 / 22%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3c6bb' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
 }
