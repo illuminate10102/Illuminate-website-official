@@ -1,27 +1,30 @@
 import { teamRoles } from "../data/team";
 import { RoleIcon } from "./RoleIcon";
 
+// Solid, always-on accent per tier — mint/rose/violet are already used as
+// fixed-solid badge colors elsewhere (see HierarchyDetails), so they read
+// consistently whether the header text sits on a light or dark page theme.
 const headerStyles: Record<string, string> = {
   directors: "bg-pen-solid text-white",
-  "vice-presidents": "bg-chalkboard text-chalk",
+  "vice-presidents": "bg-rose text-white",
   officers: "bg-marker text-ink-solid",
-  associates: "bg-paper-dim text-ink border-b border-rule",
-  members: "bg-paper text-ink border-b border-rule",
+  associates: "bg-mint text-white",
+  members: "bg-violet text-white",
 };
 
 const subtitleStyles: Record<string, string> = {
   directors: "text-white/70",
-  "vice-presidents": "text-chalk-soft",
+  "vice-presidents": "text-white/70",
   officers: "text-ink-solid/60",
-  associates: "text-ink-soft",
-  members: "text-ink-soft",
+  associates: "text-white/70",
+  members: "text-white/70",
 };
 
 type TeamStructureProps = {
   variant?: "info" | "apply";
 };
 
-const APPLICATION_FORM_URL = "https://forms.gle/Q3igdRzBYtkmkYc86";
+export const APPLICATION_FORM_URL = "https://forms.gle/Q3igdRzBYtkmkYc86";
 
 // Directors and Members don't have an apply link — directors aren't
 // recruited this way, and membership itself doesn't require an application.

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { HeroWaves } from "../components/HeroWaves";
-import { TeamStructure } from "../components/TeamStructure";
+import { HierarchyDetails } from "../components/HierarchyDetails";
 import { Icon, iconBadgeClasses, type IconName } from "../components/Icon";
 
 export function meta({}: Route.MetaArgs) {
@@ -106,20 +106,20 @@ export default function GetInvolved() {
         </section>
         */}
 
-        <section id="apply" className="bg-paper py-24 sm:py-32 border-t border-rule scroll-mt-20">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="hierarchy" className="bg-paper-dim py-20 sm:py-28 border-t border-rule scroll-mt-20">
+          <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
             <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
               Apply for a position
             </p>
-            <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
-              Join us to Illuminate the future. 
+            <h2 className="reveal reveal-1 font-display font-extrabold text-4xl sm:text-5xl text-ink tracking-tight mb-4">
+              Join us to Illuminate the future.
             </h2>
-            <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-16">
-              Pick the tier that fits where you're at. 
+            <p className="reveal reveal-2 text-ink-soft text-lg max-w-xl mb-12">
+              Pick the tier that fits where you're at.
             </p>
 
             <div className="reveal reveal-3">
-              <TeamStructure variant="apply" />
+              <HierarchyDetails />
             </div>
           </div>
         </section>

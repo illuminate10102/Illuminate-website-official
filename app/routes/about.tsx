@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
+import { CoreValues } from "../components/about/CoreValues";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -73,6 +74,8 @@ export default function About() {
             </div>
           </div>
         </section>
+
+        <CoreValues />
 
         <section id="team" className="bg-paper-dim py-24 sm:py-32 border-y border-rule scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
