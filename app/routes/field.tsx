@@ -20,6 +20,11 @@ import {
   studyResourcesAuthor,
   studyResourcesSources,
 } from "../content/study-resources";
+import {
+  MemoryTechniquesGuide,
+  memoryTechniquesAuthor,
+  memoryTechniquesSources,
+} from "../content/memory-techniques";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -56,6 +61,11 @@ const guides: Record<
     Body: StudyResourcesGuide,
     sources: studyResourcesSources,
     author: studyResourcesAuthor,
+  },
+  "academics/memory-techniques": {
+    Body: MemoryTechniquesGuide,
+    sources: memoryTechniquesSources,
+    author: memoryTechniquesAuthor,
   },
 };
 
