@@ -74,11 +74,11 @@ export default function TestingPage() {
 
         <section className="bg-paper py-20 sm:py-28">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-3 text-center">
+            {/* <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-3 text-center">
               {testsTier.label}
-            </p>
+            </p> */}
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-ink tracking-tight text-center mb-14">
-              Pick your test. Get a plan.
+              Standardized Tests
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-6 mb-20">
@@ -116,11 +116,11 @@ export default function TestingPage() {
             </div>
 
             <div className="border-t border-rule pt-16">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-3 text-center">
+              {/* <p className="font-mono text-xs uppercase tracking-[0.15em] text-pen mb-3 text-center">
                 {resourcesTier.label}
-              </p>
+              </p> */}
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink tracking-tight text-center mb-12">
-                Prep without the price tag.
+                Strategy & Resources
               </h2>
               <div className="grid sm:grid-cols-3 gap-6">
                 {otherResourceFields.map((field) => (
