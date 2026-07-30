@@ -179,7 +179,7 @@ const directors = [
   "Dhruv Nandy",
   "Sarvesh Shanthibooshan Subramanian",
   "Vinh Tran",
-  "Hoang Nguyen",
+  
 ];
 
 const deptAccent: Record<string, { border: string; wash: string; text: string }> = {
