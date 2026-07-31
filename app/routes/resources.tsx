@@ -4,11 +4,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { HeroWaves } from "../components/HeroWaves";
 import { categories, categoryFieldCount } from "../data/categories";
+import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "Resources — Illuminate";
+  const description = "Every Illuminate guide, in one place, sorted by topic.";
   return [
-    { title: "Resources — Illuminate" },
-    { name: "description", content: "Every Illuminate guide, in one place, sorted by topic." },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/resources" }),
   ];
 }
 

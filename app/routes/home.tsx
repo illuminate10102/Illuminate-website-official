@@ -6,15 +6,16 @@ import Catalog from "../components/home/Catalog";
 import WhyIlluminate from "../components/home/WhyIlluminate";
 import FinalCta from "../components/home/FinalCta";
 import Contact from "../components/home/Contact";
+import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "Illuminate — Free college & academic guidance for K–12 students";
+  const description =
+    "Illuminate is a student-led nonprofit helping K–12 students navigate academics, extracurriculars, testing, and college prep — completely free.";
   return [
-    { title: "Illuminate — Free college & academic guidance for K–12 students" },
-    {
-      name: "description",
-      content:
-        "Illuminate is a student-led nonprofit helping K–12 students navigate academics, extracurriculars, testing, and college prep — completely free.",
-    },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/" }),
   ];
 }
 

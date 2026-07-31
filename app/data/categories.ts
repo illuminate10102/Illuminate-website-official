@@ -205,7 +205,7 @@ const raw: RawCategory[] = [
         label: "Choosing a College",
         hue: 250,
         fields: [
-          { slug: "how-to-choose", title: "How to choose", blurb: "ED, EA, RD, or rolling — and what each one actually means for you.", icon: "compass" },
+          { slug: "how-to-choose", title: "How to choose", blurb: "Finding the school that actually fits you — not just the one with the best ranking.", icon: "compass" },
           { slug: "building-a-list", title: "Building your list", blurb: "Reach, target, and safety schools that actually fit you.", icon: "document" },
         ],
       },

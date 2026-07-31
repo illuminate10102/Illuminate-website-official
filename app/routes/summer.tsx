@@ -5,15 +5,16 @@ import { HeroWaves } from "../components/HeroWaves";
 import { Icon, categoryIcon } from "../components/Icon";
 import { getCategory } from "../data/categories";
 import { tierHueStyle } from "../lib/tierStyle";
+import { seoTags } from "../lib/seo";
 
 export function meta() {
+  const title = "Summer planning — Illuminate";
+  const description =
+    "Turn your summer into the strongest part of your story — internships, research, competitions, and honest advice on when to just rest.";
   return [
-    { title: "Summer planning — Illuminate" },
-    {
-      name: "description",
-      content:
-        "Turn your summer into the strongest part of your story — internships, research, competitions, and honest advice on when to just rest.",
-    },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/summer" }),
   ];
 }
 

@@ -25,6 +25,8 @@ import {
   memoryTechniquesAuthor,
   memoryTechniquesSources,
 } from "../content/memory-techniques";
+import { HowToChooseGuide, howToChooseAuthor, howToChooseSources } from "../content/how-to-choose";
+import { seoTags, SITE_URL } from "../lib/seo";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -67,14 +69,35 @@ const guides: Record<
     sources: memoryTechniquesSources,
     author: memoryTechniquesAuthor,
   },
+  "college/how-to-choose": {
+    Body: HowToChooseGuide,
+    sources: howToChooseSources,
+    author: howToChooseAuthor,
+  },
 };
 
 export function meta({ params }: { params: { category?: string; field?: string } }) {
   const result = getField(params.category, params.field);
   if (!result) return [{ title: "Illuminate" }];
+  const { category, field } = result;
+  const title = `${field.title} — Illuminate`;
+  const description = field.blurb;
+  const path = `/${category.slug}/${field.slug}`;
   return [
-    { title: `${result.field.title} — Illuminate` },
-    { name: "description", content: result.field.blurb },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path }),
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Illuminate", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: category.label, item: `${SITE_URL}/${category.slug}` },
+          { "@type": "ListItem", position: 3, name: field.title, item: `${SITE_URL}${path}` },
+        ],
+      },
+    },
   ];
 }
 

@@ -5,14 +5,15 @@ import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
 import { CoreValues } from "../components/about/CoreValues";
+import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "About — Illuminate";
+  const description = "Why a group of students started Illuminate, and who keeps it running.";
   return [
-    { title: "About — Illuminate" },
-    {
-      name: "description",
-      content: "Why a group of students started Illuminate, and who keeps it running.",
-    },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/about" }),
   ];
 }
 

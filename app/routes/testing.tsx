@@ -5,15 +5,16 @@ import { HeroWaves } from "../components/HeroWaves";
 import { Icon, categoryIcon } from "../components/Icon";
 import { getCategory } from "../data/categories";
 import { tierHueStyle } from "../lib/tierStyle";
+import { seoTags } from "../lib/seo";
 
 export function meta() {
+  const title = "Standardized testing — Illuminate";
+  const description =
+    "Clear, anxiety-reducing guides for the SAT, ACT, PSAT, and STAAR — free resources, study plans, and proven strategies.";
   return [
-    { title: "Standardized testing — Illuminate" },
-    {
-      name: "description",
-      content:
-        "Clear, anxiety-reducing guides for the SAT, ACT, PSAT, and STAAR — free resources, study plans, and proven strategies.",
-    },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/testing" }),
   ];
 }
 
