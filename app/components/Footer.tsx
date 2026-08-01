@@ -7,7 +7,7 @@ const columns: Record<string, { label: string; href: string }[]> = {
     { label: "Academics", href: "/academics" },
     { label: "Standardized testing", href: "/testing" },
     { label: "Lifestyle", href: "/lifestyle" },
-    { label: "College prep", href: "/college" },
+    { label: "College", href: "/college" },
     { label: "Summer planning", href: "/summer" },
   ],
   Organization: [

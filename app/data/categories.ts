@@ -198,7 +198,7 @@ const raw: RawCategory[] = [
   {
     slug: "college",
     code: "CP",
-    label: "College prep",
+    label: "College",
     intro: "",
     tiers: [
       {
