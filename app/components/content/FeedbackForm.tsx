@@ -30,6 +30,7 @@ export function FeedbackForm({ page }: { page: string }) {
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
+          type: "feedback",
           page,
           url: typeof window !== "undefined" ? window.location.href : "",
           name,

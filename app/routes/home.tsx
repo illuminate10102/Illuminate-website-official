@@ -6,6 +6,7 @@ import Catalog from "../components/home/Catalog";
 import WhyIlluminate from "../components/home/WhyIlluminate";
 import FinalCta from "../components/home/FinalCta";
 import Contact from "../components/home/Contact";
+import FeatureRequestForm from "../components/home/FeatureRequestForm";
 import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
@@ -28,6 +29,7 @@ export default function Home() {
         <Catalog />
         <WhyIlluminate />
         <Contact />
+        <FeatureRequestForm />
         <FinalCta />
       </main>
       <Footer />
