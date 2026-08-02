@@ -27,6 +27,7 @@ import {
 } from "../content/memory-techniques";
 import { HowToChooseGuide, howToChooseAuthor, howToChooseSources } from "../content/how-to-choose";
 import { seoTags, SITE_URL } from "../lib/seo";
+import { FeedbackForm } from "../components/content/FeedbackForm";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -193,6 +194,8 @@ export default function FieldPage() {
               <div className="grid lg:grid-cols-[1fr_320px] gap-16">
                 <div className="max-w-[720px]">
                   <Body />
+
+                  <FeedbackForm page={`${field.title} (${category.label})`} />
 
                   <Link
                     to={`/${category.slug}`}
