@@ -844,7 +844,7 @@ export function InternshipsGuide() {
           <p>
             The person who wrote this page currently holds two internships, both found in Houston while still in
             high school: <strong className="text-ink">ImaginX</strong>, an AR/VR company, working as a data
-            analyst and on the marketing team; and <strong className="text-ink">iSpatial Technical Solutions</strong>,
+            analyst and on the marketing team; and <strong className="text-ink">iSpatial Techno Solutions</strong>,
             as a data analyst.
           </p>
           <p>A few things in that pattern generalize:</p>
