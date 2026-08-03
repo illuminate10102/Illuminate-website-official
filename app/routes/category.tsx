@@ -5,13 +5,17 @@ import { HeroWaves } from "../components/HeroWaves";
 import { getCategory } from "../data/categories";
 import { Icon } from "../components/Icon";
 import { tierHueStyle } from "../lib/tierStyle";
+import { seoTags } from "../lib/seo";
 
 export function meta({ params }: { params: { category?: string } }) {
   const category = getCategory(params.category);
   if (!category) return [{ title: "Illuminate" }];
+  const title = `${category.label} — Illuminate`;
+  const description = category.intro;
   return [
-    { title: `${category.label} — Illuminate` },
-    { name: "description", content: category.intro },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: `/${category.slug}` }),
   ];
 }
 

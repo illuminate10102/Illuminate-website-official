@@ -5,14 +5,15 @@ import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
 import { CoreValues } from "../components/about/CoreValues";
+import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "About — Illuminate";
+  const description = "Why a group of students started Illuminate, and who keeps it running.";
   return [
-    { title: "About — Illuminate" },
-    {
-      name: "description",
-      content: "Why a group of students started Illuminate, and who keeps it running.",
-    },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/about" }),
   ];
 }
 
@@ -66,7 +67,7 @@ export default function About() {
                 Having personally gone through this pain, we decided to create a platform to guide students throughout their high school journey.
               </p>
               <p>
-                Thus, the idea of Project Illuminate was born. Six Cinco Ranch students, Arnav, Dhruv, Nidhish, Sarvesh, Henry, and Vinh, sought to end this lingering issue that affects many aspiring students nationwide.
+                Thus, the idea of Project Illuminate was born. Six Cinco Ranch students, Arnav, Dhruv, Nidhish, Sarvesh, and Vinh, sought to end this lingering issue that affects many aspiring students nationwide.
               </p>
               <p>
                 After constant calls, meetings, and discussions, we brought Project Illuminate to life. With the help of officers, associates, and members, we built a platform that brings together resources, information, and community.

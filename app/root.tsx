@@ -10,6 +10,18 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { useScrollReveal } from "./hooks/useScrollReveal";
+import { SITE_URL } from "./lib/seo";
+
+const organizationJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Illuminate",
+  alternateName: "Project Illuminate",
+  url: SITE_URL,
+  logo: `${SITE_URL}/illuminate-logo.png`,
+  description:
+    "Illuminate is a student-led nonprofit helping K–12 students navigate academics, extracurriculars, testing, and college prep — completely free.",
+});
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/png", href: "/illuminate-logo.png" },
@@ -38,6 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         <Meta />
         <Links />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationJsonLd }} />
       </head>
       <body>
         {children}

@@ -64,7 +64,7 @@ const raw: RawCategory[] = [
         label: "Academic & research",
         hue: 265,
         fields: [
-          { slug: "research", title: "Research programs", blurb: "How to email a professor, land a spot in a lab, and turn it into a real project.", icon: "atom" },
+          { slug: "research", title: "Research programs", blurb: "A searchable list of real summer research programs, filterable by cost, format, and who's eligible.", icon: "atom" },
           { slug: "competitions", title: "Competitions", blurb: "Academic and creative competitions that are actually worth your weekends.", icon: "trophy" },
           { slug: "clubs", title: "Clubs & organizations", blurb: "Which clubs are worth joining, and which ones just eat your afternoons.", icon: "network" },
           { slug: "nonprofits", title: "Nonprofits", blurb: "Starting or joining one that does more than look good on paper.", icon: "heart" },
@@ -76,7 +76,7 @@ const raw: RawCategory[] = [
         hue: 140,
         fields: [
           { slug: "volunteering", title: "Volunteering", blurb: "How much is enough, and how to find work that isn't just a signature on a form.", icon: "heart" },
-          { slug: "sports", title: "Sports", blurb: "Where athletics fits into your story, on top of or instead of everything else.", icon: "trophy" },
+          { slug: "sports", title: "Sports", blurb: "How sports affect your GPA and PE requirement in Katy ISD, and what tryouts actually look like.", icon: "trophy" },
           { slug: "passion-projects", title: "Passion projects", blurb: "Building something nobody assigned you — that's the one that stands out.", icon: "rocket" },
           { slug: "travel-programs", title: "Travel programs", blurb: "Study-abroad and travel programs worth the cost — and the ones that aren't.", icon: "globe" },
           { slug: "guest-speakers", title: "Guest speakers", blurb: "Bringing in outside voices for your club or class, and getting it approved.", icon: "megaphone" },
@@ -96,21 +96,21 @@ const raw: RawCategory[] = [
         label: "GPA & Performance",
         hue: 55,
         fields: [
-          { slug: "gpa-strategy", title: "GPA strategy", blurb: "How grades actually get weighted, and how to recover from one bad semester.", icon: "trending-up" },
-          { slug: "gpa-calculator", title: "GPA calculator", blurb: "Estimate your weighted and unweighted GPA using your district's real scale.", icon: "calculator" },
+          { slug: "gpa-strategy", title: "GPA strategy", blurb: "How weighted GPA actually gets calculated, and how to build a schedule that keeps yours competitive.", icon: "trending-up" },
+          { slug: "gpa-calculator", title: "GPA calculator", blurb: "A tool for figuring out exactly what your next test needs to be.", icon: "calculator" },
           { slug: "ap-course-advice", title: "AP course advice", blurb: "Which AP classes are worth the workload, and which ones aren't.", icon: "medal" },
           { slug: "dual-credit", title: "Dual credit", blurb: "Earning college credit in high school, and whether it's worth doing.", icon: "document" },
-          { slug: "credit-by-exam", title: "Credit By Exam(CBE)", blurb: "Testing out of a class instead of sitting through it.", icon: "clipboard-check" },
+          { slug: "credit-by-exam", title: "Credit By Exam(CBE)", blurb: "How the Katy ISD Credit by Exam actually works, from picking the right test to what happens if you don't pass.", icon: "clipboard-check" },
         ],
       },
       {
         label: "Study Strategies",
         hue: 240,
         fields: [
-          { slug: "efficient-studying", title: "Efficient studying", blurb: "A way of studying that still works during finals week, not just in October.", icon: "book-open" },
-          { slug: "memory-techniques", title: "Memory techniques", blurb: "Ways to actually remember what you studied, past the test.", icon: "brain" },
+          { slug: "efficient-studying", title: "Efficient studying", blurb: "A way of studying that holds up under pressure, not just when you have time to spare.", icon: "book-open" },
+          { slug: "memory-techniques", title: "Memory techniques", blurb: "Why re-reading your notes doesn't work, and the active recall method that actually does.", icon: "brain" },
           { slug: "essay-writing", title: "Essay writing", blurb: "Writing essays for class that don't sound like everyone else's.", icon: "pen-nib" },
-          { slug: "study-resources", title: "Study resources", blurb: "Free places to get help when a teacher's explanation isn't clicking.", icon: "search-check" },
+          { slug: "study-resources", title: "Study resources", blurb: "A running list of the free websites, tools, and YouTube channels that actually help each subject click.", icon: "search-check" },
         ],
       },
       {
@@ -163,7 +163,7 @@ const raw: RawCategory[] = [
         label: "Productivity",
         hue: 45,
         fields: [
-          { slug: "time-management", title: "Time management", blurb: "Fitting school, activities, and an actual life into the same week.", icon: "clock" },
+          { slug: "time-management", title: "Time management", blurb: "A five-step system for organizing your week, plus which planner actually fits how you work.", icon: "clock" },
           { slug: "study-schedules", title: "Study schedules", blurb: "Blocking out a week so studying doesn't eat every evening.", icon: "calendar" },
           { slug: "pomodoro-technique", title: "Pomodoro technique", blurb: "Short focused bursts, for when your attention span checks out early.", icon: "clock" },
           { slug: "digital-organization", title: "Digital organization", blurb: "Keeping assignments, tabs, and files from turning into chaos.", icon: "document" },
@@ -198,14 +198,14 @@ const raw: RawCategory[] = [
   {
     slug: "college",
     code: "CP",
-    label: "College prep",
+    label: "College",
     intro: "",
     tiers: [
       {
         label: "Choosing a College",
         hue: 250,
         fields: [
-          { slug: "how-to-choose", title: "How to choose", blurb: "ED, EA, RD, or rolling — and what each one actually means for you.", icon: "compass" },
+          { slug: "how-to-choose", title: "How to choose", blurb: "The questions to ask yourself before you start comparing schools by their rankings.", icon: "compass" },
           { slug: "building-a-list", title: "Building your list", blurb: "Reach, target, and safety schools that actually fit you.", icon: "document" },
         ],
       },

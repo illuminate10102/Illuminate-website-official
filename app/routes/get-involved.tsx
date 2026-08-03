@@ -5,14 +5,15 @@ import { ChalkUnderline } from "../components/ChalkUnderline";
 import { HeroWaves } from "../components/HeroWaves";
 import { HierarchyDetails } from "../components/HierarchyDetails";
 import { Icon, iconBadgeClasses, type IconName } from "../components/Icon";
+import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "Get involved — Illuminate";
+  const description = "Write a guide, tutor a student, or bring Illuminate to your school.";
   return [
-    { title: "Get involved — Illuminate" },
-    {
-      name: "description",
-      content: "Write a guide, tutor a student, or bring Illuminate to your school.",
-    },
+    { title },
+    { name: "description", content: description },
+    ...seoTags({ title, description, path: "/get-involved" }),
   ];
 }
 

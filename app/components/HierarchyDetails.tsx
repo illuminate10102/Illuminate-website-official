@@ -179,7 +179,7 @@ const directors = [
   "Dhruv Nandy",
   "Sarvesh Shanthibooshan Subramanian",
   "Vinh Tran",
-  "Hoang Nguyen",
+  
 ];
 
 const deptAccent: Record<string, { border: string; wash: string; text: string }> = {
@@ -312,7 +312,7 @@ export function HierarchyDetails() {
             ]}
           />
         </div>
-        <ApplyLink slug="vice-presidents" label="a Vice President" />
+        {/* <ApplyLink slug="vice-presidents" label="a Vice President" /> */}
       </RoleSection>
 
       <RoleSection slug="officers" title="Officers">
