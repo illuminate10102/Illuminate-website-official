@@ -843,7 +843,7 @@ export function InternshipsGuide() {
         <div className="space-y-4 text-ink-soft text-base leading-relaxed">
           <p>
             The person who wrote this page currently holds two internships, both found in Houston while still in
-            high school: <strong className="text-ink">Imaginex</strong>, an AR/VR company, working as a data
+            high school: <strong className="text-ink">ImaginX</strong>, an AR/VR company, working as a data
             analyst and on the marketing team; and <strong className="text-ink">iSpatial Technical Solutions</strong>,
             as a data analyst.
           </p>
