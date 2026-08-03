@@ -4,6 +4,8 @@ import { Callout, H2, H3, checklist, ul } from "../components/content/Prose";
 import { internshipPrograms } from "../data/internshipPrograms";
 import { annualConferences, recurringEvents } from "../data/houstonConferences";
 
+export const internshipsAuthor = "Soma Srikara Sai Vattem";
+
 type SourceLink = { label: string; href?: string; note?: string };
 
 // Every source and every program's own official page is already linked
@@ -859,7 +861,7 @@ export function InternshipsGuide() {
             vaguely familiar with five things.
           </li>
           <li>
-            The Imaginex role covers analysis and marketing at the same time — typical of smaller companies, and
+            The ImaginX role covers analysis and marketing at the same time — typical of smaller companies, and
             a feature, not a downgrade. You get exposure to functions that would be walled off from an intern at
             a big firm.
           </li>
