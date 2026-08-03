@@ -55,12 +55,12 @@ export default function About() {
 
         <section className="bg-paper py-24 sm:py-32">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div className="reveal">
+            <div className="reveal min-w-0">
               <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-8">
                 How it Started
               </h2>
             </div>
-            <div className="reveal reveal-1 space-y-6 text-ink-soft text-xl leading-relaxed">
+            <div className="reveal reveal-1 min-w-0 space-y-6 text-ink-soft text-xl leading-relaxed">
               <p>
                 We can all agree that high school can be confusing at times. 
                 From course selection to extracurriculars, or study strategies to time management, many aspects of high school are hard to navigate.  

@@ -53,10 +53,13 @@ export default function FeatureRequestForm() {
     <section className="bg-paper py-24 sm:py-32 border-t border-rule">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_480px] gap-16 items-start">
-          <div className="reveal max-w-xl">
-            <h2 className="relative inline-block font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-6">
-              Got an idea for the site?
-              <ChalkUnderline />
+          <div className="reveal min-w-0 max-w-xl">
+            <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-6">
+              Feature{" "}
+              <span className="relative inline-block">
+                Request
+                <ChalkUnderline />
+              </span>
             </h2>
             <p className="text-ink-soft text-xl leading-relaxed">
               A missing guide, a tool you wish existed, something that'd make this easier to
@@ -64,7 +67,7 @@ export default function FeatureRequestForm() {
             </p>
           </div>
 
-          <div className="reveal border border-rule rounded-lg bg-paper-dim p-6 sm:p-8">
+          <div className="reveal min-w-0 border border-rule rounded-lg bg-paper-dim p-6 sm:p-8">
             {status === "sent" ? (
               <p className="text-ink text-base leading-relaxed">
                 Thanks — that's been sent. We read every one of these.

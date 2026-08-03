@@ -192,7 +192,7 @@ export default function FieldPage() {
           <section className="bg-paper py-20 sm:py-28">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-[1fr_320px] gap-16">
-                <div className="max-w-[720px]">
+                <div className="min-w-0 max-w-[720px]">
                   <Body />
 
                   <FeedbackForm page={`${field.title} (${category.label})`} />
@@ -205,7 +205,7 @@ export default function FieldPage() {
                   </Link>
                 </div>
 
-                <aside className="lg:sticky lg:top-28 self-start">
+                <aside className="min-w-0 lg:sticky lg:top-28 self-start">
                   <div className="border border-rule rounded-lg p-6 bg-paper-dim">
                     <p className="font-mono text-xs uppercase tracking-wide text-ink-soft mb-4">
                       Sources &amp; links

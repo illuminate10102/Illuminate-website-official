@@ -7,7 +7,7 @@ function applyTheme(theme: Theme) {
   localStorage.setItem("theme", theme);
 }
 
-export function ThemeToggle({ className = "" }: { className?: string }) {
+export function ThemeToggle({ className = "inline-flex" }: { className?: string }) {
   // Starts null so SSR and first client render match (avoids hydration
   // mismatch); synced to the real value right after mount.
   const [theme, setTheme] = useState<Theme | null>(null);
@@ -30,7 +30,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className={`inline-flex items-center justify-center w-9 h-9 rounded-md border border-rule text-ink-soft hover:text-ink hover:border-pen/40 transition-colors ${className}`}
+      className={`items-center justify-center w-9 h-9 rounded-md border border-rule text-ink-soft hover:text-ink hover:border-pen/40 transition-colors ${className}`}
     >
       {isDark ? (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]" aria-hidden="true">

@@ -11,7 +11,7 @@ export default function Contact() {
     <section id="contact" className="bg-paper-dim py-24 sm:py-32 border-t border-rule scroll-mt-20">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_380px] gap-16 items-center">
-          <div className="reveal max-w-xl">
+          <div className="reveal min-w-0 max-w-xl">
             <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-6">
               Social Media
             </h2>
