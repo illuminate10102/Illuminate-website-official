@@ -97,7 +97,7 @@ const raw: RawCategory[] = [
         hue: 55,
         fields: [
           { slug: "gpa-strategy", title: "GPA strategy", blurb: "How grades actually get weighted, and how to recover from one bad semester.", icon: "trending-up" },
-          { slug: "gpa-calculator", title: "GPA calculator", blurb: "A tool for figuring out exactly what your next test needs to be.", icon: "calculator" },
+          { slug: "gpa-calculator", title: "GPA calculator", blurb: "Estimate your weighted and unweighted GPA using your district's real scale.", icon: "calculator" },
           { slug: "ap-course-advice", title: "AP course advice", blurb: "Which AP classes are worth the workload, and which ones aren't.", icon: "medal" },
           { slug: "dual-credit", title: "Dual credit", blurb: "Earning college credit in high school, and whether it's worth doing.", icon: "document" },
           { slug: "credit-by-exam", title: "Credit By Exam(CBE)", blurb: "Testing out of a class instead of sitting through it.", icon: "clipboard-check" },
