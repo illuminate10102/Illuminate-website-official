@@ -196,13 +196,8 @@ export default function FieldPage() {
 
           <section className="bg-paper py-20 sm:py-28">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-<<<<<<< HEAD
-              <div className="grid lg:grid-cols-[1fr_320px] gap-16">
-                <div className="min-w-0 max-w-[720px]">
-=======
               <div className={sources.length > 0 ? "grid lg:grid-cols-[1fr_320px] gap-16" : "grid"}>
-                <div className={sources.length > 0 ? "max-w-[720px]" : "max-w-[720px] mx-auto w-full"}>
->>>>>>> cb097d36499fd4f1d891822e7504136d0a9990cf
+                <div className={sources.length > 0 ? "min-w-0 max-w-[720px]" : "min-w-0 max-w-[720px] mx-auto w-full"}>
                   <Body />
 
                   <FeedbackForm page={`${field.title} (${category.label})`} />
@@ -215,38 +210,6 @@ export default function FieldPage() {
                   </Link>
                 </div>
 
-<<<<<<< HEAD
-                <aside className="min-w-0 lg:sticky lg:top-28 self-start">
-                  <div className="border border-rule rounded-lg p-6 bg-paper-dim">
-                    <p className="font-mono text-xs uppercase tracking-wide text-ink-soft mb-4">
-                      Sources &amp; links
-                    </p>
-                    <ul className="space-y-5">
-                      {sources.map((s) => (
-                        <li key={s.href ?? s.label}>
-                          {s.href ? (
-                            <a
-                              href={s.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-ink font-semibold text-sm hover:text-pen transition-colors underline decoration-rule hover:decoration-marker decoration-2 underline-offset-4"
-                            >
-                              {s.label} <span aria-hidden="true">↗</span>
-                            </a>
-                          ) : (
-                            <span className="text-ink font-semibold text-sm">{s.label}</span>
-                          )}
-                          {s.note && (
-                            <p className="text-ink-soft text-xs leading-relaxed mt-1.5">
-                              {s.note}
-                            </p>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </aside>
-=======
                 {sources.length > 0 && (
                   <aside className="lg:sticky lg:top-28 self-start">
                     <div className="border border-rule rounded-lg p-6 bg-paper-dim">
@@ -279,7 +242,6 @@ export default function FieldPage() {
                     </div>
                   </aside>
                 )}
->>>>>>> cb097d36499fd4f1d891822e7504136d0a9990cf
               </div>
             </div>
           </section>

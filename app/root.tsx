@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { useScrollReveal } from "./hooks/useScrollReveal";
+import { useHashScroll } from "./hooks/useHashScroll";
 import { SITE_URL } from "./lib/seo";
 
 const organizationJsonLd = JSON.stringify({
@@ -63,6 +64,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   useScrollReveal();
+  useHashScroll();
   return <Outlet />;
 }
 
