@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
 import { TeamStructure } from "../components/TeamStructure";
 import { CoreValues } from "../components/about/CoreValues";
+import { DirectorAvatar } from "../components/DirectorAvatar";
+import { directors } from "../data/directors";
 import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
@@ -55,12 +57,12 @@ export default function About() {
 
         <section className="bg-paper py-24 sm:py-32">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div className="reveal">
+            <div className="reveal min-w-0">
               <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-8">
                 How it Started
               </h2>
             </div>
-            <div className="reveal reveal-1 space-y-6 text-ink-soft text-xl leading-relaxed">
+            <div className="reveal reveal-1 min-w-0 space-y-6 text-ink-soft text-xl leading-relaxed">
               <p>
                 We can all agree that high school can be confusing at times. 
                 From course selection to extracurriculars, or study strategies to time management, many aspects of high school are hard to navigate.  
@@ -77,6 +79,44 @@ export default function About() {
         </section>
 
         <CoreValues />
+
+        <section id="meet-the-team" className="bg-paper py-24 sm:py-32 scroll-mt-20">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
+              The founders
+            </p>
+            <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
+              Meet the Directors
+            </h2>
+            <p className="reveal reveal-2 text-ink-soft text-lg leading-relaxed max-w-xl mb-12">
+              Tap a face to read their story.
+            </p>
+
+            <div className="reveal reveal-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+              {directors.map((director) => (
+                <Link
+                  key={director.slug}
+                  to={`/meet-the-team#${director.slug}`}
+                  className="stagger-item group block"
+                >
+                  <DirectorAvatar
+                    name={director.name}
+                    photo={director.photo}
+                    className="w-full aspect-[4/5] rounded-lg border border-rule card-elevate transition-transform group-hover:-translate-y-1"
+                    imageClassName={
+                      director.slug === "nidhish-kakkireni"
+                        ? "scale-125 [transform-origin:50%_25%]"
+                        : undefined
+                    }
+                  />
+                  <p className="mt-3 text-center font-subtitle font-bold text-sm sm:text-base text-ink group-hover:text-pen transition-colors">
+                    {director.name}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section id="team" className="bg-paper-dim py-24 sm:py-32 border-y border-rule scroll-mt-20">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">

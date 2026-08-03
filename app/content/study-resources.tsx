@@ -195,7 +195,7 @@ function StudyResourcesTable() {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-5">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-5">
         <input
           type="text"
           value={search}

@@ -44,7 +44,7 @@ export default function Resources() {
                 <div className="flex items-baseline justify-between gap-4 mb-8 border-b border-rule pb-4">
                   <Link
                     to={`/${category.slug}`}
-                    className="group flex items-baseline gap-3"
+                    className="group min-w-0 flex items-baseline gap-3"
                   >
                     <span className="course-code text-sm text-pen border border-pen/30 rounded-md px-2 py-0.5">
                       {category.code}

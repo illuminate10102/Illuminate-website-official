@@ -67,7 +67,7 @@ export default function CategoryPage() {
                     <Link
                       key={field.slug}
                       to={`/${category.slug}/${field.slug}`}
-                      className="stagger-item card-elevate group bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
+                      className="stagger-item card-elevate group min-w-0 bg-paper hover:bg-paper-dim border border-rule rounded-lg p-7 flex flex-col"
                     >
                       <div className="flex items-center gap-3 mb-5">
                         <span

@@ -108,13 +108,13 @@ function ResearchProgramsTable() {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-5">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-5">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search by program, field, or description…"
-          className="flex-1 min-w-[220px] px-3.5 py-2.5 bg-paper border border-rule rounded-lg text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:border-pen transition-colors"
+          className="flex-1 min-w-0 sm:min-w-[220px] px-3.5 py-2.5 bg-paper border border-rule rounded-lg text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:border-pen transition-colors"
         />
         <select
           value={cost}
