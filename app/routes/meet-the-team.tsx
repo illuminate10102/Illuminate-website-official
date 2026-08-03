@@ -8,7 +8,7 @@ import { directors, directorsClosing } from "../data/directors";
 import { seoTags } from "../lib/seo";
 
 export function meta({}: Route.MetaArgs) {
-  const title = "Meet the Team — Illuminate";
+  const title = "Meet the Directors — Illuminate";
   const description = "The founding directors of Illuminate, in their own words.";
   return [
     { title },
@@ -36,7 +36,7 @@ export default function MeetTheTeam() {
             <h1 className="reveal reveal-2 font-display font-black text-[2.75rem] leading-[0.98] sm:text-[4rem] text-chalk tracking-tight max-w-3xl">
               Meet the{" "}
               <span className="relative inline-block">
-                team
+                directors
                 <ChalkUnderline />
               </span>
             </h1>

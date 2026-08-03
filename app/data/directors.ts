@@ -7,6 +7,20 @@ export type Director = {
 
 export const directors: Director[] = [
   {
+    slug: "dhruv-nandy",
+    name: "Dhruv Nandy",
+    photo: "/team/dhruv-nandy.jpg",
+    story: [
+      "Hello, my name is Dhruv, and I want to be the big brother I never had- let me explain. High school, while it can be exciting and fun, can also be very, very stressful if you don’t know what you're doing. And unfortunately for me, I did not know what I was doing. At all. Especially unlike many of my peers, I had no siblings or family friends who could provide any guidance or help. And those who were kind enough to try were as lost as I was (which wasn’t a great thing either).",
+      "So from picking the wrong courses to stressing over school, or not knowing what ECs to do or even what major to pick, high school so far for me has been a long process of trial and error. And some more errors. Now, as a rising junior, I finally have a good understanding of the high school and the college admission process. But the issue that has affected me so much still profoundly persists: it's incredibly easy to get confused in the high school process, and most highschoolers don’t have any support that can help them navigate their four years of education.",
+      "The ones who do usually have older siblings, family, or tutors that have been familiarized with the system and can guide them throughout their four years. But for students who don't have older siblings like me, or have recently moved from a different district, city, state, or even country, or are economically disadvantaged- what do they do? Do they also give up their potential because they don’t know how to beat the system?",
+      "I wanted to do something that could help others facing the same hardships I did, and that’s when I thought of an idea that was simple but revolutionary: a platform where you can find everything in one place free of cost: information, resources, guidance, and mentors that can help you make the most out of your high school education. But how would this idea come to fruition? Could it even do so? Could I, of all people, make it happen?",
+      "I pitched the idea to some of my closest friends, who faced the same challenges I did and had realized the gravity of the situation. We agreed to work on it over the summer, doing constant planning, meetings, and discussions to try to bring our ideas to life. Slowly but surely, we were making progress. Small wins like the website coming to shape, getting official Texas nonprofit status, and receiving compliments for our efforts propelled us forward.",
+      "To me though, the fight to launch this nonprofit was personal, because I know how it feels to be dark in a world where everyone else has the light. I know how it feels to be behind when everyone else is ahead. I know how it feels worrying about an uncertain future. But I also know the feeling of persistence. The feeling of hard work. The feeling of determination. And the feeling of victory. And if I can do anything to help my peers be one step closer to that feeling, I’ll do it.",
+      "That’s my why for Project Illuminate.. and it can be yours too. Whether you're volunteering on the ground or working as an officer behind the scenes, or even just reading our material, you can be the elder sibling someone never had. You can be Project Illuminate.",
+    ],
+  },
+  {
     slug: "nidhish-kakkireni",
     name: "Nidhish Kakkireni",
     photo: "/team/nidhish-kakkireni.jpg",
@@ -24,20 +38,6 @@ export const directors: Director[] = [
       "I fell into a trap I can’t escape. This may seem extreme, but take this time to understand. The trap of striving for more, everyone wants it, whether it's regarding academics, sports, or general fulfillment of life. I can never escape it, it's always pushing me to the wall. This is exactly the reason Project Illuminate was born.",
       "If you have ever experienced such a trap, it is not a pleasant experience. We seek to provide individuals with knowledge they want, without any paywalls. They should be able to receive information that they can access, whether that be GPA, College applications, SAT preparation, Mental health, Study techniques, all in one place.",
       "Personally, I do not have an older sibling to familiarize myself with the school system, causing me to feel lost within that trap. You want more, crave more, yet you can’t grasp it, or it's too difficult to access. We know this pain, so with this, we want every student who needs guidance to receive it easily.",
-    ],
-  },
-  {
-    slug: "dhruv-nandy",
-    name: "Dhruv Nandy",
-    photo: "/team/dhruv-nandy.jpg",
-    story: [
-      "Hello, my name is Dhruv, and I want to be the big brother I never had- let me explain. High school, while it can be exciting and fun, can also be very, very stressful if you don’t know what you're doing. And unfortunately for me, I did not know what I was doing. At all. Especially unlike many of my peers, I had no siblings or family friends who could provide any guidance or help. And those who were kind enough to try were as lost as I was (which wasn’t a great thing either).",
-      "So from picking the wrong courses to stressing over school, or not knowing what ECs to do or even what major to pick, high school so far for me has been a long process of trial and error. And some more errors. Now, as a rising junior, I finally have a good understanding of the high school and the college admission process. But the issue that has affected me so much still profoundly persists: it's incredibly easy to get confused in the high school process, and most highschoolers don’t have any support that can help them navigate their four years of education.",
-      "The ones who do usually have older siblings, family, or tutors that have been familiarized with the system and can guide them throughout their four years. But for students who don't have older siblings like me, or have recently moved from a different district, city, state, or even country, or are economically disadvantaged- what do they do? Do they also give up their potential because they don’t know how to beat the system?",
-      "I wanted to do something that could help others facing the same hardships I did, and that’s when I thought of an idea that was simple but revolutionary: a platform where you can find everything in one place free of cost: information, resources, guidance, and mentors that can help you make the most out of your high school education. But how would this idea come to fruition? Could it even do so? Could I, of all people, make it happen?",
-      "I pitched the idea to some of my closest friends, who faced the same challenges I did and had realized the gravity of the situation. We agreed to work on it over the summer, doing constant planning, meetings, and discussions to try to bring our ideas to life. Slowly but surely, we were making progress. Small wins like the website coming to shape, getting official Texas nonprofit status, and receiving compliments for our efforts propelled us forward.",
-      "To me though, the fight to launch this nonprofit was personal, because I know how it feels to be dark in a world where everyone else has the light. I know how it feels to be behind when everyone else is ahead. I know how it feels worrying about an uncertain future. But I also know the feeling of persistence. The feeling of hard work. The feeling of determination. And the feeling of victory. And if I can do anything to help my peers be one step closer to that feeling, I’ll do it.",
-      "That’s my why for Project Illuminate.. and it can be yours too. Whether you're volunteering on the ground or working as an officer behind the scenes, or even just reading our material, you can be the elder sibling someone never had. You can be Project Illuminate.",
     ],
   },
   {
