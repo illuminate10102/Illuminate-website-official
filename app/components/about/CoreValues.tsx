@@ -1,4 +1,5 @@
 import { Icon, type IconName } from "../Icon";
+import { StraightUnderline } from "../StraightUnderline";
 
 /**
  * Wording taken verbatim from CoreValues.pdf (the team's own core-values
@@ -43,8 +44,9 @@ export function CoreValues() {
           <p className="font-mono text-xs uppercase tracking-[0.15em] text-values-eyebrow mb-4">
             Core values
           </p>
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-values-fg tracking-tight">
+          <h2 className="relative inline-block font-display font-extrabold text-4xl sm:text-5xl text-values-fg tracking-tight">
             What we stand by.
+            <StraightUnderline />
           </h2>
         </div>
 
