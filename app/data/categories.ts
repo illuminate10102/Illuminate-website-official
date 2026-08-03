@@ -52,7 +52,7 @@ const raw: RawCategory[] = [
         label: "Professional experience",
         hue: 195,
         fields: [
-          { slug: "internships", title: "Internships", blurb: "Finding one as a high schooler, and what to do once you're in the door.", icon: "briefcase" },
+          { slug: "internships", title: "Internships", blurb: "Finding one as a high schooler, plus a searchable directory of real programs and Houston events.", icon: "briefcase" },
           { slug: "apprenticeships", title: "Apprenticeships", blurb: "Hands-on training that teaches you a real skill before college does.", icon: "wrench" },
           { slug: "jobs", title: "Jobs & employment", blurb: "Part-time work, and what colleges actually think of a paycheck.", icon: "dollar" },
           { slug: "freelancing", title: "Freelancing", blurb: "Getting paid for a skill you already have, on your own schedule.", icon: "briefcase" },

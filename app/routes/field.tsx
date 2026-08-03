@@ -7,6 +7,7 @@ import { getField } from "../data/categories";
 import { tierHueStyle } from "../lib/tierStyle";
 import { Icon, categoryIcon } from "../components/Icon";
 import { CreditByExamGuide, creditByExamAuthor, creditByExamSources } from "../content/credit-by-exam";
+import { InternshipsGuide, internshipsSources } from "../content/internships";
 import { TimeManagementGuide, timeManagementAuthor, timeManagementSources } from "../content/time-management";
 import { GpaStrategyGuide, gpaStrategyAuthor, gpaStrategySources } from "../content/gpa-strategy";
 import { GpaCalculator, gpaCalculatorSources } from "../content/gpa-calculator";
@@ -54,6 +55,10 @@ const guides: Record<
   "academics/gpa-calculator": {
     Body: GpaCalculator,
     sources: gpaCalculatorSources,
+  },
+  "extracurriculars/internships": {
+    Body: InternshipsGuide,
+    sources: internshipsSources,
   },
   "extracurriculars/research": {
     Body: ResearchProgramsGuide,
