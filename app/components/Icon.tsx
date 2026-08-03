@@ -43,7 +43,9 @@ export type IconName =
   | "instagram"
   | "mail"
   | "youtube"
-  | "tiktok";
+  | "tiktok"
+  | "plus"
+  | "trash";
 
 type IconProps = {
   name: IconName;
@@ -404,6 +406,21 @@ export function Icon({ name, className = "w-5 h-5" }: IconProps) {
         <svg {...common}>
           <path d="M13.5 3v11.8a3.7 3.7 0 1 1-3.2-3.67" />
           <path d="M13.5 3.3c.4 2.6 2.3 4.6 5 4.9v3.1c-1.9-.1-3.6-.8-5-1.9" />
+        </svg>
+      );
+    case "plus":
+      return (
+        <svg {...common}>
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      );
+    case "trash":
+      return (
+        <svg {...common}>
+          <path d="M4.5 7h15" />
+          <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+          <path d="M6.5 7l1 12.5a1 1 0 0 0 1 .9h7a1 1 0 0 0 1-.9L17.5 7" />
+          <path d="M10 11v6M14 11v6" />
         </svg>
       );
     default:

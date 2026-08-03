@@ -21,7 +21,7 @@ export default function Hero() {
           Illuminate helps students navigate academics, extracurriculars,
           testing, and college prep. We bridged the gap between resources,
           experience, and people into one place, making it easier for
-          students to navigate through their educational journey.
+          students to traverse through their educational journey.
         </p>
 
         <div className="reveal reveal-3 flex flex-wrap items-center gap-5 mt-12">
