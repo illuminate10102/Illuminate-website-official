@@ -102,7 +102,12 @@ export default function About() {
                   <DirectorAvatar
                     name={director.name}
                     photo={director.photo}
-                    className="w-full aspect-[4/5] object-cover rounded-lg border border-rule card-elevate transition-transform group-hover:-translate-y-1"
+                    className="w-full aspect-[4/5] rounded-lg border border-rule card-elevate transition-transform group-hover:-translate-y-1"
+                    imageClassName={
+                      director.slug === "nidhish-kakkireni"
+                        ? "scale-125 [transform-origin:50%_25%]"
+                        : undefined
+                    }
                   />
                   <p className="mt-3 text-center font-subtitle font-bold text-sm sm:text-base text-ink group-hover:text-pen transition-colors">
                     {director.name}

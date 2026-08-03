@@ -154,6 +154,22 @@ export function MemoryTechniquesGuide() {
           </p>
         </div>
       </section>
+
+      <section>
+        <H2>Summary</H2>
+        <p className="text-ink-soft text-base sm:text-lg leading-relaxed">
+          Memory techniques are study strategies that help you remember information more
+          effectively and for longer. Instead of relying on rereading notes or cramming, methods
+          like active recall, spaced repetition, chunking, mnemonics, and visualization help your
+          brain store and retrieve information more easily.{" "}
+          <strong className="text-ink font-semibold">
+            By using these techniques consistently, students can study more efficiently, reduce
+            stress, and feel more confident on quizzes and exams.
+          </strong>{" "}
+          Whether you're in middle school or high school, building strong memory habits now can
+          make learning easier throughout your academic journey.
+        </p>
+      </section>
     </article>
   );
 }

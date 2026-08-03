@@ -65,7 +65,7 @@ export default function MeetTheTeam() {
                   <DirectorAvatar
                     name={director.name}
                     photo={director.photo}
-                    className="w-full aspect-[4/5] object-cover rounded-lg border border-rule card-elevate"
+                    className="w-full aspect-[4/5] rounded-lg border border-rule card-elevate"
                   />
                   {!director.photo && (
                     <p className="text-ink-soft/60 text-xs mt-3 italic">
