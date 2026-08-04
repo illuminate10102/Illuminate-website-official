@@ -34,6 +34,45 @@ type RawCategory = {
 
 const raw: RawCategory[] = [
   {
+    slug: "academics",
+    code: "AC",
+    label: "Academics",
+    intro: "",
+    tiers: [
+      {
+        label: "GPA & Performance",
+        hue: 55,
+        fields: [
+          { slug: "gpa-strategy", title: "GPA strategy", blurb: "How weighted GPA actually gets calculated, and how to build a schedule that keeps yours competitive.", icon: "trending-up" },
+          { slug: "gpa-calculator", title: "GPA calculator", blurb: "A tool for figuring out exactly what your next test needs to be.", icon: "calculator" },
+          { slug: "ap-course-advice", title: "AP course advice", blurb: "Which AP classes are worth the workload, and which ones aren't.", icon: "medal" },
+          { slug: "dual-credit", title: "Dual credit", blurb: "Earning college credit in high school, and whether it's worth doing.", icon: "document" },
+          { slug: "credit-by-exam", title: "Credit By Exam(CBE)", blurb: "How the Katy ISD Credit by Exam actually works, from picking the right test to what happens if you don't pass.", icon: "clipboard-check" },
+        ],
+      },
+      {
+        label: "Study Strategies",
+        hue: 240,
+        fields: [
+          { slug: "efficient-studying", title: "Efficient studying", blurb: "A way of studying that holds up under pressure, not just when you have time to spare.", icon: "book-open" },
+          { slug: "memory-techniques", title: "Memory techniques", blurb: "Why re-reading your notes doesn't work, and the active recall method that actually does.", icon: "brain" },
+          { slug: "essay-writing", title: "Essay writing", blurb: "Writing essays for class that don't sound like everyone else's.", icon: "pen-nib" },
+          { slug: "study-resources", title: "Study resources", blurb: "A running list of the free websites, tools, and YouTube channels that actually help each subject click.", icon: "search-check" },
+        ],
+      },
+      {
+        label: "Planning & Strategy",
+        hue: 305,
+        fields: [
+          { slug: "course-selection-strategy", title: "Course selection strategy", blurb: "Building a schedule around where you're actually headed.", icon: "compass" },
+          { slug: "career-pathways", title: "Career pathways", blurb: "Figuring out what you might want to do, without picking wrong.", icon: "map" },
+          { slug: "exemption-strategy", title: "Exemption strategy", blurb: "Skipping requirements you've already outgrown.", icon: "shield" },
+          { slug: "summer-courses", title: "Summer courses", blurb: "Getting ahead over the summer without giving up your break.", icon: "calendar" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "extracurriculars",
     code: "EC",
     label: "Extracurriculars",
@@ -82,45 +121,6 @@ const raw: RawCategory[] = [
           { slug: "guest-speakers", title: "Guest speakers", blurb: "Bringing in outside voices for your club or class, and getting it approved.", icon: "megaphone" },
           { slug: "officer-positions", title: "Officer positions", blurb: "How to actually get elected, not just show up to meetings.", icon: "flag" },
           { slug: "visa-international", title: "Visa & international", blurb: "Extracurriculars and applications for international and visa students.", icon: "shield" },
-        ],
-      },
-    ],
-  },
-  {
-    slug: "academics",
-    code: "AC",
-    label: "Academics",
-    intro: "",
-    tiers: [
-      {
-        label: "GPA & Performance",
-        hue: 55,
-        fields: [
-          { slug: "gpa-strategy", title: "GPA strategy", blurb: "How weighted GPA actually gets calculated, and how to build a schedule that keeps yours competitive.", icon: "trending-up" },
-          { slug: "gpa-calculator", title: "GPA calculator", blurb: "A tool for figuring out exactly what your next test needs to be.", icon: "calculator" },
-          { slug: "ap-course-advice", title: "AP course advice", blurb: "Which AP classes are worth the workload, and which ones aren't.", icon: "medal" },
-          { slug: "dual-credit", title: "Dual credit", blurb: "Earning college credit in high school, and whether it's worth doing.", icon: "document" },
-          { slug: "credit-by-exam", title: "Credit By Exam(CBE)", blurb: "How the Katy ISD Credit by Exam actually works, from picking the right test to what happens if you don't pass.", icon: "clipboard-check" },
-        ],
-      },
-      {
-        label: "Study Strategies",
-        hue: 240,
-        fields: [
-          { slug: "efficient-studying", title: "Efficient studying", blurb: "A way of studying that holds up under pressure, not just when you have time to spare.", icon: "book-open" },
-          { slug: "memory-techniques", title: "Memory techniques", blurb: "Why re-reading your notes doesn't work, and the active recall method that actually does.", icon: "brain" },
-          { slug: "essay-writing", title: "Essay writing", blurb: "Writing essays for class that don't sound like everyone else's.", icon: "pen-nib" },
-          { slug: "study-resources", title: "Study resources", blurb: "A running list of the free websites, tools, and YouTube channels that actually help each subject click.", icon: "search-check" },
-        ],
-      },
-      {
-        label: "Planning & Strategy",
-        hue: 305,
-        fields: [
-          { slug: "course-selection-strategy", title: "Course selection strategy", blurb: "Building a schedule around where you're actually headed.", icon: "compass" },
-          { slug: "career-pathways", title: "Career pathways", blurb: "Figuring out what you might want to do, without picking wrong.", icon: "map" },
-          { slug: "exemption-strategy", title: "Exemption strategy", blurb: "Skipping requirements you've already outgrown.", icon: "shield" },
-          { slug: "summer-courses", title: "Summer courses", blurb: "Getting ahead over the summer without giving up your break.", icon: "calendar" },
         ],
       },
     ],
