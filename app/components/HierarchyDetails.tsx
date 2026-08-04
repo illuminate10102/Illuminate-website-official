@@ -212,7 +212,7 @@ const vpDepartments: {
   },
   {
     title: "Outreach Vice President",
-    status: "Open!",
+    status: "Filled",
     body: "The Outreach Vice President manages the expansion of Illuminate. This individual actively advocates for Project Illuminate’s mission- recruiting potential candidates, managing expansion, and spreading awareness to a larger audience.",
     color: "mint",
     icon: "network",
