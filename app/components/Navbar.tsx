@@ -8,8 +8,8 @@ import { tierHueStyle } from "../lib/tierStyle";
 
 const primaryLinks = [
   { label: "About", href: "/about" },
-  { label: "Extracurriculars", href: "/extracurriculars" },
   { label: "Academics", href: "/academics" },
+  { label: "Extracurriculars", href: "/extracurriculars" },
   { label: "Testing", href: "/testing" },
   { label: "Lifestyle", href: "/lifestyle" },
   { label: "College", href: "/college" },
