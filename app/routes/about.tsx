@@ -3,6 +3,7 @@ import type { Route } from "./+types/about";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChalkUnderline } from "../components/ChalkUnderline";
+import { StraightUnderline } from "../components/StraightUnderline";
 import { TeamStructure } from "../components/TeamStructure";
 import { CoreValues } from "../components/about/CoreValues";
 import { DirectorAvatar } from "../components/DirectorAvatar";
@@ -58,8 +59,9 @@ export default function About() {
         <section className="bg-paper py-24 sm:py-32">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div className="reveal min-w-0">
-              <h2 className="font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-8">
+              <h2 className="relative inline-block font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-8">
                 How it Started
+                <StraightUnderline />
               </h2>
             </div>
             <div className="reveal reveal-1 min-w-0 space-y-6 text-ink-soft text-xl leading-relaxed">
@@ -69,7 +71,7 @@ export default function About() {
                 Having personally gone through this pain, we decided to create a platform to guide students throughout their high school journey.
               </p>
               <p>
-                Thus, the idea of Project Illuminate was born. Six Cinco Ranch students, Arnav, Dhruv, Nidhish, Sarvesh, and Vinh, sought to end this lingering issue that affects many aspiring students nationwide.
+                Thus, the idea of Project Illuminate was born. Five Cinco Ranch students, Arnav, Dhruv, Nidhish, Sarvesh, and Vinh, sought to end this lingering issue that affects many aspiring students nationwide.
               </p>
               <p>
                 After constant calls, meetings, and discussions, we brought Project Illuminate to life. With the help of officers, associates, and members, we built a platform that brings together resources, information, and community.
@@ -85,8 +87,9 @@ export default function About() {
             <p className="reveal font-mono text-xs uppercase tracking-[0.15em] text-pen mb-4">
               The founders
             </p>
-            <h2 className="reveal reveal-1 font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
+            <h2 className="reveal reveal-1 relative inline-block font-display font-extrabold text-5xl sm:text-6xl text-ink tracking-tight mb-4 max-w-xl">
               Meet the Directors
+              <StraightUnderline />
             </h2>
             <p className="reveal reveal-2 text-ink-soft text-lg leading-relaxed max-w-xl mb-12">
               Tap a face to read their story.
