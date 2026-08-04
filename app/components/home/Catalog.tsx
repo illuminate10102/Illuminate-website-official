@@ -3,18 +3,18 @@ import { Icon, categoryIcon, iconBadgeClasses } from "../Icon";
 
 const sections = [
   {
-    code: "EC",
-    label: "Extracurriculars",
-    href: "/extracurriculars",
-    desc: "The activities, sports, and experience that actually strengthen your application.",
-    count: "20+ guides",
-  },
-  {
     code: "AC",
     label: "Academics",
     href: "/academics",
     desc: "GPA strategy, study habits, and the classes worth taking.",
     count: "18 guides",
+  },
+  {
+    code: "EC",
+    label: "Extracurriculars",
+    href: "/extracurriculars",
+    desc: "The activities, sports, and experience that actually strengthen your application.",
+    count: "20+ guides",
   },
   {
     code: "ST",
