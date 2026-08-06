@@ -40,10 +40,6 @@ export default function MeetTheTeam() {
                 <ChalkUnderline />
               </span>
             </h1>
-            <p className="reveal reveal-3 text-chalk-soft text-lg sm:text-xl leading-relaxed mt-8 max-w-xl">
-              Five students who went through high school without a map, and
-              decided to build one for the next kid doing it alone.
-            </p>
           </div>
         </section>
 
