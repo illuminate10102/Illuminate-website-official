@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { ChalkUnderline } from "../ChalkUnderline";
+import { CountUp } from "../CountUp";
 import { HeroWaves } from "../HeroWaves";
 
 export default function Hero() {
@@ -42,10 +43,10 @@ export default function Hero() {
 
       <div className="relative border-t border-rule-dark">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="reveal font-mono text-xs sm:text-sm text-chalk-soft tracking-wide flex flex-wrap gap-x-3 gap-y-1">
-            <span className="text-chalk">80+</span> guides
+          <p className="reveal font-mono text-sm sm:text-base text-chalk-soft tracking-wide flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <CountUp value={80} suffix="+" className="text-chalk font-bold text-lg sm:text-xl" /> guides
             <span className="text-rule-dark">/</span>
-            <span className="text-chalk">6</span> focus areas
+            <CountUp value={6} className="text-chalk font-bold text-lg sm:text-xl" /> focus areas
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import type { Route } from "./+types/resources";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { CountUp } from "../components/CountUp";
 import { HeroWaves } from "../components/HeroWaves";
 import { categories, categoryFieldCount } from "../data/categories";
 import { seoTags } from "../lib/seo";
@@ -54,7 +55,7 @@ export default function Resources() {
                     </h2>
                   </Link>
                   <span className="course-code text-[0.65rem] text-ink-soft uppercase shrink-0">
-                    {categoryFieldCount(category)} guides
+                    <CountUp value={categoryFieldCount(category)} /> guides
                   </span>
                 </div>
 
