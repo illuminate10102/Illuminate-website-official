@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { CountUp } from "../CountUp";
 import { Icon, categoryIcon, iconBadgeClasses } from "../Icon";
 
 const sections = [
@@ -7,42 +8,43 @@ const sections = [
     label: "Academics",
     href: "/academics",
     desc: "GPA strategy, study habits, and the classes worth taking.",
-    count: "18 guides",
+    count: 18,
   },
   {
     code: "EC",
     label: "Extracurriculars",
     href: "/extracurriculars",
     desc: "The activities, sports, and experience that actually strengthen your application.",
-    count: "20+ guides",
+    count: 20,
+    plus: true,
   },
   {
     code: "ST",
     label: "Standardized testing",
     href: "/testing",
     desc: "SAT, ACT, and PSAT prep that actually makes sense.",
-    count: "8 guides",
+    count: 8,
   },
   {
     code: "LF",
     label: "Lifestyle",
     href: "/lifestyle",
     desc: "Time management, habits, and the balance that keeps burnout away.",
-    count: "16 guides",
+    count: 16,
   },
   {
     code: "CO",
     label: "College",
     href: "/college",
     desc: "Finding a school that fits, then the essays, applications, and aid that come with it.",
-    count: "9 guides",
+    count: 9,
   },
   {
     code: "SP",
     label: "Summer planning",
     href: "/summer",
     desc: "Internships, research, and projects that make the most of a free summer.",
-    count: "10 guides",
+    count: 10,
   },
 ];
 
@@ -81,7 +83,7 @@ export default function Catalog() {
                   </span>
                 </div>
                 <span className="course-code text-[0.65rem] text-ink-soft uppercase">
-                  {s.count}
+                  <CountUp value={s.count} suffix={s.plus ? "+" : ""} /> guides
                 </span>
               </div>
               <h3 className="font-subtitle font-bold text-3xl text-ink group-hover:text-[var(--field-title-hover)] underline decoration-transparent group-hover:decoration-[var(--field-underline-hover)] decoration-4 underline-offset-4 transition-colors mb-2">
