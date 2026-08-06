@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, signInAnonymously, type User } from "firebase/auth";
-import { onValue, ref, set } from "firebase/database";
+import { onValue, ref, remove, set } from "firebase/database";
 import { getFirebaseAuth, getFirebaseDatabase } from "../lib/firebase";
 
 type GuideLike = {
   /** null until the live count has loaded. */
   count: number | null;
   liked: boolean;
-  like: () => void;
+  toggleLike: () => void;
 };
 
-/** Live like-count + like action for one guide, backed by Firebase Realtime
- *  Database. Each visitor gets a silent anonymous auth UID (no login UI);
- *  the count is just the number of children under `likedBy`, so there's no
- *  separate counter to keep in sync — writing `likedBy/{uid}` a second time
- *  just overwrites the same key, which is what makes "one like per
- *  visitor" hold even before the security rules also enforce it. */
+/** Live like-count + like/unlike toggle for one guide, backed by Firebase
+ *  Realtime Database. Each visitor gets a silent anonymous auth UID (no
+ *  login UI); the count is just the number of children under `likedBy`, so
+ *  there's no separate counter to keep in sync either direction — liking
+ *  writes `likedBy/{uid}`, unliking removes it, and the live listener below
+ *  re-derives the count from whatever's left. The security rule
+ *  (`auth.uid === $uid`) already covers both: Realtime Database skips
+ *  `.validate` on a delete, so the same rule that allows a visitor to write
+ *  their own like also allows them to remove it. */
 export function useGuideLike(category: string, field: string): GuideLike {
   const [uid, setUid] = useState<string | null>(null);
   const [likedBy, setLikedBy] = useState<Record<string, true> | null>(null);
@@ -44,15 +47,22 @@ export function useGuideLike(category: string, field: string): GuideLike {
     return unsubscribe;
   }, [category, field]);
 
-  function like() {
+  const liked = !!(uid && likedBy?.[uid]);
+
+  function toggleLike() {
     if (!uid) return;
     const db = getFirebaseDatabase();
-    set(ref(db, `guideLikes/${category}/${field}/likedBy/${uid}`), true).catch(() => {});
+    const likeRef = ref(db, `guideLikes/${category}/${field}/likedBy/${uid}`);
+    if (liked) {
+      remove(likeRef).catch(() => {});
+    } else {
+      set(likeRef, true).catch(() => {});
+    }
   }
 
   return {
     count: likedBy ? Object.keys(likedBy).length : null,
-    liked: !!(uid && likedBy?.[uid]),
-    like,
+    liked,
+    toggleLike,
   };
 }
