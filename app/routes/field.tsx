@@ -30,6 +30,7 @@ import {
 import { HowToChooseGuide, howToChooseAuthor, howToChooseSources } from "../content/how-to-choose";
 import { seoTags, SITE_URL } from "../lib/seo";
 import { FeedbackForm } from "../components/content/FeedbackForm";
+import { LikeButton } from "../components/content/LikeButton";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -203,7 +204,17 @@ export default function FieldPage() {
           <section className="bg-paper py-20 sm:py-28">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className={sources.length > 0 ? "grid lg:grid-cols-[1fr_320px] gap-16" : "grid"}>
-                <div className={sources.length > 0 ? "min-w-0 max-w-[720px]" : "min-w-0 max-w-[720px] mx-auto w-full"}>
+                <div
+                  className={
+                    sources.length > 0
+                      ? "min-w-0 max-w-[720px]"
+                      : "min-w-0 max-w-[720px] mx-auto w-full"
+                  }
+                >
+                  <div className="mb-8">
+                    <LikeButton category={category.slug} field={field.slug} />
+                  </div>
+
                   <Body />
 
                   <FeedbackForm page={`${field.title} (${category.label})`} />
