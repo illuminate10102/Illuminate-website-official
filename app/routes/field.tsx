@@ -28,6 +28,18 @@ import {
   memoryTechniquesSources,
 } from "../content/memory-techniques";
 import { HowToChooseGuide, howToChooseAuthor, howToChooseSources } from "../content/how-to-choose";
+import { MeditationGuide, meditationAuthor, meditationSources } from "../content/meditation";
+import {
+  DisciplineMotivationGuide,
+  disciplineMotivationAuthor,
+  disciplineMotivationSources,
+} from "../content/discipline-motivation";
+import {
+  SpiritualGroundingGuide,
+  spiritualGroundingAuthor,
+  spiritualGroundingSources,
+} from "../content/spiritual-grounding";
+import { FriendshipsGuide, friendshipsAuthor, friendshipsSources } from "../content/friendships";
 import { seoTags, SITE_URL } from "../lib/seo";
 import { FeedbackForm } from "../components/content/FeedbackForm";
 import { LikeButton } from "../components/content/LikeButton";
@@ -86,6 +98,26 @@ const guides: Record<
     Body: HowToChooseGuide,
     sources: howToChooseSources,
     author: howToChooseAuthor,
+  },
+  "lifestyle/meditation": {
+    Body: MeditationGuide,
+    sources: meditationSources,
+    author: meditationAuthor,
+  },
+  "lifestyle/discipline-motivation": {
+    Body: DisciplineMotivationGuide,
+    sources: disciplineMotivationSources,
+    author: disciplineMotivationAuthor,
+  },
+  "lifestyle/spiritual-grounding": {
+    Body: SpiritualGroundingGuide,
+    sources: spiritualGroundingSources,
+    author: spiritualGroundingAuthor,
+  },
+  "lifestyle/friendships": {
+    Body: FriendshipsGuide,
+    sources: friendshipsSources,
+    author: friendshipsAuthor,
   },
 };
 
