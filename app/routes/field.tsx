@@ -40,6 +40,7 @@ import {
   spiritualGroundingSources,
 } from "../content/spiritual-grounding";
 import { FriendshipsGuide, friendshipsAuthor, friendshipsSources } from "../content/friendships";
+import { GymFitnessGuide, gymFitnessAuthor, gymFitnessSources } from "../content/gym-fitness";
 import { seoTags, SITE_URL } from "../lib/seo";
 import { FeedbackForm } from "../components/content/FeedbackForm";
 import { LikeButton } from "../components/content/LikeButton";
@@ -118,6 +119,11 @@ const guides: Record<
     Body: FriendshipsGuide,
     sources: friendshipsSources,
     author: friendshipsAuthor,
+  },
+  "lifestyle/gym-fitness": {
+    Body: GymFitnessGuide,
+    sources: gymFitnessSources,
+    author: gymFitnessAuthor,
   },
 };
 
