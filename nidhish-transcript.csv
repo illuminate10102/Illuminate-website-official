@@ -1,0 +1,19 @@
+"Illuminate GPA transcript"
+"Student","Nidhish"
+"District / scale","Katy ISD"
+"Generated","8/7/2026, 2:58:34 PM"
+
+"Semester 1"
+"Course","Level","Grade","Credits","Points"
+"AP world","KAP / AP","B","1","4.00"
+"asdfasdf","Dual Credit","B","1","3.50"
+"asdf","Fundamental / Applied","B","1","2.00"
+"","","","Semester GPA","3.17"
+
+"Semester 2"
+"Course","Level","Grade","Credits","Points"
+"","","","Semester GPA","—"
+
+"Cumulative Weighted GPA","3.17"
+"Cumulative Unweighted GPA","3.00"
+"Total credits","3"

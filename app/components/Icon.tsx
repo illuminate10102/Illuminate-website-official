@@ -45,7 +45,10 @@ export type IconName =
   | "youtube"
   | "tiktok"
   | "plus"
-  | "trash";
+  | "trash"
+  | "save"
+  | "table"
+  | "copy";
 
 type IconProps = {
   name: IconName;
@@ -421,6 +424,28 @@ export function Icon({ name, className = "w-5 h-5" }: IconProps) {
           <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
           <path d="M6.5 7l1 12.5a1 1 0 0 0 1 .9h7a1 1 0 0 0 1-.9L17.5 7" />
           <path d="M10 11v6M14 11v6" />
+        </svg>
+      );
+    case "save":
+      return (
+        <svg {...common}>
+          <path d="M5 4h11l3 3v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" />
+          <path d="M8 4v5h7V4" />
+          <path d="M7.5 14.5h9v6h-9z" />
+        </svg>
+      );
+    case "table":
+      return (
+        <svg {...common}>
+          <rect x="3.5" y="4" width="17" height="16" rx="2" />
+          <path d="M3.5 9.5h17M3.5 14.5h17M9.5 4v16" />
+        </svg>
+      );
+    case "copy":
+      return (
+        <svg {...common}>
+          <rect x="8.5" y="8.5" width="12" height="12" rx="2" />
+          <path d="M15.5 8.5V5.5a2 2 0 0 0-2-2h-9a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
         </svg>
       );
     default:

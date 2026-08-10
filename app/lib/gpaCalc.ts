@@ -25,25 +25,34 @@ function findTableBand(
   return bands.find((b) => b.letter?.toLowerCase() === trimmed.toLowerCase());
 }
 
+/** A single course's points on a given scale — the same per-row value the
+ *  average is built from, exposed for transcript exports that need to show
+ *  each course's contribution, not just the final average. Returns null for
+ *  an empty, unrecognized, or level-mismatched row (excluded from the average
+ *  for the same reason). */
+export function resolveCoursePoints(scale: Scale, course: CourseInput): number | null {
+  if (!course.grade.trim()) return null;
+  if (scale.kind === "table") {
+    const band = findTableBand(scale.bands, course.grade);
+    if (!band) return null;
+    const points = band.points[course.levelId];
+    return typeof points === "number" ? points : null;
+  }
+  const n = Number(course.grade);
+  if (!Number.isFinite(n)) return null;
+  const factor = scale.factors[course.levelId];
+  if (typeof factor !== "number") return null;
+  return scale.op === "multiply" ? n * factor : n + factor;
+}
+
 /** Averages a scale's per-course points/values. Rows with no grade, an unrecognized
  *  grade, or a course level the scale doesn't define are silently excluded rather
  *  than treated as zero — an incomplete row shouldn't drag the average down. */
 function averageScale(scale: Scale, courses: CourseInput[]): number | null {
   const values: number[] = [];
   for (const course of courses) {
-    if (!course.grade.trim()) continue;
-    if (scale.kind === "table") {
-      const band = findTableBand(scale.bands, course.grade);
-      if (!band) continue;
-      const points = band.points[course.levelId];
-      if (typeof points === "number") values.push(points);
-    } else {
-      const n = Number(course.grade);
-      if (!Number.isFinite(n)) continue;
-      const factor = scale.factors[course.levelId];
-      if (typeof factor !== "number") continue;
-      values.push(scale.op === "multiply" ? n * factor : n + factor);
-    }
+    const points = resolveCoursePoints(scale, course);
+    if (points !== null) values.push(points);
   }
   if (values.length === 0) return null;
   return values.reduce((a, b) => a + b, 0) / values.length;
@@ -104,4 +113,36 @@ export function letterOptionsFor(scale: Scale): string[] {
 export function formatGpa(value: number | null, digits = 2): string {
   if (value === null) return "—";
   return value.toFixed(digits);
+}
+
+export type PassStatus = "pass" | "fail" | "ungraded";
+
+/** Whether a course's grade clears its district's own passing cutoff. Read
+ *  from the unweighted scale's zero-point band where a district publishes
+ *  one (every real district and the default preset here do) — course level
+ *  doesn't change whether a grade passes, only how many GPA points it's
+ *  worth, so the unweighted band is the right place to look regardless of
+ *  which level the course was taken at. Falls back to the weighted scale's
+ *  own zero-point band for the couple of generic presets with no separate
+ *  unweighted table. */
+export function resolvePassStatus(
+  district: Pick<District, "weighted" | "unweighted">,
+  course: CourseInput,
+): PassStatus {
+  if (!course.grade.trim()) return "ungraded";
+  const points = district.unweighted
+    ? resolveCoursePoints(district.unweighted, { ...course, levelId: "unweighted" })
+    : resolveCoursePoints(district.weighted, course);
+  if (points === null) return "ungraded";
+  return points > 0 ? "pass" : "fail";
+}
+
+/** A passed semester of a course earns 0.5 credit and a failed one earns 0 —
+ *  the standard half-credit-per-semester convention (a year-long course is
+ *  1 credit total, split 0.5/0.5 across its two semester grades). */
+export function creditsForCourse(
+  district: Pick<District, "weighted" | "unweighted">,
+  course: CourseInput,
+): number {
+  return resolvePassStatus(district, course) === "pass" ? 0.5 : 0;
 }

@@ -49,7 +49,7 @@ type SourceLink = { label: string; href?: string; note?: string };
 
 const guides: Record<
   string,
-  { Body: React.ComponentType; sources: SourceLink[]; author?: string }
+  { Body: React.ComponentType; sources: SourceLink[]; author?: string; wide?: boolean }
 > = {
   "academics/credit-by-exam": {
     Body: CreditByExamGuide,
@@ -69,6 +69,7 @@ const guides: Record<
   "academics/gpa-calculator": {
     Body: GpaCalculator,
     sources: gpaCalculatorSources,
+    wide: true,
   },
   "extracurriculars/internships": {
     Body: InternshipsGuide,
@@ -189,7 +190,7 @@ export default function FieldPage() {
   );
 
   if (guide) {
-    const { Body, sources, author } = guide;
+    const { Body, sources, author, wide } = guide;
     return (
       <div
         key={`${category.slug}/${field.slug}`}
@@ -246,7 +247,7 @@ export default function FieldPage() {
                   className={
                     sources.length > 0
                       ? "min-w-0 max-w-[720px]"
-                      : "min-w-0 max-w-[720px] mx-auto w-full"
+                      : `min-w-0 mx-auto w-full ${wide ? "max-w-[1120px]" : "max-w-[720px]"}`
                   }
                 >
                   <div className="mb-8">

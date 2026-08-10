@@ -85,6 +85,9 @@ export type SourceInfo = {
 export type District = {
   id: string;
   name: string;
+  /** Short display name for compact UI (e.g. the calculator's selected-scale
+   *  row), where the full cited `name` runs too long. Falls back to `name`. */
+  shortName?: string;
   category: "district" | "generic";
   state?: "TX";
   metro?: string;
@@ -1254,6 +1257,7 @@ export const genericConventions: District[] = [
   {
     id: "generic-fixed-bump",
     name: "Standard 4.0 unweighted + fixed bump (Honors +0.5, AP/IB +1.0)",
+    shortName: "Illuminate Standard (4.0 / 4.5 / 5.0)",
     category: "generic",
     gradeInput: "letter",
     levels: [
@@ -1390,17 +1394,23 @@ export const customScaleTemplate: CustomScaleTemplate = {
   },
 };
 
+// Real districts plus the generic, non-district-specific conventions —
+// combined here so both are reachable by id/search, while staying two
+// separate exports above for provenance (one is sourced per-district, the
+// other is generic starting points).
+const allDistricts: District[] = [...gpaDistricts, ...genericConventions];
+
 export function getDistrictById(id: string): District | undefined {
-  return gpaDistricts.find((d) => d.id === id);
+  return allDistricts.find((d) => d.id === id);
 }
 
 /** Ranked substring search over district name, for the searchable dropdown. */
 export function searchDistricts(query: string, limit = 8): District[] {
   const q = query.trim().toLowerCase();
-  if (!q) return gpaDistricts;
+  if (!q) return allDistricts;
 
   const scored: (District & { score: number })[] = [];
-  for (const d of gpaDistricts) {
+  for (const d of allDistricts) {
     const name = d.name.toLowerCase();
     let score = 0;
     if (name === q) score = 4;
