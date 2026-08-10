@@ -2,7 +2,8 @@ import { Link, useParams } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { HeroWaves } from "../components/HeroWaves";
-import { VideoPlaceholder } from "../components/VideoPlaceholder";
+// Temporarily disabled — re-enable by restoring this import and the <VideoPlaceholder /> usage below.
+// import { VideoPlaceholder } from "../components/VideoPlaceholder";
 import { getField } from "../data/categories";
 import { tierHueStyle } from "../lib/tierStyle";
 import { Icon, categoryIcon } from "../components/Icon";
@@ -235,7 +236,7 @@ export default function FieldPage() {
                   )}
                 </div>
 
-                <VideoPlaceholder />
+                {/* Temporarily disabled — see import above */}
               </div>
             </div>
           </section>
