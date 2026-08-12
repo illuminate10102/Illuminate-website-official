@@ -57,7 +57,6 @@ const raw: RawCategory[] = [
           { slug: "efficient-studying", title: "Efficient studying", blurb: "A way of studying that holds up under pressure, not just when you have time to spare.", icon: "book-open" },
           { slug: "memory-techniques", title: "Memory techniques", blurb: "Why re-reading your notes doesn't work, and the active recall method that actually does.", icon: "brain" },
           { slug: "essay-writing", title: "Essay writing", blurb: "Writing essays for class that don't sound like everyone else's.", icon: "pen-nib" },
-          { slug: "study-resources", title: "Study resources", blurb: "A running list of the free websites, tools, and YouTube channels that actually help each subject click.", icon: "search-check" },
         ],
       },
       {

@@ -19,11 +19,6 @@ import {
 } from "../content/research-programs";
 import { SportsGuide, sportsAuthor, sportsSources } from "../content/sports";
 import {
-  StudyResourcesGuide,
-  studyResourcesAuthor,
-  studyResourcesSources,
-} from "../content/study-resources";
-import {
   MemoryTechniquesGuide,
   memoryTechniquesAuthor,
   memoryTechniquesSources,
@@ -86,11 +81,6 @@ const guides: Record<
     Body: SportsGuide,
     sources: sportsSources,
     author: sportsAuthor,
-  },
-  "academics/study-resources": {
-    Body: StudyResourcesGuide,
-    sources: studyResourcesSources,
-    author: studyResourcesAuthor,
   },
   "academics/memory-techniques": {
     Body: MemoryTechniquesGuide,

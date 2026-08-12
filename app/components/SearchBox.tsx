@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { Icon } from "./Icon";
-import { searchFields, type SearchResult } from "../data/categories";
+import { searchFields } from "../data/categories";
+import { searchSubjectCourses } from "../data/subjects";
 
 type SearchBoxProps = {
   /** "compact" = icon-only button that expands on hover/click (desktop nav).
@@ -10,33 +11,60 @@ type SearchBoxProps = {
   onNavigate?: () => void;
 };
 
+/** Common shape for both the field-guide search and the (unlisted)
+ *  subject/course search, so one results list and one keyboard handler
+ *  can drive both without knowing which source a hit came from. */
+type UnifiedResult = {
+  key: string;
+  href: string;
+  title: string;
+  group: string;
+  code: string;
+};
+
+function search(query: string): UnifiedResult[] {
+  const fieldResults = searchFields(query, 6).map((r) => ({
+    key: `${r.category.slug}/${r.field.slug}`,
+    href: `/${r.category.slug}/${r.field.slug}`,
+    title: r.field.title,
+    group: r.category.label,
+    code: r.field.code,
+  }));
+  const courseResults = searchSubjectCourses(query, 4).map((r) => ({
+    key: `academics/subjects/${r.subject.slug}/${r.course.slug}`,
+    href: `/academics/subjects/${r.subject.slug}/${r.course.slug}`,
+    title: r.course.title,
+    group: r.subject.label,
+    code: r.course.kind === "ap" ? "AP" : "Core",
+  }));
+  return [...fieldResults, ...courseResults].slice(0, 8);
+}
+
 function ResultsList({
   results,
   activeIndex,
   onPick,
 }: {
-  results: SearchResult[];
+  results: UnifiedResult[];
   activeIndex: number;
-  onPick: (r: SearchResult) => void;
+  onPick: (r: UnifiedResult) => void;
 }) {
   return (
     <ul>
       {results.map((r, i) => (
-        <li key={`${r.category.slug}/${r.field.slug}`}>
+        <li key={r.key}>
           <Link
-            to={`/${r.category.slug}/${r.field.slug}`}
+            to={r.href}
             onClick={() => onPick(r)}
             className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-md transition-colors ${
               i === activeIndex ? "bg-pen/10" : "hover:bg-pen/10"
             }`}
           >
             <span className="min-w-0">
-              <span className="block text-sm font-semibold text-ink truncate">
-                {r.field.title}
-              </span>
-              <span className="block text-xs text-ink-soft truncate">{r.category.label}</span>
+              <span className="block text-sm font-semibold text-ink truncate">{r.title}</span>
+              <span className="block text-xs text-ink-soft truncate">{r.group}</span>
             </span>
-            <span className="course-code text-[0.65rem] text-pen shrink-0">{r.field.code}</span>
+            <span className="course-code text-[0.65rem] text-pen shrink-0">{r.code}</span>
           </Link>
         </li>
       ))}
@@ -53,7 +81,7 @@ export function SearchBox({ variant = "compact", onNavigate }: SearchBoxProps) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navigate = useNavigate();
 
-  const results = searchFields(query);
+  const results = search(query);
 
   useEffect(() => {
     setActiveIndex(-1);
@@ -82,7 +110,7 @@ export function SearchBox({ variant = "compact", onNavigate }: SearchBoxProps) {
     }, 200);
   }
 
-  function handlePick(r: SearchResult) {
+  function handlePick(r: UnifiedResult) {
     onNavigate?.();
     collapse();
   }
@@ -106,7 +134,7 @@ export function SearchBox({ variant = "compact", onNavigate }: SearchBoxProps) {
       const pick = results[activeIndex] ?? results[0];
       if (pick) {
         e.preventDefault();
-        navigate(`/${pick.category.slug}/${pick.field.slug}`);
+        navigate(pick.href);
         onNavigate?.();
         collapse();
       }

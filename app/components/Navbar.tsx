@@ -4,6 +4,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { SearchBox } from "./SearchBox";
 import { Icon } from "./Icon";
 import { getCategory, type Category } from "../data/categories";
+import { subjects } from "../data/subjects";
 import { tierHueStyle } from "../lib/tierStyle";
 
 const primaryLinks = [
@@ -102,10 +103,120 @@ function TierFieldList({
                 </Link>
               </li>
             ))}
+            {category.slug === "academics" && tier.label === "Study Strategies" && (
+              <SubjectsItem variant={stacked ? "mobile" : "desktop"} onNavigate={onNavigate} />
+            )}
           </ul>
         </div>
       ))}
     </div>
+  );
+}
+
+/**
+ * Sits inside the Academics dropdown's "Study Strategies" list, right after
+ * the last real field — not a separate row below the grid. On desktop it's
+ * a field-styled row that opens a nested flyout of the 5 subjects on hover;
+ * on mobile (no hover) it just unrolls the 5 subjects as extra rows right
+ * there in the stacked list.
+ */
+function SubjectsItem({
+  onNavigate,
+  variant,
+}: {
+  onNavigate: () => void;
+  variant: "desktop" | "mobile";
+}) {
+  const [open, setOpen] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
+  }, []);
+
+  const trigger = (
+    <Link
+      to="/academics/subjects"
+      onClick={onNavigate}
+      className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+    >
+      <span
+        className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
+        style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+      >
+        <Icon name="book" className="w-3.5 h-3.5" />
+      </span>
+      <span className="flex-1">Subjects</span>
+      {variant === "desktop" && <ChevronIcon open={open} />}
+    </Link>
+  );
+
+  if (variant === "mobile") {
+    return (
+      <>
+        <li>{trigger}</li>
+        {subjects.map((s) => (
+          <li key={s.slug} style={tierHueStyle(s.hue)}>
+            <Link
+              to={`/academics/subjects#${s.slug}`}
+              onClick={onNavigate}
+              className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 pl-8 pr-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+            >
+              <span
+                className="flex items-center justify-center w-5 h-5 rounded-md shrink-0"
+                style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+              >
+                <Icon name={s.icon} className="w-3 h-3" />
+              </span>
+              {s.label}
+            </Link>
+          </li>
+        ))}
+      </>
+    );
+  }
+
+  function show() {
+    if (timer.current) {
+      clearTimeout(timer.current);
+      timer.current = null;
+    }
+    setOpen(true);
+  }
+  function hide() {
+    timer.current = setTimeout(() => setOpen(false), 150);
+  }
+
+  return (
+    <li className="relative" onMouseEnter={show} onMouseLeave={hide}>
+      {trigger}
+
+      {open && (
+        <div className="absolute left-0 top-full mt-1 w-60 z-50 bg-dropdown-bg border border-rule rounded-lg shadow-lg p-3 normal-case">
+          <ul className="space-y-1">
+            {subjects.map((s) => (
+              <li key={s.slug} style={tierHueStyle(s.hue)}>
+                <Link
+                  to={`/academics/subjects#${s.slug}`}
+                  onClick={onNavigate}
+                  className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+                >
+                  <span
+                    className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
+                    style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+                  >
+                    <Icon name={s.icon} className="w-3.5 h-3.5" />
+                  </span>
+                  {s.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </li>
   );
 }
 
