@@ -82,6 +82,11 @@ const raw: RawCategory[] = [
         hue: 350,
         fields: [
           { slug: "fine-arts", title: "Fine arts", blurb: "Where music, art, and theater meet your application.", icon: "palette" },
+          { slug: "band", title: "Band", blurb: "Chair placement, All-Region auditions, and how band actually reads on an application.", icon: "music-note" },
+          { slug: "choir", title: "Choir", blurb: "All-State, ensembles, and getting choir to count for more than a fine arts credit.", icon: "mic" },
+          { slug: "orchestra", title: "Orchestra", blurb: "Seating auditions, All-Region, and what orchestra actually adds to your application.", icon: "music-note" },
+          { slug: "theatre", title: "Theatre", blurb: "UIL One-Act Play, tech vs. stage, and building a theatre résumé that stands out.", icon: "masks" },
+          { slug: "art", title: "Art", blurb: "Building a portfolio, entering shows, and turning art class into something colleges notice.", icon: "palette" },
           { slug: "video-photography", title: "Video & photography", blurb: "Turning a phone camera into a real portfolio.", icon: "camera" },
           { slug: "presentations", title: "Presentations & TED-Ed", blurb: "Getting picked to speak, and what to say once you're up there.", icon: "mic" },
         ],

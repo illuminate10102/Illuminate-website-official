@@ -48,7 +48,9 @@ export type IconName =
   | "trash"
   | "save"
   | "table"
-  | "copy";
+  | "copy"
+  | "music-note"
+  | "masks";
 
 type IconProps = {
   name: IconName;
@@ -446,6 +448,23 @@ export function Icon({ name, className = "w-5 h-5" }: IconProps) {
         <svg {...common}>
           <rect x="8.5" y="8.5" width="12" height="12" rx="2" />
           <path d="M15.5 8.5V5.5a2 2 0 0 0-2-2h-9a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+        </svg>
+      );
+    case "music-note":
+      return (
+        <svg {...common}>
+          <path d="M9 17.5V5.8l9-2v11" />
+          <circle cx="6.5" cy="18" r="2.5" />
+          <circle cx="15.5" cy="16.3" r="2.5" />
+        </svg>
+      );
+    case "masks":
+      return (
+        <svg {...common}>
+          <path d="M12 4c-4 0-7 2.5-7 6 0 2 1 3.5 2.5 4.5-.3 1.5-1 2.7-2 3.5 2-.2 3.5-1 4.5-2 .6.2 1.3.3 2 .3s1.4-.1 2-.3c1 1 2.5 1.8 4.5 2-1-.8-1.7-2-2-3.5C18 13.5 19 12 19 10c0-3.5-3-6-7-6z" />
+          <circle cx="9.5" cy="10" r="0.9" fill="currentColor" stroke="none" />
+          <circle cx="14.5" cy="10" r="0.9" fill="currentColor" stroke="none" />
+          <path d="M9.5 13.5c1 1 4 1 5 0" />
         </svg>
       );
     default:

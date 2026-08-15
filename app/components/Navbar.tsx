@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { ThemeToggle } from "./ThemeToggle";
 import { SearchBox } from "./SearchBox";
 import { Icon } from "./Icon";
-import { getCategory, type Category } from "../data/categories";
+import { getCategory, type Category, type Field } from "../data/categories";
 import { subjects } from "../data/subjects";
 import { tierHueStyle } from "../lib/tierStyle";
 
@@ -17,6 +17,11 @@ const primaryLinks = [
   { label: "Summer", href: "/summer" },
   { label: "Index", href: "/resources" },
 ];
+
+/** Fine arts disciplines nested inside the "Fine arts" row of the
+ *  Extracurriculars dropdown — each is a real field with its own guide
+ *  page, just tucked behind a flyout instead of listed flat. */
+const fineArtsSubSlugs = ["band", "choir", "orchestra", "theatre", "art"];
 
 /** Column count in the mega-menu adapts to how many topic groups a
  *  category has, so a 4-group category (Extracurriculars) gets a wider
@@ -74,42 +79,178 @@ function TierFieldList({
           : `grid ${gridColsClass(category.tiers.length)} gap-x-10 gap-y-8`
       }
     >
-      {category.tiers.map((tier) => (
-        <div key={tier.label} style={tierHueStyle(tier.hue)}>
-          <p
-            className="course-code text-[0.65rem] uppercase mb-4"
-            style={{ color: "var(--tier-accent)" }}
-          >
-            {tier.label}
-          </p>
-          <ul className="space-y-1.5">
-            {tier.fields.map((field) => (
-              <li key={field.slug}>
+      {category.tiers.map((tier) => {
+        const isArtsPerformance =
+          category.slug === "extracurriculars" && tier.label === "Arts & performance";
+        const visibleFields = isArtsPerformance
+          ? tier.fields.filter((f) => !fineArtsSubSlugs.includes(f.slug))
+          : tier.fields;
+        const fineArtsSubFields = isArtsPerformance
+          ? tier.fields.filter((f) => fineArtsSubSlugs.includes(f.slug))
+          : [];
+
+        return (
+          <div key={tier.label} style={tierHueStyle(tier.hue)}>
+            <p
+              className="course-code text-[0.65rem] uppercase mb-4"
+              style={{ color: "var(--tier-accent)" }}
+            >
+              {tier.label}
+            </p>
+            <ul className="space-y-1.5">
+              {visibleFields.map((field) =>
+                isArtsPerformance && field.slug === "fine-arts" ? (
+                  <NestedFieldItem
+                    key={field.slug}
+                    categorySlug={category.slug}
+                    field={field}
+                    subFields={fineArtsSubFields}
+                    variant={stacked ? "mobile" : "desktop"}
+                    onNavigate={onNavigate}
+                  />
+                ) : (
+                  <li key={field.slug}>
+                    <Link
+                      to={`/${category.slug}/${field.slug}`}
+                      onClick={onNavigate}
+                      className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+                    >
+                      <span
+                        className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
+                        style={{
+                          background: "var(--tier-accent-wash)",
+                          color: "var(--tier-accent)",
+                        }}
+                      >
+                        <Icon name={field.icon} className="w-3.5 h-3.5" />
+                      </span>
+                      {field.title}
+                    </Link>
+                  </li>
+                ),
+              )}
+              {category.slug === "academics" && tier.label === "Study Strategies" && (
+                <SubjectsItem variant={stacked ? "mobile" : "desktop"} onNavigate={onNavigate} />
+              )}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/**
+ * A field row that opens a nested flyout of related fields instead of just
+ * linking straight out — used for "Fine arts" in the Extracurriculars
+ * dropdown, tucking Band/Choir/Orchestra/Theatre/Art behind it. Unlike
+ * <SubjectsItem />, every sub-item here is a real field with its own page
+ * (/{category}/{slug}), not an anchor into a shared page. On desktop the
+ * trigger opens a hover flyout; on mobile it just unrolls inline.
+ */
+function NestedFieldItem({
+  categorySlug,
+  field,
+  subFields,
+  onNavigate,
+  variant,
+}: {
+  categorySlug: string;
+  field: Field;
+  subFields: Field[];
+  onNavigate: () => void;
+  variant: "desktop" | "mobile";
+}) {
+  const [open, setOpen] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
+  }, []);
+
+  const trigger = (
+    <Link
+      to={`/${categorySlug}/${field.slug}`}
+      onClick={onNavigate}
+      className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+    >
+      <span
+        className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
+        style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+      >
+        <Icon name={field.icon} className="w-3.5 h-3.5" />
+      </span>
+      <span className="flex-1">{field.title}</span>
+      {variant === "desktop" && <ChevronIcon open={open} />}
+    </Link>
+  );
+
+  if (variant === "mobile") {
+    return (
+      <>
+        <li>{trigger}</li>
+        {subFields.map((f) => (
+          <li key={f.slug}>
+            <Link
+              to={`/${categorySlug}/${f.slug}`}
+              onClick={onNavigate}
+              className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 pl-8 pr-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+            >
+              <span
+                className="flex items-center justify-center w-5 h-5 rounded-md shrink-0"
+                style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
+              >
+                <Icon name={f.icon} className="w-3 h-3" />
+              </span>
+              {f.title}
+            </Link>
+          </li>
+        ))}
+      </>
+    );
+  }
+
+  function show() {
+    if (timer.current) {
+      clearTimeout(timer.current);
+      timer.current = null;
+    }
+    setOpen(true);
+  }
+  function hide() {
+    timer.current = setTimeout(() => setOpen(false), 150);
+  }
+
+  return (
+    <li className="relative" onMouseEnter={show} onMouseLeave={hide}>
+      {trigger}
+
+      {open && (
+        <div className="absolute left-0 top-full mt-1 w-60 z-50 bg-dropdown-bg border border-rule rounded-lg shadow-lg p-3 normal-case">
+          <ul className="space-y-1">
+            {subFields.map((f) => (
+              <li key={f.slug}>
                 <Link
-                  to={`/${category.slug}/${field.slug}`}
+                  to={`/${categorySlug}/${f.slug}`}
                   onClick={onNavigate}
-                  className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 -mx-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
+                  className="flex items-center gap-2.5 text-sm text-ink-soft hover:text-ink transition-colors py-1.5 px-2 rounded-md border border-transparent hover:border-[var(--tier-accent-border)] hover:bg-[var(--tier-accent-wash)]"
                 >
                   <span
                     className="flex items-center justify-center w-6 h-6 rounded-md shrink-0"
-                    style={{
-                      background: "var(--tier-accent-wash)",
-                      color: "var(--tier-accent)",
-                    }}
+                    style={{ background: "var(--tier-accent-wash)", color: "var(--tier-accent)" }}
                   >
-                    <Icon name={field.icon} className="w-3.5 h-3.5" />
+                    <Icon name={f.icon} className="w-3.5 h-3.5" />
                   </span>
-                  {field.title}
+                  {f.title}
                 </Link>
               </li>
             ))}
-            {category.slug === "academics" && tier.label === "Study Strategies" && (
-              <SubjectsItem variant={stacked ? "mobile" : "desktop"} onNavigate={onNavigate} />
-            )}
           </ul>
         </div>
-      ))}
-    </div>
+      )}
+    </li>
   );
 }
 
