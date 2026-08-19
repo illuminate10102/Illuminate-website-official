@@ -12,6 +12,7 @@ import "./app.css";
 import { useScrollReveal } from "./hooks/useScrollReveal";
 import { useHashScroll } from "./hooks/useHashScroll";
 import { SITE_URL } from "./lib/seo";
+import { AuthProvider } from "./auth";
 
 const organizationJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -65,7 +66,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   useScrollReveal();
   useHashScroll();
-  return <Outlet />;
+  return (
+    <AuthProvider>
+      <Outlet />
+    </AuthProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

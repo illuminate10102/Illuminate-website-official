@@ -6,6 +6,7 @@ import { Icon } from "./Icon";
 import { getCategory, type Category, type Field } from "../data/categories";
 import { subjects } from "../data/subjects";
 import { tierHueStyle } from "../lib/tierStyle";
+import { AuthNavControls, Avatar, useAuth } from "../auth";
 
 const primaryLinks = [
   { label: "About", href: "/about" },
@@ -361,6 +362,86 @@ function SubjectsItem({
   );
 }
 
+/** Account block at the bottom of the mobile drawer — the mobile counterpart
+ *  to <AuthNavControls />, which is desktop-only in this bar. */
+function MobileAccountSection({ onNavigate }: { onNavigate: () => void }) {
+  const { user, isAuthenticated, isReady, openAuth, logout, savedResources } = useAuth();
+
+  if (!isReady) return null;
+
+  if (!isAuthenticated) {
+    return (
+      <li className="pt-2 pb-4 border-t border-rule flex items-center gap-3">
+        <button
+          type="button"
+          onClick={() => {
+            onNavigate();
+            openAuth("login");
+          }}
+          className="px-4 py-2 border border-rule rounded-md font-mono text-xs font-semibold uppercase tracking-wide text-ink-soft"
+        >
+          Log in
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            onNavigate();
+            openAuth("signup");
+          }}
+          className="px-4 py-2 bg-marker text-ink-solid rounded-md font-mono text-xs font-semibold uppercase tracking-wide"
+        >
+          Sign up
+        </button>
+      </li>
+    );
+  }
+
+  return (
+    <li className="pt-4 pb-4 border-t border-rule normal-case">
+      <div className="flex items-center gap-3 mb-4">
+        <Avatar user={user!} className="w-9 h-9" />
+        <div className="min-w-0">
+          <p className="text-ink font-semibold text-sm truncate">{user!.name}</p>
+          <p className="text-ink-soft text-xs truncate">{user!.email}</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
+        <Link
+          to="/dashboard"
+          onClick={onNavigate}
+          className="px-3 py-2 bg-pen-solid text-white rounded-md text-sm font-semibold"
+        >
+          Dashboard
+        </Link>
+        <Link
+          to="/account"
+          onClick={onNavigate}
+          className="px-3 py-2 border border-rule rounded-md text-sm text-ink-soft hover:text-ink"
+        >
+          My profile
+        </Link>
+        <Link
+          to="/saved"
+          onClick={onNavigate}
+          className="px-3 py-2 border border-rule rounded-md text-sm text-ink-soft hover:text-ink"
+        >
+          Saved ({savedResources.length})
+        </Link>
+        <button
+          type="button"
+          onClick={() => {
+            onNavigate();
+            logout();
+          }}
+          className="px-3 py-2 text-sm text-ink-soft hover:text-ink"
+        >
+          Sign out
+        </button>
+      </div>
+    </li>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -498,6 +579,7 @@ export default function Navbar() {
             >
               Get involved
             </Link>
+            <AuthNavControls />
             <button
               onClick={() => setOpen((v) => !v)}
               className="xl:hidden flex flex-col justify-center gap-1.5 w-9 h-9"
@@ -567,6 +649,7 @@ export default function Navbar() {
               </Link>
               <ThemeToggle />
             </li>
+            <MobileAccountSection onNavigate={() => setOpen(false)} />
           </ul>
         </nav>
       )}

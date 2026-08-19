@@ -9,6 +9,8 @@ export type Field = {
 };
 
 export type Tier = {
+  /** Stable id for this subsection, unique across the whole site — e.g. "arts-performance". */
+  slug: string;
   label: string;
   hue: number;
   fields: Field[];
@@ -23,7 +25,7 @@ export type Category = {
 };
 
 type RawField = { slug: string; title: string; blurb: string; icon: IconName };
-type RawTier = { label: string; hue: number; fields: RawField[] };
+type RawTier = { slug: string; label: string; hue: number; fields: RawField[] };
 type RawCategory = {
   slug: string;
   code: string;
@@ -40,6 +42,7 @@ const raw: RawCategory[] = [
     intro: "",
     tiers: [
       {
+        slug: "gpa-performance",
         label: "GPA & Performance",
         hue: 55,
         fields: [
@@ -51,6 +54,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "study-strategies",
         label: "Study Strategies",
         hue: 240,
         fields: [
@@ -60,6 +64,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "planning-strategy",
         label: "Planning & Strategy",
         hue: 305,
         fields: [
@@ -78,6 +83,7 @@ const raw: RawCategory[] = [
     intro: "",
     tiers: [
       {
+        slug: "arts-performance",
         label: "Arts & performance",
         hue: 350,
         fields: [
@@ -92,6 +98,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "professional-experience",
         label: "Professional experience",
         hue: 195,
         fields: [
@@ -104,6 +111,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "academic-research",
         label: "Academic & research",
         hue: 265,
         fields: [
@@ -115,6 +123,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "growth-community",
         label: "Growth & community",
         hue: 140,
         fields: [
@@ -136,6 +145,7 @@ const raw: RawCategory[] = [
     intro: "",
     tiers: [
       {
+        slug: "standardized-tests",
         label: "Standardized Tests",
         hue: 25,
         fields: [
@@ -146,6 +156,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "strategy-resources",
         label: "Strategy & Resources",
         hue: 205,
         fields: [
@@ -164,6 +175,7 @@ const raw: RawCategory[] = [
     intro: "",
     tiers: [
       {
+        slug: "productivity",
         label: "Productivity",
         hue: 45,
         fields: [
@@ -176,6 +188,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "wellbeing",
         label: "Wellbeing",
         hue: 340,
         fields: [
@@ -188,6 +201,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "skills",
         label: "Skills",
         hue: 285,
         fields: [
@@ -206,6 +220,7 @@ const raw: RawCategory[] = [
     intro: "",
     tiers: [
       {
+        slug: "choosing-a-college",
         label: "Choosing a College",
         hue: 250,
         fields: [
@@ -214,6 +229,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "applications",
         label: "Applications",
         hue: 70,
         fields: [
@@ -225,6 +241,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "financial",
         label: "Financial",
         hue: 150,
         fields: [
@@ -241,6 +258,7 @@ const raw: RawCategory[] = [
     intro: "",
     tiers: [
       {
+        slug: "planning-programs",
         label: "Planning & Programs",
         hue: 95,
         fields: [
@@ -250,6 +268,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "building-experience",
         label: "Building Experience",
         hue: 190,
         fields: [
@@ -259,6 +278,7 @@ const raw: RawCategory[] = [
         ],
       },
       {
+        slug: "on-your-own-time",
         label: "On Your Own Time",
         hue: 315,
         fields: [
@@ -275,6 +295,7 @@ const raw: RawCategory[] = [
 export const categories: Category[] = raw.map((c) => ({
   ...c,
   tiers: c.tiers.map((tier, tierIndex) => ({
+    slug: tier.slug,
     label: tier.label,
     hue: tier.hue,
     fields: tier.fields.map((field, fieldIndex) => ({

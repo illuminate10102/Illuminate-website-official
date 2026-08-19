@@ -40,6 +40,7 @@ import { GymFitnessGuide, gymFitnessAuthor, gymFitnessSources } from "../content
 import { seoTags, SITE_URL } from "../lib/seo";
 import { FeedbackForm } from "../components/content/FeedbackForm";
 import { LikeButton } from "../components/content/LikeButton";
+import { ProtectedFeature } from "../auth";
 
 type SourceLink = { label: string; href?: string; note?: string };
 
@@ -245,7 +246,16 @@ export default function FieldPage() {
                     <LikeButton category={category.slug} field={field.slug} />
                   </div>
 
-                  <Body />
+                  {/* The hero above (title, blurb, author) stays public so the
+                      page still reads as itself to a logged-out visitor and to
+                      search engines; the guide body itself is account-gated. */}
+                  <ProtectedFeature
+                    title={`Read "${field.title}" free`}
+                    description="Create your free Illuminate account to unlock this guide and every other one — no payment details, ever."
+                    cta="Create a free account to read"
+                  >
+                    <Body />
+                  </ProtectedFeature>
 
                   <FeedbackForm page={`${field.title} (${category.label})`} />
 

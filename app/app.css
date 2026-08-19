@@ -75,6 +75,11 @@
   --color-values-eyebrow: oklch(0.5 0.15 70);
   --color-values-fg: var(--color-ink);
   --color-values-fg-soft: var(--color-ink-soft);
+
+  /* Status semantics for the dashboard. The public site never needs a
+     "this went wrong" color; approval queues and priority tags do. */
+  --color-good: oklch(0.55 0.14 155);
+  --color-flag: oklch(0.55 0.19 25);
 }
 
 :root {
@@ -147,9 +152,14 @@
   --color-marker-dim: oklch(0.7 0.22 75);
   /* Ultramarine — deeper and noticeably more saturated than the light-mode
      royal blue, not just a lighter tint of it. This is the accent that
-     carries most of dark mode's "vivid, not dull" character. */
-  --color-pen: oklch(0.62 0.25 265);
-  --color-pen-dim: oklch(0.55 0.25 265);
+     carries most of dark mode's "vivid, not dull" character.
+     Lightness matches the other dark-mode accent tokens (marker 0.78,
+     good 0.75, amber 0.74, violet 0.68) — blue's WCAG luminance weight is
+     low relative to how bright it reads perceptually, so at the old 0.62
+     it was noticeably harder to read against --color-paper than every
+     sibling accent color at the same job (eyebrow/link text on dark navy). */
+  --color-pen: oklch(0.74 0.19 265);
+  --color-pen-dim: oklch(0.67 0.19 265);
   --color-rule: oklch(0.4 0.06 264);
   --color-dropdown-bg: oklch(0.26 0.05 264);
 
@@ -188,6 +198,10 @@
   /* Swapped from light mode — gold title, ultramarine underline. */
   --field-title-hover: var(--color-marker);
   --field-underline-hover: var(--color-pen);
+
+  /* Dashboard status colors, lifted for legibility against dark navy. */
+  --color-good: oklch(0.75 0.15 155);
+  --color-flag: oklch(0.7 0.17 25);
 
   --shadow-rest: 0 1px 2px 0 oklch(0 0 0 / 45%);
   --shadow-hover: 0 24px 48px -14px oklch(0 0 0 / 60%), 0 0 0 1px oklch(0.62 0.25 265 / 25%),
