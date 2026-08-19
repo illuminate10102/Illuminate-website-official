@@ -1115,7 +1115,7 @@ export function AuthButtons({ compact = false }: { compact?: boolean }) {
       <button
         type="button"
         onClick={() => openAuth("login")}
-        className={`items-center px-3 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-ink-soft hover:text-ink transition-colors ${
+        className={`items-center px-4 py-2 border border-rule hover:border-pen rounded-md font-mono text-xs font-semibold uppercase tracking-wide text-ink-soft hover:text-ink transition-colors ${
           compact ? "inline-flex" : "hidden sm:inline-flex"
         }`}
       >
