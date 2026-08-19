@@ -5,3 +5,10 @@
 # React Router
 /.react-router/
 /build/
+
+# Lumi (AI coach) — deliberately kept out of commits for now. Delete these
+# lines once it's ready to ship; see the commented mount in routes/dashboard.tsx.
+/app/components/dashboard/AICoachChat.tsx
+/app/lib/coach.ts
+/supabase/ai-coach.sql
+/supabase/functions/
